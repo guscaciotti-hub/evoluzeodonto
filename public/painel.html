@@ -207,12 +207,13 @@ function fatAlto(f){
 /* código estável da formação (robusto a mudança de texto): medico_dentista | dono_clinica | profissional_saude | '' */
 function formacaoCod(f){ f=String(f||'').toLowerCase();
   if(/dono|s[óo]cio|gestor/.test(f)) return 'dono_clinica';
+  if(/terceiro/.test(f)) return 'dentista_terceiros';
   if(/m[eé]dico|dentista/.test(f)) return 'medico_dentista';
   if(/profissional/.test(f)) return 'profissional_saude';
   return ''; }
 /* rótulo curto p/ o chip do painel */
 function formacaoLabel(f){ var c=formacaoCod(f);
-  return c==='medico_dentista'?'Médico(a)/Dentista':c==='dono_clinica'?'Dono/Sócio':c==='profissional_saude'?'Profissional de saúde':(f||''); }
+  return c==='medico_dentista'?'Dentista (clínica própria)':c==='dentista_terceiros'?'Dentista (clínica de terceiros)':c==='dono_clinica'?'Dono/Sócio':c==='profissional_saude'?'Profissional de saúde':(f||''); }
 /* etiqueta de prioridade — NÃO bloqueia ninguém, só classifica */
 function classifyLead(l){
   var sim = l.orcamento ? (l.orcamento==='sim') : (l.budget==='Sim, faz sentido');
