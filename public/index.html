@@ -147,6 +147,8 @@ h2.title{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:18px;max-width:760px
   border:1px solid rgba(5,59,55,.12);cursor:pointer
 }
 .vsl-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vsl-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#021f1c}
+.vsl-frame.vertical{aspect-ratio:9/16;max-width:380px}
 .vsl-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .vsl-play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;z-index:1;background:rgba(2,18,16,.4)}
 .vsl-play-btn{width:84px;height:84px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 40px rgba(0,212,198,.45);transition:transform .3s var(--ease)}
@@ -797,10 +799,12 @@ h2.title{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:18px;max-width:760px
     <div class="cfm reveal">
       <div class="cfm-text">
         <span class="eyebrow">Ética e conformidade</span>
-        <h2 class="title">Marketing dentro das regras do seu conselho</h2>
-        <p>Toda a comunicação é feita com responsabilidade e dentro das diretrizes de publicidade da área da saúde (CFO e conselhos relacionados). Crescimento sem expor a sua reputação.</p>
+        <h2 class="title">Na odontologia, você pode mostrar resultado. Nós usamos isso a seu favor.</h2>
+        <p>Diferente da medicina, o CFO permite divulgar o antes e depois dos seus casos desde a Resolução 196/2019 — com consentimento livre e esclarecido do paciente e identificação do cirurgião-dentista responsável. E, desde a Resolução 271/2025, publicada após decisão do CADE, programas de desconto, sorteios e brindes deixaram de ser infração ética. É mais liberdade do que o marketing médico tem. Nós usamos a primeira parte, não a segunda: resultado clínico atrai o paciente certo; promoção atrai quem pechincha.</p>
+        <p style="margin-top:14px">O que continua proibido, continua proibido: nada de tabela de preços ou honorários, nada de mercantilização (Código de Ética, Resolução CFO 118/2012), e toda peça leva o nome e o número de inscrição do profissional ou da clínica, como exige o artigo 43. Crescimento sem expor a sua reputação.</p>
       </div>
-      <img class="cfm-logo" src="assets/img/cfm.png" alt="Conselho Federal de Odontologia (CFO)" title="[IMAGEM] trocar cfm.png pelo logo do CFO" loading="lazy"/>
+      <!-- [IMAGEM_CFO] colocar o logo oficial (website.cfo.org.br/logos) em assets/img/cfo.png e restaurar:
+           <img class="cfm-logo" src="assets/img/cfo.png" alt="Conselho Federal de Odontologia (CFO)" loading="lazy"/> -->
     </div>
   </div>
 </section>
@@ -861,17 +865,16 @@ const CONFIG = {
   emailLeads:        "[EMAIL_LEADS]",         // referência (destino real é na conta Formspree)
   faixaInvestimento: "a partir de R$ 1.997 de honorário, mais uma verba de anúncio a partir de R$ 1.000 (investida diretamente na plataforma de anúncios)", // valor oficial — ancora no Cenário 2/3 (997 fica como carta na call)
   clinicasAtendidas: "+15 clientes atendidos", // selo de autoridade no hero — Gustavo ajusta
-  vslEmbed:          "", // [VIDEO_EVELINE] colar aqui o embed do YouTube do vídeo da Dra. Eveline, ex.: https://www.youtube-nocookie.com/embed/ID?autoplay=1&rel=0&modestbranding=1&playsinline=1
+  vslEmbed:          "", // alternativa YouTube (embed). Deixe vazio se usar vslVideo.
+  vslVideo:          "", // [VIDEO_EVELINE] arquivo MP4 próprio, ex.: "assets/video/depoimento-eveline.mp4" (vertical 9:16 ou horizontal)
+  vslVideoVertical:  true, // true = player em pé (9:16, centralizado); false = 16:9
+  vslPoster:         "", // capa opcional do MP4, ex.: "assets/img/eveline-capa.jpg"
   // Depoimentos em áudio — edite nome/identificação/foto/áudio livremente.
   // Item sem 'audio' é pulado; lista vazia esconde a seção inteira.
   depoimentos: [
     { nome:"Dra. Cíntia Braghrolli", identificacao:"Cliente Evoluze", foto:"assets/img/depo-cintia.jpg", audio:"assets/audio/depoimento-cintia.mp3" },
-    { nome:"Lívia", identificacao:"Clínica Adissi", foto:"assets/img/depo-livia.jpg", audio:"assets/audio/depoimento-livia.mp3" },
-    { nome:"Bruna", identificacao:"Clínica Adissi", foto:"assets/img/depo-bruna.jpg", audio:"assets/audio/depoimento-bruna.mp3" },
-    // Dra. Eveline — 2 áudios (WhatsApp) convertidos p/ mp3 (compatível com iPhone):
-    { nome:"Dra. Eveline", identificacao:"Cliente Evoluze", foto:"", audio:"assets/audio/depoimento-eveline-1.mp3" },
-    { nome:"Dra. Eveline", identificacao:"Cliente Evoluze", foto:"", audio:"assets/audio/depoimento-eveline-2.mp3" },
-    { nome:"Dra. Eveline", identificacao:"Cliente Evoluze", foto:"", audio:"assets/audio/depoimento-eveline-3.mp3" }
+    { nome:"Bruna", identificacao:"Clínica Adissi", foto:"assets/img/depo-bruna.jpg", audio:"assets/audio/depoimento-bruna.mp3" }
+    // Fora do odonto: Lívia (Clínica Adissi, cirurgia plástica). Dra. Eveline fica só no vídeo do topo.
   ],
   formEndpoint:      "",                       // FASE 2: WhatsApp ativo via VPS
   chatWebhookUrl:    "https://evoluzechat.com.br/webhook/lead",          // Evoluze Chat — endpoint do chatbot
@@ -923,10 +926,31 @@ const NOME_METODO = "Método Convênio Zero";
   els.forEach(e=>io.observe(e));
 })();
 
-/* ════════════ VSL — autoplay mudo ao entrar + clique para ativar o som ════════════ */
+/* ════════════ VSL (arquivo MP4 próprio) — autoplay mudo + clique para ativar o som ════════════ */
 (function(){
   var vf=document.getElementById('vslFrame');
-  if(!vf || !CONFIG.vslEmbed) return; // sem vídeo: mantém "Vídeo em breve"
+  if(!vf || !CONFIG.vslVideo) return; // sem arquivo: cai no bloco do YouTube abaixo (ou "Vídeo em breve")
+  if(CONFIG.vslVideoVertical) vf.classList.add('vertical');
+  var poster=document.getElementById('vslPoster');
+  if(poster){ if(CONFIG.vslPoster) poster.src=CONFIG.vslPoster; else poster.remove(); }
+  var play=vf.querySelector('.vsl-play'); if(play) play.remove();
+  var v=document.createElement('video');
+  v.src=CONFIG.vslVideo; v.muted=true; v.autoplay=true; v.playsInline=true; v.setAttribute('playsinline',''); v.preload='metadata';
+  if(CONFIG.vslPoster) v.poster=CONFIG.vslPoster;
+  v.onerror=function(){ vf.innerHTML='<div class="vsl-play"><div class="vsl-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span>Vídeo em breve</span></div>'; };
+  vf.appendChild(v);
+  var un=document.createElement('button');
+  un.type='button'; un.className='vsl-unmute';
+  un.innerHTML='<span class="vsl-unmute-ic">🔊</span><span class="vsl-unmute-tx">Seu vídeo já começou — clique para ativar o som</span>';
+  vf.appendChild(un);
+  un.addEventListener('click',function(){ v.muted=false; v.currentTime=0; v.controls=true; v.play(); un.remove(); });
+  vf.style.cursor='default';
+})();
+
+/* ════════════ VSL (YouTube) — autoplay mudo ao entrar + clique para ativar o som ════════════ */
+(function(){
+  var vf=document.getElementById('vslFrame');
+  if(!vf || CONFIG.vslVideo || !CONFIG.vslEmbed) return; // sem vídeo: mantém "Vídeo em breve"
   var id=(CONFIG.vslEmbed.match(/embed\/([^?&\/]+)/)||[])[1];
   // capa enquanto o player carrega
   var poster=document.getElementById('vslPoster');
@@ -981,7 +1005,7 @@ const NOME_METODO = "Método Convênio Zero";
    ════════════════════════════════════════════════════════════ */
 const _faixa = (CONFIG.faixaInvestimento && CONFIG.faixaInvestimento.indexOf('[')===-1) ? CONFIG.faixaInvestimento : 'compatível com esse objetivo';
 /* opções da etapa "área" — dependem da formação escolhida na 1ª etapa (sem contradição possível) */
-var AREAS_ODONTO = ['Implantodontia','Ortodontia','Odontologia estética','Harmonização orofacial','Reabilitação oral / prótese','Clínica geral','Outra especialidade'];
+var AREAS_ODONTO = ['Implantodontia','Ortodontia','Odontologia estética','Harmonização orofacial','Reabilitação oral / prótese','Odontopediatria','Clínica geral','Outra especialidade'];
 var AREA_OPCOES = {
   'Sou dentista e atendo na minha própria clínica': AREAS_ODONTO,
   'Sou dentista e trabalho em clínica de terceiros': AREAS_ODONTO,

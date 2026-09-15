@@ -16,6 +16,9 @@ Referência: `public/index.html`. A copy recebida foi aplicada slot a slot, sem 
 | Depoimentos: headline "Quem já saiu da lógica do convênio" | `#prova`. Áudios intocados |
 | Formulário: 4 opções de formação | `STEPS[0]` |
 | Pós-formulário: headline e texto da agenda | `doneAgendaHTML()` |
+| Bloco CFO escrito de propósito (196/2019, 271/2025, 118/2012 art. 43) | seção `.cfm`. Rascunho meu a partir das notas do copywriter; "datas promocionais" ficou de fora por falta de confirmação. O logo do CFM saiu; falta o do CFO (`[IMAGEM_CFO]`, download em website.cfo.org.br/logos) |
+| Depoimentos: só Cíntia e Bruna | Lívia (Adissi, plástica) e os 3 áudios da Eveline saíram. **Bruna também está marcada como Clínica Adissi** no config: confirmar se é odonto |
+| Áreas do formulário | + Odontopediatria |
 
 ## Trocas mecânicas que eu fiz (só "médico" → "odontológico", sem reescrever)
 
@@ -29,7 +32,6 @@ Revisar ou mandar reescrever:
 | Eyebrow do hero | Assessoria especializada em marketing odontológico |
 | Linha de nicho (hero e CTA final) | Assessoria exclusiva para clínicas odontológicas |
 | Cargo do Gustavo | Especialista em Marketing Odontológico |
-| Seção do conselho | "(CFO e conselhos relacionados)". A imagem ainda é o logo do CFM |
 | Rodapé | Evoluze — Assessoria especializada em marketing odontológico para clínicas e consultórios. |
 | Tela de desqualificação ("Outro") | "atende exclusivamente dentistas e clínicas odontológicas" |
 | Pergunta da etapa 2 do form | "Qual a principal área da clínica?" (a lista de áreas é a que já existia para odonto: Implantodontia, Ortodontia, Odontologia estética, Harmonização orofacial, Reabilitação oral / prótese, Clínica geral, Outra especialidade) |
@@ -48,7 +50,6 @@ Nenhum diz "médico" no texto visível, mas foram escritos pro médico:
 8. **Gustavo, bio**.
 9. **Diferencial (4 checks)**: "A maioria entrega lead. Nós entregamos paciente na cadeira." + 4 linhas.
 10. **Serviços, sub e nota**: "Tudo o que a sua clínica ou consultório precisa..." e "O que entra no seu plano é definido na reunião de diagnóstico...".
-11. **Conselho**: H2 "Marketing dentro das regras do seu conselho" + parágrafo.
 12. **Objeção**: "Você cuida dos pacientes. Da máquina de aquisição, cuidamos nós." + parágrafo.
 13. **CTA final**: H2 "Este é o momento de tirar a sua agenda da dependência da sorte." + lead + escassez.
 14. **Formulário**: perguntas 3 a 9, tela "morno" ("Recebemos suas respostas!") e tela de erro.
@@ -57,8 +58,8 @@ Nenhum diz "médico" no texto visível, mas foram escritos pro médico:
 
 ## Pendências que não são copy
 
-- **Vídeo da Eveline**: `CONFIG.vslEmbed` está vazio (a página mostra "Vídeo em breve"). Colar o embed do YouTube ali.
-- **Depoimentos**: a copy cita Valquíria, Lilian, Vagner e Yuri, mas os áudios que existem no site são Dra. Cíntia, Lívia (Adissi), Bruna (Adissi) e Dra. Eveline (3 áudios). Se os quatro novos existirem, mandar os MP3 e as fotos.
-- **Imagens**: logo do CFO, fotos e logos de clientes odonto, case odonto, `og-evoluze.png` com a copy nova.
+- **Vídeo da Eveline (vertical, arquivo)**: salvar o MP4 em `public/assets/video/depoimento-eveline.mp4` e apontar `CONFIG.vslVideo` pra ele (`vslVideoVertical: true` já está ligado; capa opcional em `vslPoster`). Até lá a página mostra "Vídeo em breve". Recomendado exportar em H.264/AAC, 1080×1920, até ~20 MB.
+- **Depoimentos**: faltam as fotos `depo-cintia.jpg` e `depo-bruna.jpg` (hoje cai no avatar de iniciais). Os MP3 de Lívia e Eveline continuam na pasta, só não são exibidos.
+- **Imagens**: logo do CFO (`assets/img/cfo.png`), fotos e logos de clientes odonto, case odonto, `og-evoluze.png` com a copy nova.
 - **Webhook do Evoluze Chat**: a opção "Sou dentista e trabalho em clínica de terceiros" agora envia `formacao: "dentista_terceiros"` (as outras seguem `medico_dentista` e `dono_clinica`). Conferir se o chatbot trata esse valor novo. O painel já mostra o rótulo "Dentista (clínica de terceiros)".
 - Tudo do item 10 do `DOSSIE-SITE-MEDICO.md` (domínio, IDs de rastreamento, Supabase, token, branch do deploy).
