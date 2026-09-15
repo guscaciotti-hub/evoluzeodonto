@@ -1,0 +1,31 @@
+name: Publicar na Hostinger
+
+on:
+  push:
+    branches: [claude/exciting-maxwell-dlctrc] # branch principal do repo — se mudar, ajuste aqui
+    paths: ['public/**']
+  workflow_dispatch: # permite rodar manualmente na aba Actions
+
+concurrency:
+  group: deploy-hostinger
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Conferir que o site existe antes de publicar
+        run: test -f public/index.html
+
+      - name: Enviar public/ para public_html (FTPS)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: public/
+          # raiz da conta FTP principal da Hostinger contém public_html;
+          # se sua conta FTP já cair DENTRO de public_html, troque para "./"
+          server-dir: public_html/
