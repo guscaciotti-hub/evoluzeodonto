@@ -15,9 +15,10 @@
 - Fora do domínio final (github.io, vercel.app, netlify.app, localhost) nada disso carrega e a página recebe `noindex`.
 - Criar IDs próprios do odonto quando for separar os dados.
 
-## Faixa de prova social (só odontologia)
-- Hoje: Dra. Eveline Leite (CRO-MG 45408) e Dra. Fernanda Albejante (falta o CRO dela).
-- Faltam: CRO e foto da Dra. Joyce Carvalho; clínicas odontológicas com nome e logo (nenhuma das logos herdadas do site médico é odonto confirmada). Slot marcado `[ADICIONAR]` no HTML.
+## Faixa de prova social
+- Dentistas: Dra. Eveline Leite (CRO-MG 45408) e Dra. Fernanda Albejante (falta o CRO dela).
+- "Outros profissionais e clínicas atendidos": médicos e clínicas do site médico, mantidos por decisão do Gustavo. Só sair quando ele mandar.
+- Faltam: CRO e foto da Dra. Joyce Carvalho; clínicas odontológicas com nome e logo. Slot marcado `[ADICIONAR]` no HTML.
 
 ## Depoimentos
 - Dra. Eveline entrou com o áudio 1 (`depoimento-eveline-1.mp3`); os áudios 2 e 3 estão na pasta. Se preferir texto, transcrever.
