@@ -2,7 +2,7 @@ name: Publicar na Hostinger
 
 on:
   push:
-    branches: [claude/exciting-maxwell-dlctrc] # branch principal do repo — se mudar, ajuste aqui
+    branches: [claude/wonderful-noether-87xvuh] # branch principal do repo odonto — se mudar, ajuste aqui
     paths: ['public/**']
   workflow_dispatch: # permite rodar manualmente na aba Actions
 

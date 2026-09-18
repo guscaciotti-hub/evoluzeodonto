@@ -6,7 +6,7 @@ name: Preview do site (GitHub Pages)
 on:
   workflow_dispatch:
   push:
-    branches: [claude/exciting-maxwell-dlctrc]
+    branches: [claude/wonderful-noether-87xvuh]
     paths: ['public/**', '.github/workflows/pages.yml']
 
 permissions:
@@ -27,6 +27,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true # tenta habilitar o Pages sozinho; se o token não puder, habilite em Settings > Pages > Source: GitHub Actions
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public
