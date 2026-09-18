@@ -405,29 +405,6 @@ footer{background:var(--ink);color:#fff;padding:44px 0 36px}
 /* ═══════════ CAMADA VISUAL (fundos, brilhos, animações) — não altera a paleta ═══════════ */
 .eyebrow::before{content:"";display:inline-block;width:18px;height:2px;background:currentColor;opacity:.7;margin-right:10px;vertical-align:middle;border-radius:2px}
 
-/* HERO: dente em SVG + curva de luz + brilhos */
-.hero{position:relative;overflow:hidden;isolation:isolate}
-.hero .wrap{position:relative;z-index:2}
-.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.hero-glow{position:absolute;inset:0;
-  background:
-    radial-gradient(720px 520px at 88% 8%, rgba(0,242,227,.16), transparent 62%),
-    radial-gradient(520px 420px at 6% 100%, rgba(0,143,132,.18), transparent 60%),
-    linear-gradient(180deg, rgba(255,255,255,.02), transparent 30%);
-}
-.hero-tooth{position:absolute;right:5%;top:-16%;width:min(640px,50vw);height:auto;opacity:.7}
-.hero-swoosh{position:absolute;left:0;bottom:0;width:100%;height:auto;opacity:.9}
-.hero-grain{position:absolute;inset:0;opacity:.045;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-@keyframes toothFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-@keyframes glowPulse{0%,100%{opacity:.75}50%{opacity:1}}
-.hero-tooth{animation:toothFloat 9s ease-in-out infinite, glowPulse 6s ease-in-out infinite}
-@media(max-width:899px){
-  .hero-tooth{width:250px;right:-95px;top:-48px;opacity:.28}
-  .hero-glow{background:radial-gradient(420px 320px at 100% 0%, rgba(0,242,227,.14), transparent 62%),radial-gradient(360px 300px at 0% 100%, rgba(0,143,132,.16), transparent 60%)}
-}
-.vid-card{background:linear-gradient(160deg,#1B2826,var(--ink-2) 55%,#111B19);border-color:rgba(0,242,227,.18);box-shadow:0 30px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.03) inset}
-.trust span{background:rgba(255,255,255,.03)}
 
 /* BOTÕES */
 .btn{transition:transform .2s ease,box-shadow .25s ease,background .2s ease}
@@ -510,12 +487,75 @@ footer{background:radial-gradient(700px 300px at 50% 0%, rgba(0,242,227,.07), tr
 .about-ph:hover img{transform:scale(1.03)}
 .nav{border-bottom:1px solid transparent;background:linear-gradient(rgba(255,255,255,.92),rgba(255,255,255,.92)) padding-box,linear-gradient(90deg,var(--line),rgba(0,242,227,.45),var(--line)) border-box}
 
+/* Seções brancas: grade fina + brilho, e linha divisória em gradiente */
+.bg-grid{position:relative;isolation:isolate}
+.bg-grid::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(10,16,15,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(10,16,15,.045) 1px,transparent 1px);
+  background-size:56px 56px;
+  -webkit-mask-image:radial-gradient(70% 60% at 50% 40%,#000 30%,transparent 100%);mask-image:radial-gradient(70% 60% at 50% 40%,#000 30%,transparent 100%)}
+.bg-glow{position:relative;isolation:isolate}
+.bg-glow::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(640px 420px at 100% 0%, rgba(0,242,227,.12), transparent 60%),radial-gradient(520px 380px at 0% 100%, rgba(0,143,132,.09), transparent 60%)}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(0,143,132,.35) 30%,rgba(0,242,227,.6) 50%,rgba(0,143,132,.35) 70%,transparent)}
+
+/* Cards claros: leve gradiente interno pra dar volume */
+.card,.pain-item,.quote,.serv-card,.client{background:linear-gradient(180deg,#fff,#FBFDFC)}
+
+/* Depoimentos: aspas grandes atrás do texto */
+.quote{position:relative;overflow:hidden}
+.quote::before{content:"\201C";position:absolute;right:18px;top:-22px;font-size:120px;line-height:1;font-weight:800;color:var(--accent);opacity:.14;pointer-events:none}
+
+/* Método: linha que liga os passos (desktop) + brilho varrendo o card no hover */
+@media(min-width:760px){
+  .steps{position:relative}
+  .steps::before{content:"";position:absolute;left:8%;right:8%;top:43px;height:1px;background:linear-gradient(90deg,transparent,rgba(0,242,227,.45),transparent);pointer-events:none}
+}
+.step{position:relative;overflow:hidden}
+.step::after{content:"";position:absolute;top:0;left:-70%;width:50%;height:100%;background:linear-gradient(105deg,transparent,rgba(0,242,227,.10),transparent);transform:skewX(-18deg);transition:left .7s ease}
+.step:hover::after{left:120%}
+
+/* Posicionamento: trilha vertical com marcadores */
+.stages{position:relative}
+@media(min-width:760px){
+  .stages::before{content:"";position:absolute;left:11px;top:14px;bottom:14px;width:2px;background:linear-gradient(180deg,rgba(0,242,227,.7),rgba(0,143,132,.25))}
+  .stage{padding-left:40px}
+  .stage-label{position:relative}
+  .stage-label::before{content:"";position:absolute;left:-36px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(0,242,227,.18),0 0 18px rgba(0,242,227,.55)}
+}
+
+/* Sobre: aro em gradiente atrás da foto */
+.about-ph{position:relative}
+.about-ph::after{content:"";position:absolute;inset:-10px;z-index:-1;border-radius:26px;background:linear-gradient(150deg,rgba(0,242,227,.55),transparent 45%,rgba(0,143,132,.35));filter:blur(14px);opacity:.7}
+.about-grid>div:first-child{position:relative;z-index:0}
+
+/* CFO: colunas com cor leve */
+.cfo-col{padding:22px;border-radius:14px}
+.cfo-col.can{background:linear-gradient(180deg,rgba(0,242,227,.07),rgba(0,242,227,.02))}
+.cfo-col.cant{background:linear-gradient(180deg,rgba(196,72,59,.06),rgba(196,72,59,.015))}
+.cfo-col li{transition:transform .2s ease}
+.cfo-col li:hover{transform:translateX(3px)}
+
+/* Serviços: card acende no hover */
+.serv-card{position:relative;overflow:hidden}
+.serv-card::before{content:"";position:absolute;inset:0;background:radial-gradient(240px 160px at 10% 0%, rgba(0,242,227,.12), transparent 70%);opacity:0;transition:opacity .35s ease;pointer-events:none}
+.serv-card:hover::before{opacity:1}
+
+/* Final: orbe de luz atrás do CTA */
+.final{position:relative;isolation:isolate;overflow:hidden}
+.final::before{content:"";position:absolute;left:50%;top:50%;width:720px;height:420px;transform:translate(-50%,-50%);z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side, rgba(0,242,227,.16), rgba(0,242,227,.05) 55%, transparent 75%);filter:blur(10px)}
+@keyframes orb{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-52%) scale(1.06)}}
+.final::before{animation:orb 8s ease-in-out infinite}
+
+/* Rodapé: filete em gradiente no topo */
+footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,242,227,.6),transparent)}
+
 /* REVEAL ao rolar (classe aplicada por JS; sem JS tudo fica visível) */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.16,.84,.44,1),transform .7s cubic-bezier(.16,.84,.44,1)}
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
   .rv{opacity:1;transform:none;transition:none}
-  .hero-tooth{animation:none}
+  .final::before{animation:none}
   *{transition-duration:.001s!important}
 }
 </style>
@@ -534,39 +574,6 @@ footer{background:radial-gradient(700px 300px at 50% 0%, rgba(0,242,227,.07), tr
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-bg" aria-hidden="true">
-    <div class="hero-glow"></div>
-    <svg class="hero-tooth" viewBox="0 0 400 480" fill="none">
-      <defs>
-        <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#00F2E3" stop-opacity=".95"/>
-          <stop offset=".55" stop-color="#00F2E3" stop-opacity=".25"/>
-          <stop offset="1" stop-color="#008F84" stop-opacity=".05"/>
-        </linearGradient>
-        <radialGradient id="tf" cx=".4" cy=".2" r=".9">
-          <stop offset="0" stop-color="#00F2E3" stop-opacity=".10"/>
-          <stop offset="1" stop-color="#00F2E3" stop-opacity="0"/>
-        </radialGradient>
-        <filter id="tblur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="7"/></filter>
-      </defs>
-      <path id="tooth" d="M62 168C58 98 112 52 168 74c14 6 22 18 32 18s18-12 32-18c56-22 110 24 106 94-3 52-30 84-40 132-8 40-14 96-44 108-26 10-40-36-54-70-14 34-28 80-54 70-30-12-36-68-44-108C92 252 65 220 62 168Z"/>
-      <use href="#tooth" stroke="#00F2E3" stroke-width="10" stroke-opacity=".35" filter="url(#tblur)"/>
-      <use href="#tooth" fill="url(#tf)" stroke="url(#tg)" stroke-width="2.4" stroke-linejoin="round"/>
-      <path d="M118 128c30-22 74-26 112-4" stroke="#00F2E3" stroke-opacity=".35" stroke-width="1.5" stroke-linecap="round"/>
-    </svg>
-    <svg class="hero-swoosh" viewBox="0 0 1440 300" preserveAspectRatio="none" fill="none">
-      <defs>
-        <linearGradient id="sw" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#00F2E3" stop-opacity="0"/>
-          <stop offset=".45" stop-color="#00F2E3" stop-opacity=".45"/>
-          <stop offset="1" stop-color="#00F2E3" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      <path d="M-40 230C260 300 560 250 820 190S1260 60 1480 40" stroke="url(#sw)" stroke-width="1.6"/>
-      <path d="M-40 262C300 320 640 270 900 205S1300 80 1480 70" stroke="url(#sw)" stroke-width="1" opacity=".55"/>
-    </svg>
-    <div class="hero-grain"></div>
-  </div>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-txt">
@@ -621,7 +628,7 @@ footer{background:radial-gradient(700px 300px at 50% 0%, rgba(0,242,227,.07), tr
 </section>
 
 <!-- TRIO -->
-<section>
+<section class="bg-grid">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">O que muda</span>
@@ -681,7 +688,7 @@ footer{background:radial-gradient(700px 300px at 50% 0%, rgba(0,242,227,.07), tr
 </section>
 
 <!-- POSICIONAMENTO -->
-<section>
+<section class="bg-glow">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Posicionamento</span>
@@ -689,6 +696,7 @@ footer{background:radial-gradient(700px 300px at 50% 0%, rgba(0,242,227,.07), tr
       <p>O paciente particular não decide no primeiro anúncio que vê. Ele percorre um caminho, e cada etapa pede um conteúdo diferente.</p>
     </div>
 
+    <div class="stages">
     <div class="stage">
       <div class="stage-label">Descoberta</div>
       <div>
@@ -709,6 +717,7 @@ footer{background:radial-gradient(700px 300px at 50% 0%, rgba(0,242,227,.07), tr
         <div class="stage-q">"Quero agendar."</div>
         <p>Convite direto para quem já está pronto. Campanha de intenção, remarketing e caminho curto até a conversa.</p>
       </div>
+    </div>
     </div>
 
     <div class="pull">Muita gente entra em cima. As pessoas certas agendam embaixo.</div>
@@ -780,7 +789,7 @@ footer{background:radial-gradient(700px 300px at 50% 0%, rgba(0,242,227,.07), tr
 </section>
 
 <!-- CASE -->
-<section>
+<section class="bg-grid">
   <div class="wrap">
     <div class="case">
       <span class="eyebrow on-dark">Case</span>
@@ -795,8 +804,9 @@ footer{background:radial-gradient(700px 300px at 50% 0%, rgba(0,242,227,.07), tr
   </div>
 </section>
 
+<div class="divider" aria-hidden="true"></div>
 <!-- SOBRE -->
-<section>
+<section class="bg-glow">
   <div class="wrap">
     <div class="about-grid">
       <div class="about-ph"><img src="assets/img/gustavo.jpg" alt="Gustavo Scaciotti, especialista em marketing para saúde" loading="lazy"></div>
@@ -870,7 +880,7 @@ footer{background:radial-gradient(700px 300px at 50% 0%, rgba(0,242,227,.07), tr
 </section>
 
 <!-- CFO -->
-<section>
+<section class="bg-grid">
   <div class="wrap">
     <div class="cfo-box">
       <span class="eyebrow">Ética e conselho</span>
