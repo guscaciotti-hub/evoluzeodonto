@@ -116,14 +116,22 @@ p{color:var(--muted);font-size:16px}
 @media(min-width:900px){.hero{padding:80px 0 0}}
 .hero h1{color:#fff;max-width:14ch}
 .hero .lead{color:#B9C7C4;margin-top:22px;max-width:52ch}
-.hero-grid{display:grid;gap:40px}
+.hero-grid{display:grid;gap:30px}
 @media(min-width:900px){
-  .hero-grid{grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .hero-grid{
+    grid-template-columns:1.15fr .85fr;
+    grid-template-areas:"txt vid" "trust vid";
+    column-gap:56px;row-gap:0;align-items:center;
+  }
+  .hero-txt{grid-area:txt}
+  .vid-card{grid-area:vid}
+  .trust{grid-area:trust}
 }
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .trust{
-  display:flex;flex-wrap:wrap;gap:10px;margin-top:36px;padding-bottom:56px;
+  display:flex;flex-wrap:wrap;gap:8px;padding-bottom:52px;
 }
+@media(min-width:900px){.trust{gap:10px;margin-top:36px}}
 .trust span{
   font-size:12px;font-weight:600;color:#C9D6D3;
   border:1px solid rgba(255,255,255,.14);padding:7px 13px;border-radius:999px;
@@ -137,7 +145,7 @@ p{color:var(--muted);font-size:16px}
 .vid-frame{
   aspect-ratio:9/16;background:#000;border-radius:14px;overflow:hidden;
   display:flex;align-items:center;justify-content:center;position:relative;
-  max-height:520px;margin:0 auto;width:100%;
+  max-height:430px;margin:0 auto;width:100%;
 }
 .vid-frame video{width:100%;height:100%;object-fit:cover}
 .vid-unmute{
@@ -152,6 +160,7 @@ p{color:var(--muted);font-size:16px}
   box-shadow:0 10px 30px rgba(0,242,227,.35);
 }
 .vid-unmute span{background:rgba(10,16,15,.55);padding:8px 14px;border-radius:999px;font-size:13.5px}
+@media(min-width:900px){.vid-frame{max-height:520px}}
 .vid-ph{
   text-align:center;padding:24px;color:#7E908C;font-size:13px;font-weight:600;
 }
@@ -236,6 +245,27 @@ p{color:var(--muted);font-size:16px}
 .who-n{font-weight:700;font-size:14.5px;line-height:1.3}
 .who-r{font-size:12.5px;color:var(--muted)}
 
+/* CLIENTES (faixa de prova social, só odontologia) */
+.clients{background:#fff;padding-top:0}
+.clients-grid{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:640px){.clients-grid{grid-template-columns:repeat(3,1fr);gap:16px}}
+@media(min-width:960px){.clients-grid{grid-template-columns:repeat(4,1fr)}}
+.client{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 18px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;
+}
+.client.is-logo{justify-content:center;min-height:150px}
+.client.is-logo img{width:auto;height:52px;max-width:150px;object-fit:contain}
+.av-crop{width:96px;height:96px;border-radius:50%;overflow:hidden;flex:0 0 auto;position:relative}
+.av-crop img{position:absolute;width:200%;height:200%;left:-50%;top:-26%;max-width:none}
+.who-av.av-crop{width:40px;height:40px}
+.clients-sub{
+  display:flex;align-items:center;gap:14px;margin:0 0 16px;font-size:11px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:var(--accent-ink);
+}
+.clients-sub::after{content:"";flex:1;height:1px;background:var(--line)}
+.quote audio{width:100%;height:40px;margin-top:8px;accent-color:var(--accent-ink)}
+
 /* CASE */
 .case{
   background:var(--ink);color:#fff;border-radius:22px;padding:34px 26px;
@@ -258,31 +288,6 @@ p{color:var(--muted);font-size:16px}
   color:var(--muted);font-size:13px;font-weight:600;text-align:center;padding:0;overflow:hidden;
 }
 .about-ph img{width:100%;height:100%;object-fit:cover;object-position:center top}
-
-/* CLIENTES (faixa de prova social) */
-.clients{background:var(--soft);padding-top:0}
-.clients-grid{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
-@media(min-width:640px){.clients-grid{grid-template-columns:repeat(3,1fr);gap:16px}}
-@media(min-width:960px){.clients-grid{grid-template-columns:repeat(4,1fr)}}
-.client{
-  background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 18px;
-  display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;
-}
-.av-crop{width:96px;height:96px;border-radius:50%;overflow:hidden;flex:0 0 auto;position:relative}
-.av-crop img{position:absolute;width:200%;height:200%;left:-50%;top:-26%;max-width:none;border-radius:0}
-.who-av.av-crop{width:40px;height:40px}
-.client .who-n{font-size:14px}
-.client .who-r{font-size:12.5px}
-.client.is-logo{justify-content:center;min-height:150px}
-.client.is-logo img{width:auto;height:52px;max-width:150px;object-fit:contain}
-.clients-sub{
-  display:flex;align-items:center;gap:14px;margin:34px 0 16px;font-size:11px;font-weight:700;
-  letter-spacing:2px;text-transform:uppercase;color:var(--accent-ink);
-}
-.clients-sub::after{content:"";flex:1;height:1px;background:var(--line)}
-
-/* áudio dentro do depoimento */
-.quote audio{width:100%;height:40px;margin-top:8px;accent-color:var(--accent-ink)}
 
 /* SERVICOS */
 .serv{background:var(--soft)}
@@ -405,7 +410,7 @@ footer{background:var(--ink);color:#fff;padding:44px 0 36px}
 <header class="hero">
   <div class="wrap">
     <div class="hero-grid">
-      <div>
+      <div class="hero-txt">
         <span class="eyebrow on-dark">Assessoria exclusiva para clínicas odontológicas</span>
         <h1>Sua agenda cheia não significa nada se o convênio leva a maior parte.</h1>
         <p class="lead">Estruturamos a aquisição de paciente particular para clínicas odontológicas que querem parar de trabalhar muito e faturar pouco.</p>
@@ -413,23 +418,23 @@ footer{background:var(--ink);color:#fff;padding:44px 0 36px}
           <a href="#diagnostico" class="btn btn-accent">Quero minha agenda de particular</a>
           <a href="#metodo" class="btn btn-ghost">Ver o método</a>
         </div>
-        <div class="trust">
-          <span>Google Ads certificado</span>
-          <span>Meta Ads</span>
-          <span>15+ clientes</span>
-          <span>Contas operadas pessoalmente</span>
-        </div>
       </div>
 
       <div class="vid-card">
         <div class="vid-frame">
-          <!-- [ARQUIVO] salvar o MP4 vertical (H.264/AAC, 1080x1920) em assets/video/eveline.mp4.
-               A capa assets/img/eveline-capa.jpg é provisória (arte com o nome); troque por um frame real quando tiver. -->
-          <video id="vidEveline" src="assets/video/eveline.mp4" poster="assets/img/eveline-capa.jpg" autoplay muted loop playsinline controls preload="auto"></video>
-          <!-- começa sozinho e mudo (única forma que o navegador permite); o botão reinicia com som -->
+          <!-- Autoplay mudo (única forma permitida pelos navegadores) + botão que reinicia com som.
+               Para o vídeo só tocar no clique, tire "autoplay muted loop" e o <button>. -->
+          <video id="vidEveline" src="assets/video/eveline-web.mp4" poster="assets/img/eveline-capa.jpg" controls playsinline preload="metadata" autoplay muted loop></video>
           <button class="vid-unmute" id="vidUnmute" type="button" aria-label="Ativar o som do vídeo"><i>🔊</i><span>Toque para ativar o som</span></button>
         </div>
         <p class="vid-cap">Dra. Eveline Leite, ortodontista — cliente Evoluze</p>
+      </div>
+
+      <div class="trust">
+        <span>Google Ads certificado</span>
+        <span>Meta Ads</span>
+        <span>15+ clientes</span>
+        <span>Contas operadas pessoalmente</span>
       </div>
     </div>
   </div>
@@ -559,6 +564,8 @@ footer{background:var(--ink);color:#fff;padding:44px 0 36px}
       <h2>Quem já saiu da lógica do convênio</h2>
     </div>
     <div class="grid-2">
+      <!-- [VIDEO_JOYCE] quando o MP4 chegar: trocar este card por
+           <div class="quote"><div class="vid-frame"><video src="assets/video/joyce-web.mp4" poster="assets/img/joyce-capa.jpg" controls playsinline preload="metadata"></video></div> + .who abaixo</div> -->
       <div class="quote">
         <p>"Aqui no consultório eu só atendo particular, não atendo plano. Só orgânico não dá mais, hoje em dia não tem como. Ele faz toda essa parte de tráfego pago, é excelente profissional."</p>
         <div class="who">
@@ -584,30 +591,15 @@ footer{background:var(--ink);color:#fff;padding:44px 0 36px}
   </div>
 </section>
 
-<!-- CLIENTES -->
+<!-- CLIENTES (só odontologia) -->
 <section class="clients">
   <div class="wrap">
-    <div class="clients-sub">Dentistas que confiam na Evoluze</div>
+    <div class="clients-sub">Dentistas e clínicas que confiam na Evoluze</div>
     <div class="clients-grid">
       <div class="client"><div class="av-crop"><img src="assets/img/med-ortodontista.jpg" alt="Dra. Eveline Leite" loading="lazy"></div><div><div class="who-n">Dra. Eveline Leite</div><div class="who-r">Ortodontista · CRO-MG 45408</div></div></div>
       <div class="client"><div class="av-crop"><img src="assets/img/med-fernanda-albejante.jpg" alt="Dra. Fernanda Albejante" loading="lazy"></div><div><div class="who-n">Dra. Fernanda Albejante</div><div class="who-r">Ortodontia e Odontopediatria</div></div></div>
-    </div>
-
-    <!-- [PROVISÓRIO] clientes de outras áreas da saúde; remover quando a faixa for só odonto -->
-    <div class="clients-sub">Outros profissionais e clínicas atendidos</div>
-    <div class="clients-grid">
-      <div class="client"><div class="av-crop"><img src="assets/img/med-isis-minami.jpg" alt="Dra. Isis Veronez Minami" loading="lazy"></div><div><div class="who-n">Dra. Isis Veronez Minami</div><div class="who-r">Dermatologista · CRM 149013/SP</div></div></div>
-      <div class="client"><div class="av-crop"><img src="assets/img/med-nicole-vargas.jpg" alt="Dr. Nicole Vargas" loading="lazy"></div><div><div class="who-n">Dr. Nicole Vargas</div><div class="who-r">Endocrinologista · CRM 183312/SP</div></div></div>
-      <div class="client"><div class="av-crop"><img src="assets/img/med-eberson-coimbra.jpg" alt="Dr. Eberson Coimbra" loading="lazy"></div><div><div class="who-n">Dr. Eberson Coimbra</div><div class="who-r">Cirurgião Plástico · CRM 111850 · RQE 22481</div></div></div>
-      <div class="client"><div class="av-crop"><img src="assets/img/med-martim-marcondes.jpg" alt="Dr. Martim Francisco Marcondes" loading="lazy"></div><div><div class="who-n">Dr. Martim Francisco Marcondes</div><div class="who-r">Ortopedista · CRM 155794 · TEOT 16129</div></div></div>
-      <div class="client"><div class="av-crop"><img src="assets/img/med-pedro-adissi.jpg" alt="Dr. Pedro Adissi" loading="lazy"></div><div><div class="who-n">Dr. Pedro Adissi</div><div class="who-r">Cirurgião Plástico · CRM-MG 54008</div></div></div>
-      <div class="client is-logo"><img src="assets/img/logo-high-line.png" alt="Clínica High Line" loading="lazy"><div class="who-n">Clínica High Line</div></div>
-      <div class="client is-logo"><img src="assets/img/logo-clinica-adissi.png" alt="Clínica Adissi" loading="lazy"><div class="who-n">Clínica Adissi</div></div>
-      <div class="client is-logo"><img src="assets/img/logo-reviva.png" alt="REVIVA Clínica Médica" loading="lazy"><div class="who-n">REVIVA Clínica Médica</div></div>
-      <div class="client is-logo"><img src="assets/img/logo-ibap.png" alt="IBAP" loading="lazy"><div class="who-n">IBAP</div></div>
-      <div class="client is-logo"><img src="assets/img/logo-dermafast.png" alt="dermafast" loading="lazy"><div class="who-n">dermafast</div></div>
-      <div class="client is-logo"><img src="assets/img/logo-nicole-vargas.png" alt="Dr. Nicole Vargas — Medicina Integrada" loading="lazy"><div class="who-n">Nicole Vargas · Medicina Integrada</div></div>
-      <div class="client is-logo"><img src="assets/img/logo-solusono.png" alt="SoluSono" loading="lazy"><div class="who-n">SoluSono</div></div>
+      <!-- [ADICIONAR] Dra. Joyce Carvalho (clareamento) quando tiver foto e CRO; clínicas odontológicas com nome e logo:
+           <div class="client is-logo"><img src="assets/img/logo-clinica.png" alt="Nome da clínica"><div class="who-n">Nome da clínica</div></div> -->
     </div>
   </div>
 </section>
@@ -874,7 +866,6 @@ footer{background:var(--ink);color:#fff;padding:44px 0 36px}
     v.muted=false; v.loop=false; v.currentTime=0; b.remove();
     var p=v.play(); if(p&&p.catch) p.catch(function(){});
   });
-  // se o visitante ativar o som pelos controles nativos, some o botão também
   v.addEventListener('volumechange',function(){ if(!v.muted && b.parentNode) b.remove(); });
 })();
 
@@ -909,12 +900,11 @@ function enviar(e){
 
   // ===================================================================
   // AQUI ENTRA O DESTINO DO LEAD.
-  // [PENDENTE] webhook/CRM do odonto (o site médico manda para o Evoluze Chat
-  // e para o Supabase; os endpoints novos do odonto ainda não foram definidos).
+  // [PENDENTE] fetch() para o webhook/CRM do odonto (endpoints ainda não definidos).
   // ===================================================================
   console.log('Lead:', dados);
 
-  // Conversão — dispara SÓ aqui, junto com o envio do lead (nunca no carregamento).
+  // Conversão — dispara SÓ aqui, junto com o envio do lead (nunca no carregamento, nunca no botão do hero).
   // id único por lead: o Google deduplica se a tag mandar o hit 2x.
   var txid = 'lead_' + Date.now().toString(36) + Math.random().toString(36).slice(2,8);
   try{ if(typeof fbq==='function') fbq('track','Lead'); }catch(err){}
