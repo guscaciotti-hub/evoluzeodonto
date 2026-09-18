@@ -487,6 +487,16 @@ footer{background:radial-gradient(700px 300px at 50% 0%, rgba(0,242,227,.07), tr
 .about-ph:hover img{transform:scale(1.03)}
 .nav{border-bottom:1px solid transparent;background:linear-gradient(rgba(255,255,255,.92),rgba(255,255,255,.92)) padding-box,linear-gradient(90deg,var(--line),rgba(0,242,227,.45),var(--line)) border-box}
 
+/* HERO mobile: dente discreto no canto (some no desktop) */
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero .wrap{position:relative;z-index:2}
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;display:none}
+@media(max-width:899px){
+  .hero-bg{display:block}
+  .hero-glow{position:absolute;inset:0;background:radial-gradient(420px 320px at 100% 0%, rgba(0,242,227,.14), transparent 62%),radial-gradient(360px 300px at 0% 100%, rgba(0,143,132,.16), transparent 60%)}
+  .hero-tooth{position:absolute;width:250px;right:-95px;top:-48px;opacity:.28;height:auto}
+}
+
 /* Seções brancas: grade fina + brilho, e linha divisória em gradiente */
 .bg-grid{position:relative;isolation:isolate}
 .bg-grid::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
@@ -574,6 +584,28 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;back
 
 <!-- HERO -->
 <header class="hero">
+  <!-- Fundo só no mobile: dente em SVG no canto superior direito (desktop fica seco) -->
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-glow"></div>
+    <svg class="hero-tooth" viewBox="0 0 400 480" fill="none">
+      <defs>
+        <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#00F2E3" stop-opacity=".95"/>
+          <stop offset=".55" stop-color="#00F2E3" stop-opacity=".25"/>
+          <stop offset="1" stop-color="#008F84" stop-opacity=".05"/>
+        </linearGradient>
+        <radialGradient id="tf" cx=".4" cy=".2" r=".9">
+          <stop offset="0" stop-color="#00F2E3" stop-opacity=".10"/>
+          <stop offset="1" stop-color="#00F2E3" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="tblur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="7"/></filter>
+      </defs>
+      <path id="tooth" d="M62 168C58 98 112 52 168 74c14 6 22 18 32 18s18-12 32-18c56-22 110 24 106 94-3 52-30 84-40 132-8 40-14 96-44 108-26 10-40-36-54-70-14 34-28 80-54 70-30-12-36-68-44-108C92 252 65 220 62 168Z"/>
+      <use href="#tooth" stroke="#00F2E3" stroke-width="10" stroke-opacity=".35" filter="url(#tblur)"/>
+      <use href="#tooth" fill="url(#tf)" stroke="url(#tg)" stroke-width="2.4" stroke-linejoin="round"/>
+      <path d="M118 128c30-22 74-26 112-4" stroke="#00F2E3" stroke-opacity=".35" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </div>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-txt">
