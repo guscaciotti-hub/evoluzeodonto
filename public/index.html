@@ -140,6 +140,18 @@ p{color:var(--muted);font-size:16px}
   max-height:520px;margin:0 auto;width:100%;
 }
 .vid-frame video{width:100%;height:100%;object-fit:cover}
+.vid-unmute{
+  position:absolute;inset:0;z-index:2;border:0;cursor:pointer;font-family:inherit;
+  background:linear-gradient(180deg,rgba(10,16,15,0) 40%,rgba(10,16,15,.75) 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:10px;
+  padding:0 20px 56px;color:#fff;font-weight:700;font-size:15px;text-align:center;
+}
+.vid-unmute i{
+  width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;font-style:normal;font-size:22px;
+  box-shadow:0 10px 30px rgba(0,242,227,.35);
+}
+.vid-unmute span{background:rgba(10,16,15,.55);padding:8px 14px;border-radius:999px;font-size:13.5px}
 .vid-ph{
   text-align:center;padding:24px;color:#7E908C;font-size:13px;font-weight:600;
 }
@@ -413,7 +425,9 @@ footer{background:var(--ink);color:#fff;padding:44px 0 36px}
         <div class="vid-frame">
           <!-- [ARQUIVO] salvar o MP4 vertical (H.264/AAC, 1080x1920) em assets/video/eveline.mp4.
                A capa assets/img/eveline-capa.jpg é provisória (arte com o nome); troque por um frame real quando tiver. -->
-          <video src="assets/video/eveline.mp4" poster="assets/img/eveline-capa.jpg" controls playsinline preload="metadata"></video>
+          <video id="vidEveline" src="assets/video/eveline.mp4" poster="assets/img/eveline-capa.jpg" autoplay muted loop playsinline controls preload="auto"></video>
+          <!-- começa sozinho e mudo (única forma que o navegador permite); o botão reinicia com som -->
+          <button class="vid-unmute" id="vidUnmute" type="button" aria-label="Ativar o som do vídeo"><i>🔊</i><span>Toque para ativar o som</span></button>
         </div>
         <p class="vid-cap">Dra. Eveline Leite, ortodontista — cliente Evoluze</p>
       </div>
@@ -852,6 +866,18 @@ footer{background:var(--ink);color:#fff;padding:44px 0 36px}
 </footer>
 
 <script>
+/* vídeo do hero: autoplay mudo + botão que reinicia com som */
+(function(){
+  var v=document.getElementById('vidEveline'), b=document.getElementById('vidUnmute');
+  if(!v||!b) return;
+  b.addEventListener('click',function(){
+    v.muted=false; v.loop=false; v.currentTime=0; b.remove();
+    var p=v.play(); if(p&&p.catch) p.catch(function(){});
+  });
+  // se o visitante ativar o som pelos controles nativos, some o botão também
+  v.addEventListener('volumechange',function(){ if(!v.muted && b.parentNode) b.remove(); });
+})();
+
 var dados = {};
 
 function paint(n){
