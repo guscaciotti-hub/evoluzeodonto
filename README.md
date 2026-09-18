@@ -4,14 +4,16 @@ Clone estrutural do site médico (`guscaciotti-hub/SITE-LOCAL`, evoluzemarketing
 
 ## Estado atual
 
-Estrutura do site médico com a **primeira rodada de copy odonto aplicada** (hero, bloco de dor, método, serviços, depoimentos, formulário, pós-formulário). O que ainda falta de texto, imagem e vídeo está em `referencia/COPY-PENDENTE.md`. Antes de publicar, todos os pontos do item 10 do dossiê precisam ser trocados (domínio, IDs de rastreamento, Supabase, webhook, branch do deploy).
+Versão nova em arquivo único (`public/index.html`, sem framework, sem build), com GTM, Pixel e Google Ads portados do site médico, foto do Gustavo, faixa de clientes, vídeo da Dra. Eveline (arquivo pendente) e conversão disparando dentro de `enviar()`. O que falta está em `referencia/PENDENCIAS.md`.
+
+Prévia: https://guscaciotti-hub.github.io/evoluzeodonto/ (GitHub Pages, publica sozinho a cada push em `public/`). Em domínios de prévia o rastreamento fica desligado.
 
 ## O que tem aqui
 
 | Caminho | O que é |
 |---|---|
 | `public/` | O site inteiro (HTML único, sem build). É o que vai pro ar |
-| `referencia/COPY-PENDENTE.md` | O que da copy odonto já entrou, o que foi troca mecânica e o que ainda falta |
+| `referencia/PENDENCIAS.md` | O que ainda falta na versão nova (vídeo, case, destino do lead, IDs) |
 | `referencia/DOSSIE-SITE-MEDICO.md` | Dossiê completo: código, hospedagem, design system, inventário de imagens, copy seção por seção, VSL, formulário, rastreamento, dependências e o que quebra ao copiar |
 | `referencia/EVOLUZE_Guia_Clonagem.*` | Guia antigo de clonagem do design |
 | `.github/workflows/` | Deploy na Hostinger (FTPS), preview no Pages, screenshots de validação |

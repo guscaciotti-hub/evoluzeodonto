@@ -1,40 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Evoluze — Marketing Odontológico para Clínicas | Paciente Particular sem Depender de Convênio</title>
-<meta name="description" content="Estruturamos a aquisição de paciente particular para clínicas odontológicas. Sem depender de convênio, sem desconto, sem promoção — operado com rigor, do anúncio à cadeira."/>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23053B37'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%2300D4C6'/%3E%3C/svg%3E"/>
-<!-- Open Graph -->
-<meta property="og:title" content="Evoluze — Marketing Odontológico para Clínicas"/>
-<meta property="og:description" content="Sua agenda cheia não significa nada se o convênio leva a maior parte. Aquisição de paciente particular para clínicas odontológicas."/>
-<meta property="og:type" content="website"/>
-<meta property="og:locale" content="pt_BR"/>
-<meta property="og:url" content="https://evoluzemarketingmedico.com.br/"/>
-<meta property="og:image" content="https://evoluzemarketingmedico.com.br/assets/img/og-evoluze.png"/>
-<meta property="og:image:width" content="1200"/>
-<meta property="og:image:height" content="630"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://evoluzemarketingmedico.com.br/assets/img/og-evoluze.png"/>
-<link rel="canonical" href="https://evoluzemarketingmedico.com.br/"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evoluze Odonto</title>
+<meta name="description" content="Assessoria de aquisição para clínicas odontológicas que querem viver de paciente particular.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- ════════════════════════════════════════════════════════════
-     RASTREAMENTO — cole os IDs e descomente quando tiver
-     ════════════════════════════════════════════════════════════ -->
-<!-- MODO PRÉVIA: em *.vercel.app, *.netlify.app, *.github.io, localhost e file://, NADA de rastreamento
-     dispara e o formulário NÃO envia lead de verdade (só mostra a tela de sucesso). No domínio final, tudo liga. -->
+<!-- MODO PRÉVIA: em *.github.io, *.vercel.app, *.netlify.app, localhost e file:// nenhum rastreamento carrega
+     e o site recebe noindex. No domínio final, tudo liga. -->
 <script>
-window.__EV_PREVIEW = /\.vercel\.app$|\.netlify\.app$|\.github\.io$|^localhost$|^127\./.test(location.hostname) || location.protocol==='file:';
-if(window.__EV_PREVIEW){
-  document.write('<meta name="robots" content="noindex,nofollow">');
-  (function(){var f=window.fetch;window.fetch=function(u,o){if(/supabase\.co|evoluzechat\.com\.br\/webhook|formspree\.io/.test(String(u)))return Promise.resolve(new Response('{}',{status:200}));return f.apply(this,arguments);};})();
-}
+window.__EV_PREVIEW = /\.github\.io$|\.vercel\.app$|\.netlify\.app$|^localhost$|^127\./.test(location.hostname) || location.protocol==='file:';
+if(window.__EV_PREVIEW){ document.write('<meta name="robots" content="noindex,nofollow">'); }
 </script>
+
 <!-- Google Tag Manager -->
 <script>if(!window.__EV_PREVIEW)(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NLB9HGKB');</script>
 <!-- End Google Tag Manager -->
-<!-- Meta Pixel (ID público — OK ficar no site). Evento Lead dispara no envio do form. -->
+
+<!-- Meta Pixel — código base (PageView). O evento Lead dispara SÓ dentro de enviar(). -->
 <script>
 if(!window.__EV_PREVIEW){
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
@@ -44,406 +30,350 @@ fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1596531545529516&ev=PageView&noscript=1"/></noscript>
 
-<!-- Google tag (gtag.js) — Google Ads. A conversão "LEAD - Médico/Dentista/Dono" dispara no envio do form (ver fireConversion). -->
+<!-- Google Ads (gtag.js) — código base. A conversão dispara SÓ dentro de enviar(). -->
 <script>
-  if(!window.__EV_PREVIEW){
-    var _g=document.createElement('script'); _g.async=true; _g.src='https://www.googletagmanager.com/gtag/js?id=AW-18428282557'; document.head.appendChild(_g);
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-18428282557');
-  }
+if(!window.__EV_PREVIEW){
+  var _g=document.createElement('script'); _g.async=true; _g.src='https://www.googletagmanager.com/gtag/js?id=AW-18428282557'; document.head.appendChild(_g);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18428282557');
+}
 </script>
-<!-- End Meta Pixel -->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* ════════════════ TOKENS (derivar tudo daqui) ════════════════ */
 :root{
-  --branco:#FFFFFF;
-  --off-white:#F6FAFA;
-  --teal:#00D4C6;
-  --teal-fundo:#053B37;
-  --teal-escuro:#04736B;
-  --tinta:#0B1F1D;
-  --cinza:#5B6B68;
-  --radius:14px;
-  --shadow:0 10px 40px rgba(5,59,55,.08);
-  --shadow-md:0 16px 50px rgba(5,59,55,.14);
-  --container:1140px;
-  --ease:cubic-bezier(.16,.84,.44,1);
+  --ink:#0A100F;
+  --ink-2:#16201E;
+  --paper:#FFFFFF;
+  --soft:#F4F7F6;
+  --line:#E4EAE8;
+  --accent:#00F2E3;
+  --accent-deep:#008F84;
+  --accent-ink:#00655D;
+  --muted:#5D6B68;
+  --muted-dark:#9FB0AC;
+  --radius:16px;
+  --maxw:1140px;
 }
-*{margin:0;padding:0;box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--branco);color:var(--tinta);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
-img{max-width:100%;display:block}
-:focus-visible{outline:2.5px solid var(--teal-escuro);outline-offset:3px;border-radius:4px}
+body{
+  font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.5;
+}
+img,video{max-width:100%;display:block}
+a{color:inherit}
 
-/* ════════════════ PRIMITIVOS ════════════════ */
-.container{width:100%;max-width:var(--container);margin:0 auto;padding:0 24px}
-.section{padding:104px 0}
-.eyebrow{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--teal-escuro);margin-bottom:18px;display:block}
-.dark .eyebrow{color:var(--teal)}
-h1,h2,h3{font-weight:800;letter-spacing:-.02em;line-height:1.08}
-h2.title{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:18px;max-width:760px}
-.lead{font-size:clamp(1rem,1.4vw,1.12rem);color:var(--cinza);max-width:620px}
-.dark{background:var(--teal-fundo);color:#fff}
-.dark .lead{color:rgba(255,255,255,.62)}
-.alt{background:var(--off-white)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 16px}
+@media(min-width:768px){.wrap{padding:0 32px}}
 
-/* CTA */
+section{padding:64px 0}
+@media(min-width:768px){section{padding:96px 0}}
+
+.eyebrow{
+  display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--accent-ink);margin-bottom:18px;
+}
+.eyebrow.on-dark{color:var(--accent)}
+
+h1,h2,h3{letter-spacing:-.02em;line-height:1.1;font-weight:800}
+h1{font-size:clamp(30px,6vw,54px)}
+h2{font-size:clamp(25px,4.4vw,40px);line-height:1.12}
+h3{font-size:18px;font-weight:700;letter-spacing:-.01em}
+p{color:var(--muted);font-size:16px}
+@media(min-width:768px){p{font-size:17px}}
+
+.lead{font-size:17px}
+@media(min-width:768px){.lead{font-size:19px}}
+
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  background:var(--teal);color:var(--tinta);font-weight:700;font-size:1rem;
-  padding:18px 32px;border-radius:var(--radius);border:none;cursor:pointer;
-  font-family:inherit;text-decoration:none;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s;
-  box-shadow:0 8px 24px rgba(0,212,198,.28)
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--ink);color:#fff;font-weight:700;font-size:15px;
+  padding:16px 28px;border-radius:999px;text-decoration:none;border:0;
+  cursor:pointer;transition:transform .15s ease,background .15s ease;
+  font-family:inherit;
 }
-.btn:hover{transform:translateY(-2px);background:#16e0d2;box-shadow:0 12px 30px rgba(0,212,198,.4)}
-.btn svg{width:16px;height:16px;stroke:var(--tinta);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.btn-lg{padding:21px 40px;font-size:1.06rem}
+.btn:hover{transform:translateY(-2px)}
+.btn-accent{background:var(--accent);color:var(--ink)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.28)}
+.btn-block{width:100%}
 
-/* Reveal no scroll */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.reveal.in{opacity:1;transform:none}
-.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
-
-/* ════════════════ HEADER (só logo, sem links) ════════════════ */
-.header{position:absolute;top:0;left:0;width:100%;z-index:20;padding:28px 0}
-.logo{font-size:1.5rem;font-weight:800;letter-spacing:-.03em;color:#fff;display:inline-flex;align-items:baseline}
-.logo .dot{color:var(--teal)}
-.header-inner{display:flex;justify-content:center}
-.logo-img{height:68px;width:auto;display:block}
-.footer-logo-img{height:74px;width:auto;margin:0 auto 14px}
-.logo--dark{color:var(--tinta)}
-
-/* ════════════════ HERO ════════════════ */
-.hero{position:relative;background:var(--teal-fundo);color:#fff;min-height:92vh;display:flex;align-items:center;padding:130px 0 96px;overflow:hidden}
-.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;transform:scale(1.18);transform-origin:left center}
-.hero-scrim{position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(4,28,26,.95) 0%,rgba(5,43,40,.88) 50%,rgba(5,43,40,.5) 100%)}
-.hero-glow{position:absolute;top:44%;left:50%;width:920px;max-width:120vw;height:560px;transform:translate(-50%,-50%);background:radial-gradient(ellipse at center,rgba(0,212,198,.16),rgba(0,212,198,0) 64%);filter:blur(18px)}
-.hero-line{position:absolute;inset:0;width:100%;height:100%;opacity:.45}
-.hero-noise{position:absolute;inset:0;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='hn'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23hn)'/%3E%3C/svg%3E")}
-.hero-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 80% 72% at center,transparent 50%,rgba(2,16,14,.5) 100%)}
-.hero .container{position:relative;z-index:2}
-.hero-inner{max-width:900px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center}
-.hero-inner .eyebrow{margin-bottom:24px}
-.hero h1{font-size:clamp(2.6rem,6vw,4.7rem);line-height:1.05;margin-bottom:26px;max-width:900px}
-.hero h1 .hl{color:var(--teal)}
-.hero-sub{font-size:clamp(1.05rem,1.7vw,1.3rem);color:rgba(255,255,255,.74);max-width:620px;margin:0 auto 40px;font-weight:400}
-.hero-nicho{font-size:clamp(.92rem,1.5vw,1.1rem);font-weight:700;color:var(--teal);margin:0 auto 16px;max-width:640px;letter-spacing:.01em}
-.cta-nicho{font-size:clamp(.92rem,1.5vw,1.08rem);font-weight:700;color:var(--teal);margin-bottom:16px;letter-spacing:.01em}
-.hero-cta{display:flex;justify-content:center;width:100%}
-.hero-microtrust{font-size:.84rem;color:rgba(255,255,255,.46);margin-top:18px}
-.hero-creds{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:30px}
-.cred{font-size:.74rem;font-weight:600;color:rgba(255,255,255,.72);border:1px solid rgba(0,212,198,.32);border-radius:999px;padding:7px 15px;white-space:nowrap}
-.hero-scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:var(--teal);opacity:.7;animation:bob 2.1s ease-in-out infinite}
-.hero-scroll svg{width:24px;height:24px;stroke:var(--teal);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
-.hero-rv{opacity:0;transform:translateY(20px);animation:heroIn .75s var(--ease) forwards}
-.hero-rv.s2{animation-delay:.14s}.hero-rv.s3{animation-delay:.28s}.hero-rv.s4{animation-delay:.42s}.hero-rv.s5{animation-delay:.54s}.hero-rv.s6{animation-delay:.66s}
-@keyframes heroIn{to{opacity:1;transform:none}}
-
-/* divisória "linha de previsibilidade" */
-.divider{line-height:0}
-.divider svg{width:100%;height:54px;display:block}
-
-/* ════════════════ VSL ════════════════ */
-.vsl-head{text-align:center;max-width:720px;margin:0 auto 40px}
-.vsl-head .title{margin:0 auto 0}
-.vsl-frame{
-  position:relative;max-width:880px;margin:0 auto;aspect-ratio:16/9;border-radius:18px;overflow:hidden;
-  background:linear-gradient(150deg,#0a2e2b,#053b37 60%,#021f1c);box-shadow:var(--shadow-md);
-  border:1px solid rgba(5,59,55,.12);cursor:pointer
+/* NAV */
+.nav{
+  position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
 }
-.vsl-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.vsl-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#021f1c}
-.vsl-frame.vertical{aspect-ratio:9/16;max-width:380px}
-.vsl-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.vsl-play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;z-index:1;background:rgba(2,18,16,.4)}
-.vsl-play-btn{width:84px;height:84px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 40px rgba(0,212,198,.45);transition:transform .3s var(--ease)}
-.vsl-frame:hover .vsl-play-btn{transform:scale(1.08)}
-.vsl-play-btn svg{width:30px;height:30px;margin-left:5px;fill:var(--tinta)}
-.vsl-play span{color:rgba(255,255,255,.78);font-size:.9rem;font-weight:500}
-.vsl-cta{text-align:center;margin-top:40px}
-.vsl-caption{text-align:center;font-size:.88rem;color:var(--cinza);margin:14px auto 0;max-width:880px}
-.vsl-caption strong{color:var(--tinta);font-weight:600}
-.vsl-unmute{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(2,18,16,.45);border:none;cursor:pointer;color:#fff;font-family:inherit;font-weight:700;font-size:clamp(.92rem,1.8vw,1.12rem);text-align:center;padding:20px}
-.vsl-unmute-ic{width:62px;height:62px;border-radius:50%;background:var(--teal);color:var(--tinta);display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 10px 30px rgba(0,212,198,.5)}
-.vsl-unmute-tx{max-width:340px}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:18px;letter-spacing:-.02em;text-decoration:none}
+.logo span{color:var(--accent-ink)}
+.nav .btn{padding:11px 20px;font-size:14px}
 
-/* ════════════════ 3 DORES ════════════════ */
-.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
-.card{background:var(--branco);border:1px solid rgba(5,59,55,.09);border-radius:var(--radius);padding:38px 32px;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
-.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.card-ic{width:52px;height:52px;border-radius:13px;background:rgba(0,212,198,.1);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
-.card-ic svg{width:25px;height:25px;stroke:var(--teal-escuro);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.card h3{font-size:1.18rem;font-weight:700;margin-bottom:11px}
-.card p{font-size:.94rem;color:var(--cinza)}
-
-/* ════════════════ MÉTODO / 4 PILARES ════════════════ */
-.metodo-intro{max-width:680px;margin:0 0 8px;font-size:1.02rem;color:var(--cinza)}
-/* arte de abertura "Convênio Zero" (seção escura) */
-.metodo-art{text-align:center;max-width:920px;margin:0 auto;position:relative}
-.metodo-art::before{content:'';position:absolute;top:46%;left:50%;width:560px;max-width:88%;height:300px;transform:translate(-50%,-55%);background:radial-gradient(ellipse at center,rgba(0,212,198,.14),transparent 66%);filter:blur(12px);z-index:0;pointer-events:none}
-.metodo-art>*{position:relative;z-index:1}
-.metodo-kicker{display:block;font-size:.8rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
-.metodo-name{font-size:clamp(2.2rem,8.5vw,6rem);font-weight:800;line-height:.98;letter-spacing:-.02em;text-transform:uppercase;color:#fff;margin-bottom:22px}
-.metodo-name .hl{color:var(--teal)}
-.metodo-support{display:inline-block;font-size:clamp(1rem,1.5vw,1.18rem);color:#fff;font-weight:500;margin:0 auto 18px;max-width:92%;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:13px 30px;background:rgba(255,255,255,.05)}
-/* fundo rico da seção do método: foto (esquerda) + véu teal + gráfico (direita) */
-#metodo{position:relative;overflow:hidden;background:radial-gradient(125% 95% at 50% 26%,#0e2329 0%,#091b21 44%,#040d11 100%)}
-#metodo .container{position:relative;z-index:1}
-.metodo-bg{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-.metodo-photo{position:absolute;left:0;top:0;width:54%;height:100%;object-fit:cover;object-position:center;opacity:.4;-webkit-mask-image:linear-gradient(to right,#000 0%,#000 28%,transparent 80%);mask-image:linear-gradient(to right,#000 0%,#000 28%,transparent 80%)}
-.metodo-scrim{position:absolute;inset:0;background:radial-gradient(ellipse 94% 90% at 42% 46%,transparent 30%,rgba(3,10,13,.74) 100%)}
-.metodo-chart{position:absolute;right:0;top:7%;width:42%;max-width:520px;height:auto;opacity:.15;-webkit-mask-image:linear-gradient(215deg,#000 22%,transparent 78%);mask-image:linear-gradient(215deg,#000 22%,transparent 78%)}
-#metodo .metodo-intro{color:rgba(255,255,255,.55);max-width:660px;margin:0 auto;text-align:center}
-#metodo .pilares{margin-top:64px}
-#metodo .pilar{background:transparent;text-align:center}
-.pilar-ic{position:relative;z-index:1;width:84px;height:84px;margin:0 auto 26px;border-radius:50%;border:1.5px solid rgba(0,212,198,.45);background:#0a1c22;display:flex;align-items:center;justify-content:center}
-.pilar-ic svg{width:34px;height:34px;stroke:var(--teal);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-#metodo .pilar-n{position:absolute;left:50%;bottom:-13px;transform:translateX(-50%);width:auto;height:auto;border:none;border-radius:0;box-shadow:none;background:#0a1c22;color:var(--teal);font-size:.92rem;font-weight:800;padding:0 7px;margin:0;display:block}
-#metodo .pilar h3{color:#fff;text-transform:uppercase;letter-spacing:.07em;font-size:.92rem;font-weight:700;margin-bottom:11px}
-#metodo .pilar p{color:rgba(255,255,255,.5);max-width:235px;margin:0 auto}
-.pilares{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:54px}
-.pilar-line{position:absolute;top:42px;left:9%;right:9%;height:2px;z-index:0}
-.pilar{position:relative;z-index:1;background:var(--branco)}
-.pilar-n{width:68px;height:68px;border-radius:50%;background:var(--teal-fundo);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:800;margin-bottom:22px;border:5px solid var(--branco);box-shadow:0 6px 22px rgba(5,59,55,.16)}
-.pilar h3{font-size:1.1rem;font-weight:700;margin-bottom:9px}
-.pilar p{font-size:.9rem;color:var(--cinza)}
-
-/* ════════════════ PROVA / DEPOIMENTOS EM ÁUDIO ════════════════ */
-.prova-intro{max-width:560px;margin:0 0 8px;font-size:1rem;color:var(--cinza)}
-.prova-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:46px}
-.audio-card{background:var(--branco);border:1px solid rgba(5,59,55,.1);border-radius:16px;padding:26px 26px 24px;box-shadow:var(--shadow);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
-.audio-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
-.audio-top{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.depo-avatar-wrap{flex-shrink:0}
-.depo-foto{width:52px;height:52px;border-radius:50%;object-fit:cover;display:block}
-.avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(140deg,var(--teal-escuro),var(--teal-fundo));color:#fff;align-items:center;justify-content:center;font-weight:700;font-size:1rem;display:flex;flex-shrink:0}
-.audio-who strong{display:block;font-size:.97rem;font-weight:700;color:var(--tinta)}
-.audio-who span{font-size:.81rem;color:var(--teal-escuro);font-weight:600}
-.audio-real{width:100%;margin-top:2px;height:40px;border-radius:8px;accent-color:#00D4C6}
-
-/* ════════════════ CLIENTES (médicos + clínicas) ════════════════ */
-.clientes-sub{font-size:1rem;color:var(--cinza);max-width:640px;margin-top:-4px}
-.med-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:44px 36px;margin-top:58px}
-.med-card{flex:0 0 200px;transition:transform .35s var(--ease)}
-.med-card:hover{transform:translateY(-6px)}
-.med-card img{width:100%;height:auto;display:block}
-.clientes-sep{display:flex;align-items:center;gap:20px;max-width:440px;margin:76px auto 0;color:var(--teal-escuro)}
-.clientes-sep::before,.clientes-sep::after{content:"";flex:1;height:1px;background:rgba(5,59,55,.12)}
-.clientes-sep span{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.16em;white-space:nowrap}
-.logo-wall{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:46px 64px;margin-top:54px}
-.logo-tile{flex:0 0 auto;width:180px;height:64px;display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease)}
-.logo-tile:hover{transform:scale(1.06)}
-.logo-tile img{max-width:100%;max-height:64px;width:auto;object-fit:contain}
-
-@media(max-width:900px){
-  .med-grid{gap:40px 30px}
-  .med-card{flex:0 0 178px}
-  .logo-wall{gap:40px 48px}
-  .logo-tile{width:152px;height:60px}
-  .logo-tile img{max-height:60px}
+/* HERO */
+.hero{background:var(--ink);color:#fff;padding:56px 0 0}
+@media(min-width:900px){.hero{padding:80px 0 0}}
+.hero h1{color:#fff;max-width:14ch}
+.hero .lead{color:#B9C7C4;margin-top:22px;max-width:52ch}
+.hero-grid{display:grid;gap:40px}
+@media(min-width:900px){
+  .hero-grid{grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
 }
-@media(max-width:640px){
-  .med-grid{gap:34px 22px;margin-top:44px}
-  .med-card{flex:0 0 138px}
-  .logo-wall{gap:34px 40px}
-  .logo-tile{width:130px;height:52px}
-  .logo-tile img{max-height:52px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.trust{
+  display:flex;flex-wrap:wrap;gap:10px;margin-top:36px;padding-bottom:56px;
+}
+.trust span{
+  font-size:12px;font-weight:600;color:#C9D6D3;
+  border:1px solid rgba(255,255,255,.14);padding:7px 13px;border-radius:999px;
 }
 
-/* ════════════════ ESTUDO DE CASO — Clínica Adissi ════════════════ */
-.caso{display:grid;grid-template-columns:minmax(0,.92fr) 1.08fr;background:linear-gradient(150deg,#063f3a,#04302c);border-radius:22px;overflow:hidden;box-shadow:0 26px 60px rgba(5,59,55,.28);margin-top:44px}
-.caso-media{position:relative;min-height:360px}
-.caso-foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-.caso-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,48,44,0) 55%,rgba(4,48,44,.85) 100%)}
-.caso-logo{position:absolute;left:22px;bottom:22px;background:#fff;border-radius:12px;padding:11px 16px;box-shadow:0 10px 26px rgba(0,0,0,.28)}
-.caso-logo img{height:32px;width:auto;display:block}
-.caso-body{padding:44px 48px;color:#fff}
-.caso-tag{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.13em;color:var(--teal)}
-.caso-title{font-size:clamp(1.45rem,2.3vw,2rem);font-weight:800;letter-spacing:-.02em;line-height:1.16;margin:12px 0 6px;color:#fff}
-.caso-local{font-size:.88rem;color:rgba(255,255,255,.58);margin-bottom:20px}
-.caso-body p{font-size:.98rem;line-height:1.7;color:rgba(255,255,255,.82);margin-bottom:14px}
-.caso-body p strong{color:#fff;font-weight:700}
-.caso-chips{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 4px}
-.caso-chip{font-size:.79rem;font-weight:600;color:var(--teal);border:1px solid rgba(0,212,198,.42);border-radius:999px;padding:7px 15px}
-.caso-hl{font-size:1.05rem!important;color:#fff!important;font-weight:600;border-top:1px solid rgba(255,255,255,.14);padding-top:18px;margin-top:16px}
-.caso-hl .hl{color:var(--teal)}
-@media(max-width:820px){
-  .caso{grid-template-columns:1fr;margin-top:32px}
-  .caso-media{min-height:230px}
-  .caso-media::after{background:linear-gradient(0deg,rgba(4,48,44,.92) 0%,rgba(4,48,44,0) 45%)}
-  .caso-logo{left:18px;bottom:16px;padding:9px 13px}
-  .caso-logo img{height:28px}
-  .caso-body{padding:30px 26px}
+/* VIDEO 9:16 */
+.vid-card{
+  background:var(--ink-2);border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;padding:14px;margin-bottom:-40px;
+}
+.vid-frame{
+  aspect-ratio:9/16;background:#000;border-radius:14px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;position:relative;
+  max-height:520px;margin:0 auto;width:100%;
+}
+.vid-frame video{width:100%;height:100%;object-fit:cover}
+.vid-ph{
+  text-align:center;padding:24px;color:#7E908C;font-size:13px;font-weight:600;
+}
+.vid-ph strong{display:block;color:#fff;font-size:15px;margin-bottom:6px}
+.vid-cap{
+  font-size:12.5px;color:#93A5A1;margin-top:12px;text-align:center;font-weight:500;
 }
 
-/* ════════════════ GUSTAVO ════════════════ */
-.gus-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
-.gus-photo{position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-md);background:linear-gradient(140deg,#0a2e2b,#053b37)}
-.gus-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;aspect-ratio:4/5}
-.gus-ph-fallback{aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:3rem;font-weight:800}
-.gus-text h2{font-size:clamp(1.8rem,3vw,2.4rem);margin-bottom:4px}
-.gus-role{font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--teal-escuro);margin-bottom:24px}
-.gus-text p{font-size:1.04rem;color:var(--cinza);max-width:560px}
-
-/* ════════════════ DIFERENCIAL (checks) ════════════════ */
-.checks{display:flex;flex-direction:column;gap:18px;margin-top:42px;max-width:760px}
-.check{display:flex;gap:16px;align-items:flex-start}
-.check-ic{width:30px;height:30px;border-radius:50%;background:rgba(0,212,198,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.check-ic svg{width:16px;height:16px;stroke:var(--teal-escuro);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
-.check p{font-size:1.05rem;color:var(--tinta);font-weight:500}
-
-/* ════════════════ CFM ════════════════ */
-.cfm{max-width:980px;display:flex;align-items:center;gap:56px}
-.cfm-text{flex:1;min-width:0}
-.cfm-logo{width:230px;max-width:34%;height:auto;flex-shrink:0;opacity:.92}
-.cfm .title{font-size:clamp(1.5rem,2.6vw,2rem)}
-.cfm p{font-size:1.04rem;color:var(--cinza)}
-.objection{max-width:820px;margin:0 auto;text-align:center}
-.objection p{font-size:1.1rem;color:var(--cinza);margin-top:16px}
-.objection p strong{color:var(--tinta);font-weight:700}
-
-/* SERVIÇOS */
-#servicos{background:var(--teal-fundo)}
-.servicos-sub{font-size:.97rem;color:rgba(255,255,255,.55);max-width:600px;margin-top:-6px}
-.servicos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
-.servico-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:32px 28px;transition:transform .3s var(--ease),background .3s var(--ease),border-color .3s var(--ease)}
-.servico-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.07);border-color:rgba(0,212,198,.4)}
-.servico-ic{width:50px;height:50px;border-radius:50%;border:1.5px solid rgba(0,212,198,.4);background:rgba(0,212,198,.08);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
-.servico-ic svg{width:22px;height:22px;stroke:var(--teal);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.servico-card h3{font-size:1.02rem;font-weight:700;color:#fff;margin-bottom:9px}
-.servico-card p{font-size:.87rem;color:rgba(255,255,255,.55);line-height:1.65}
-.servicos-nota{margin-top:40px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12);text-align:center;font-size:.93rem;color:rgba(255,255,255,.68);max-width:680px;margin-left:auto;margin-right:auto}
-
-/* ════════════════ CTA FINAL ════════════════ */
-.cta-final{text-align:center}
-.cta-final .container{position:relative;z-index:2}
-.cta-final h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:18px;max-width:780px;margin-inline:auto}
-.cta-final .lead{margin:0 auto 36px;color:rgba(255,255,255,.7)}
-.cta-scarcity{margin-top:22px;font-size:.86rem;color:rgba(255,255,255,.5)}
-
-/* ════════════════ FOOTER ════════════════ */
-.footer{background:var(--tinta);color:rgba(255,255,255,.55);padding:48px 0;text-align:center}
-.footer .logo{color:#fff;font-size:1.3rem;margin-bottom:12px}
-.footer p{font-size:.84rem;max-width:520px;margin:0 auto 6px}
-.footer .copy{font-size:.76rem;color:rgba(255,255,255,.3);margin-top:14px}
-
-/* ════════════════ STICKY CTA (mobile) ════════════════ */
-.sticky-cta{position:fixed;left:0;bottom:0;width:100%;z-index:30;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-top:1px solid rgba(5,59,55,.1);display:none}
-.sticky-cta .btn{width:100%}
-
-/* ════════════════ MODAL FORM ════════════════ */
-.modal{position:fixed;inset:0;z-index:100;display:none;background:rgba(2,20,18,.55);backdrop-filter:blur(8px);padding:20px;overflow-y:auto}
-.modal.open{display:flex;align-items:flex-start;justify-content:center}
-.modal-inner{background:var(--branco);width:100%;max-width:600px;margin:auto;border-radius:20px;box-shadow:0 30px 90px rgba(0,0,0,.4);position:relative;overflow:hidden;animation:rise .4s var(--ease)}
-@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-.modal-close{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;border:none;background:var(--off-white);cursor:pointer;font-size:1.3rem;color:var(--cinza);z-index:3;display:flex;align-items:center;justify-content:center;transition:.2s}
-.modal-close:hover{background:#e9f2f1;color:var(--tinta)}
-.modal-progress{height:4px;background:var(--off-white)}
-.modal-progress-bar{height:100%;width:0;background:var(--teal);transition:width .4s var(--ease)}
-.stage{padding:54px 44px 46px;min-height:340px;display:flex;flex-direction:column;justify-content:center}
-.step{animation:fade .35s var(--ease)}
-@keyframes fade{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
-.step-back{background:none;border:none;color:var(--cinza);font-family:inherit;font-size:.84rem;cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-bottom:20px;padding:0}
-.step-back svg{width:14px;height:14px;stroke:var(--cinza);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.step-eyebrow{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--teal-escuro);margin-bottom:14px}
-.step h3{font-size:clamp(1.3rem,3vw,1.7rem);font-weight:800;line-height:1.18;margin-bottom:26px}
-.step h3 small{display:block;font-size:.92rem;font-weight:400;color:var(--cinza);margin-top:10px;letter-spacing:0}
-.field{width:100%;padding:16px 18px;border:1.6px solid rgba(5,59,55,.16);border-radius:12px;font-family:inherit;font-size:1.02rem;color:var(--tinta);transition:border-color .2s,box-shadow .2s;background:var(--branco)}
-.field:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 4px rgba(0,212,198,.13)}
-.opts{display:flex;flex-direction:column;gap:11px}
-.opt{text-align:left;width:100%;padding:17px 20px;border:1.6px solid rgba(5,59,55,.16);border-radius:12px;background:var(--branco);font-family:inherit;font-size:1rem;font-weight:500;color:var(--tinta);cursor:pointer;transition:.2s;display:flex;align-items:center;gap:13px}
-.opt:hover{border-color:var(--teal);background:rgba(0,212,198,.05);transform:translateX(3px)}
-.opt-dot{width:18px;height:18px;border-radius:50%;border:2px solid rgba(5,59,55,.25);flex-shrink:0;transition:.2s}
-.opt:hover .opt-dot{border-color:var(--teal);box-shadow:inset 0 0 0 4px var(--teal)}
-.step-err{color:#c0392b;font-size:.84rem;margin-top:10px;min-height:1.1em}
-.step-actions{margin-top:26px}
-.step-actions .btn{width:100%}
-.intro-pill{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-escuro);background:rgba(0,212,198,.1);padding:7px 14px;border-radius:999px;margin-bottom:20px}
-/* tela final */
-.done{text-align:center;padding:20px 6px}
-.done-ic{width:72px;height:72px;border-radius:50%;background:rgba(0,212,198,.13);display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
-.done-ic svg{width:34px;height:34px;stroke:var(--teal-escuro);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
-.done h3{font-size:1.5rem;font-weight:800;margin-bottom:12px}
-.done p{color:var(--cinza);font-size:1rem;max-width:400px;margin:0 auto}
-.done-sub{font-size:.85rem;color:var(--cinza);margin-top:16px}
-
-/* ════════════════ FUNIL — como trabalhamos diferente ════════════════ */
-.funil-sub{font-size:1.02rem;color:var(--cinza);max-width:690px;margin-top:2px}
-.funil{margin-top:52px;display:flex;flex-direction:column;align-items:center}
-.funil-layer{width:var(--w,100%);max-width:100%;display:flex;align-items:center;gap:32px;background:#fff;border:1px solid rgba(5,59,55,.1);border-left:4px solid var(--teal);border-radius:16px;padding:26px 34px;box-shadow:var(--shadow);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
-.funil-layer:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
-.funil-stage{flex:0 0 158px;display:flex;flex-direction:column;gap:5px}
-.funil-tag{font-size:1.18rem;font-weight:800;letter-spacing:-.01em;color:var(--tinta)}
-.funil-step{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.16em;color:var(--teal-escuro)}
-.funil-content{flex:1;min-width:0}
-.funil-quote{font-size:1.14rem;font-weight:600;color:var(--teal-escuro);margin-bottom:7px;line-height:1.4}
-.funil-desc{font-size:.95rem;color:#374845;line-height:1.66}
-.funil-arrow{color:var(--teal);margin:3px 0;display:flex;justify-content:center}
-.funil-arrow svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.funil-layer--2{background:linear-gradient(180deg,#ffffff,#eefaf9);border-left-color:var(--teal-escuro)}
-.funil-layer--final{background:linear-gradient(150deg,#063f3a,#04302c);border-color:transparent;box-shadow:0 18px 46px rgba(5,59,55,.24)}
-.funil-layer--final .funil-tag{color:#fff}
-.funil-layer--final .funil-step{color:var(--teal)}
-.funil-layer--final .funil-quote{color:var(--teal)}
-.funil-layer--final .funil-desc{color:rgba(255,255,255,.84)}
-.funil-close{max-width:780px;margin:50px auto 0;text-align:center;font-size:clamp(1.02rem,1.7vw,1.24rem);color:var(--cinza);line-height:1.6}
-.funil-close strong{display:block;color:var(--tinta);font-size:1.16em;font-weight:800;letter-spacing:-.01em;margin-bottom:10px}
-.funil-close strong .hl{color:var(--teal-escuro)}
-.funil-plano{max-width:640px;margin:24px auto 0;text-align:center;font-size:.92rem;color:var(--cinza);display:flex;align-items:flex-start;gap:9px;justify-content:center;line-height:1.55}
-.funil-plano svg{width:18px;height:18px;stroke:var(--teal-escuro);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:2px}
-@media(max-width:900px){
-  .funil-layer{gap:22px;padding:24px 26px}
-  .funil-stage{flex:0 0 128px}
+/* TRIO */
+.grid-3{display:grid;gap:18px}
+@media(min-width:760px){.grid-3{grid-template-columns:repeat(3,1fr);gap:22px}}
+.card{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px 24px;
 }
-@media(max-width:640px){
-  .funil{margin-top:40px}
-  .funil-layer{width:100%!important;flex-direction:column;align-items:flex-start;gap:13px;padding:22px 22px}
-  .funil-stage{flex:0 0 auto;flex-direction:row;align-items:baseline;gap:10px}
-  .funil-quote{font-size:1.06rem}
-  .funil-close{margin-top:38px}
+.card .num{
+  font-size:13px;font-weight:800;color:var(--accent-ink);letter-spacing:1px;
+  margin-bottom:14px;display:block;
 }
-.metodo-ponte{margin:52px auto 0;max-width:650px;text-align:center;font-size:clamp(1.06rem,1.9vw,1.32rem);font-weight:600;color:rgba(255,255,255,.9);line-height:1.5}
-.metodo-ponte .hl{color:var(--teal)}
-.metodo-seta{display:flex;justify-content:center;margin-top:16px;color:var(--teal)}
-.metodo-seta svg{width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+.card h3{margin-bottom:10px}
+.card p{font-size:15px}
 
-/* ════════════════ RESPONSIVO ════════════════ */
-@media(max-width:920px){
-  .gus-grid{grid-template-columns:1fr;gap:36px}
-  .gus-photo{max-width:360px}
-  .pilares{grid-template-columns:repeat(2,1fr);gap:34px 22px}
-  .pilar-line{display:none}
-  .cards3{grid-template-columns:1fr;gap:18px}
-  .servicos-grid{grid-template-columns:repeat(2,1fr)}
-  .cfm{flex-direction:column;align-items:flex-start;gap:30px}
-  .cfm-logo{width:220px;max-width:60%}
+.sec-head{max-width:36ch;margin-bottom:38px}
+.sec-head p{margin-top:16px}
+.sec-head.wide{max-width:48ch}
+
+/* DOR */
+.pain{background:var(--soft)}
+.pain-list{display:grid;gap:14px;margin-top:8px}
+@media(min-width:760px){.pain-list{grid-template-columns:1fr 1fr;gap:16px}}
+.pain-item{
+  background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;
+  font-size:15.5px;color:var(--ink);font-weight:600;line-height:1.45;
 }
-@media(max-width:560px){
-  .section{padding:72px 0}
-  .hero{min-height:auto;padding:120px 0 84px}
-  .hero h1{font-size:clamp(2.1rem,9vw,2.9rem)}
-  .stage{padding:46px 26px 38px}
-  .sticky-cta{display:block}
-  .footer{padding-bottom:90px}
-  .btn{width:100%}
-  .logo-img{height:56px}
-  .footer-logo-img{height:64px}
-  .metodo-support{border-radius:18px;padding:12px 22px}
-  .prova-grid{grid-template-columns:1fr;gap:16px}
-  .servicos-grid{grid-template-columns:1fr}
+.pain-item em{display:block;font-style:normal;font-weight:500;color:var(--muted);font-size:14.5px;margin-top:6px}
+
+/* METODO */
+.method{background:var(--ink);color:#fff}
+.method h2{color:#fff}
+.method .sec-head p{color:#A9BAB6}
+.steps{display:grid;gap:16px}
+@media(min-width:760px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{
+  border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);
+  padding:26px 22px;background:rgba(255,255,255,.03);
 }
-@media(prefers-reduced-motion:reduce){
-  *{animation-duration:.001s!important;transition:none!important;scroll-behavior:auto!important}
-  .reveal,.hero-rv{opacity:1;transform:none}
-  .hero-scroll{animation:none}
+.step .n{
+  width:34px;height:34px;border-radius:10px;background:var(--accent);
+  color:var(--ink);font-weight:800;font-size:14px;display:flex;
+  align-items:center;justify-content:center;margin-bottom:16px;
+}
+.step h3{color:#fff;margin-bottom:8px}
+.step p{color:#A9BAB6;font-size:14.5px}
+
+/* POSICIONAMENTO */
+.stage{
+  display:grid;gap:6px;padding:26px 0;border-top:1px solid var(--line);
+}
+@media(min-width:760px){
+  .stage{grid-template-columns:200px 1fr;gap:32px;align-items:start;padding:30px 0}
+}
+.stage-label{font-weight:800;font-size:15px;letter-spacing:-.01em}
+.stage-q{font-size:15px;color:var(--accent-ink);font-weight:600;margin-bottom:6px}
+.pull{
+  margin-top:34px;padding:26px;background:var(--ink);color:#fff;border-radius:var(--radius);
+  font-size:clamp(18px,2.6vw,23px);font-weight:700;letter-spacing:-.02em;line-height:1.3;
+}
+
+/* DEPOIMENTOS */
+.quotes{background:var(--soft)}
+.grid-2{display:grid;gap:18px}
+@media(min-width:760px){.grid-2{grid-template-columns:1fr 1fr;gap:22px}}
+.quote{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;
+}
+.quote p{color:var(--ink);font-size:16px;font-weight:500;line-height:1.5}
+.who{margin-top:18px;display:flex;align-items:center;gap:12px}
+.who-av{
+  width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex:0 0 auto;
+}
+.who-n{font-weight:700;font-size:14.5px;line-height:1.3}
+.who-r{font-size:12.5px;color:var(--muted)}
+
+/* CASE */
+.case{
+  background:var(--ink);color:#fff;border-radius:22px;padding:34px 26px;
+}
+@media(min-width:768px){.case{padding:48px 44px}}
+.case h2{color:#fff;max-width:20ch}
+.case .lead{color:#A9BAB6;margin-top:18px;max-width:58ch}
+.case-stats{display:grid;gap:14px;margin-top:32px}
+@media(min-width:620px){.case-stats{grid-template-columns:repeat(3,1fr)}}
+.stat{border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px}
+.stat b{display:block;font-size:22px;color:var(--accent);letter-spacing:-.02em}
+.stat span{font-size:13px;color:#9FB0AC;display:block;margin-top:4px}
+
+/* SOBRE */
+.about-grid{display:grid;gap:28px}
+@media(min-width:860px){.about-grid{grid-template-columns:.9fr 1.1fr;gap:52px;align-items:center}}
+.about-ph{
+  background:var(--soft);border:1px solid var(--line);border-radius:20px;
+  aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;
+  color:var(--muted);font-size:13px;font-weight:600;text-align:center;padding:0;overflow:hidden;
+}
+.about-ph img{width:100%;height:100%;object-fit:cover;object-position:center top}
+
+/* CLIENTES (faixa de prova social) */
+.clients{background:var(--soft);padding-top:0}
+.clients-grid{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:640px){.clients-grid{grid-template-columns:repeat(3,1fr);gap:16px}}
+@media(min-width:960px){.clients-grid{grid-template-columns:repeat(4,1fr)}}
+.client{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 18px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;
+}
+.av-crop{width:96px;height:96px;border-radius:50%;overflow:hidden;flex:0 0 auto;position:relative}
+.av-crop img{position:absolute;width:200%;height:200%;left:-50%;top:-26%;max-width:none;border-radius:0}
+.who-av.av-crop{width:40px;height:40px}
+.client .who-n{font-size:14px}
+.client .who-r{font-size:12.5px}
+.client.is-logo{justify-content:center;min-height:150px}
+.client.is-logo img{width:auto;height:52px;max-width:150px;object-fit:contain}
+.clients-sub{
+  display:flex;align-items:center;gap:14px;margin:34px 0 16px;font-size:11px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:var(--accent-ink);
+}
+.clients-sub::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* áudio dentro do depoimento */
+.quote audio{width:100%;height:40px;margin-top:8px;accent-color:var(--accent-ink)}
+
+/* SERVICOS */
+.serv{background:var(--soft)}
+.grid-serv{display:grid;gap:16px}
+@media(min-width:640px){.grid-serv{grid-template-columns:1fr 1fr}}
+@media(min-width:960px){.grid-serv{grid-template-columns:repeat(3,1fr)}}
+.serv-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px}
+.serv-card .ico{
+  width:38px;height:38px;border-radius:11px;background:var(--ink);
+  display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+}
+.serv-card .ico svg{width:19px;height:19px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.serv-card h3{margin-bottom:8px}
+.serv-card p{font-size:14.5px}
+.note{
+  margin-top:24px;font-size:14.5px;color:var(--muted);
+  border-left:3px solid var(--accent);padding-left:16px;
+}
+
+/* CFO */
+.cfo-box{
+  border:1px solid var(--line);border-radius:22px;padding:30px 24px;background:#fff;
+}
+@media(min-width:768px){.cfo-box{padding:44px 40px}}
+.cfo-cols{display:grid;gap:26px;margin-top:28px}
+@media(min-width:760px){.cfo-cols{grid-template-columns:1fr 1fr;gap:36px}}
+.cfo-col h3{margin-bottom:14px;font-size:16px}
+.cfo-col ul{list-style:none;display:grid;gap:11px}
+.cfo-col li{
+  font-size:15px;color:var(--ink);padding-left:26px;position:relative;line-height:1.45;font-weight:500;
+}
+.cfo-col li::before{
+  position:absolute;left:0;top:0;font-weight:800;font-size:15px;
+}
+.can li::before{content:"✓";color:var(--accent-ink)}
+.cant li::before{content:"✕";color:#C4483B}
+.cfo-foot{margin-top:26px;font-size:13.5px;color:var(--muted);line-height:1.55}
+
+/* FORM */
+.form-sec{background:var(--ink);color:#fff}
+.form-sec h2{color:#fff}
+.form-sec .sec-head p{color:#A9BAB6}
+.form-card{
+  background:var(--ink-2);border:1px solid rgba(255,255,255,.12);
+  border-radius:22px;padding:28px 22px;max-width:620px;
+}
+@media(min-width:768px){.form-card{padding:40px 38px}}
+.progress{display:flex;gap:6px;margin-bottom:26px}
+.progress i{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.15)}
+.progress i.on{background:var(--accent)}
+.step-q{font-size:19px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.01em}
+.step-h{font-size:14px;color:#8FA29E;margin-bottom:20px}
+.opts{display:grid;gap:10px}
+.opt{
+  display:block;width:100%;text-align:left;background:rgba(255,255,255,.04);
+  border:1.5px solid rgba(255,255,255,.14);border-radius:13px;padding:16px 18px;
+  color:#fff;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;
+  transition:border-color .15s ease,background .15s ease;
+}
+.opt:hover{border-color:var(--accent);background:rgba(0,242,227,.07)}
+.fields{display:grid;gap:14px}
+.field label{display:block;font-size:13px;font-weight:700;color:#B9C7C4;margin-bottom:7px}
+.field input,.field select{
+  width:100%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.14);
+  border-radius:12px;padding:14px 16px;color:#fff;font-size:15px;font-family:inherit;
+}
+.field input::placeholder{color:#6F817D}
+.field input:focus,.field select:focus{outline:none;border-color:var(--accent)}
+.field select option{background:var(--ink-2);color:#fff}
+.back{
+  background:none;border:0;color:#8FA29E;font-size:13.5px;font-weight:600;
+  cursor:pointer;margin-top:18px;font-family:inherit;padding:4px 0;
+}
+.done{text-align:center;padding:16px 0}
+.done .tick{
+  width:52px;height:52px;border-radius:50%;background:var(--accent);color:var(--ink);
+  display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;
+  margin:0 auto 18px;
+}
+.done h3{color:#fff;font-size:21px;margin-bottom:10px}
+.done p{color:#A9BAB6;font-size:15px;max-width:40ch;margin:0 auto}
+.hidden{display:none}
+
+/* FINAL */
+.final{text-align:center}
+.final h2{max-width:22ch;margin:0 auto}
+.final p{margin:20px auto 0;max-width:50ch}
+.final .btn{margin-top:30px}
+.limit{font-size:13.5px;color:var(--muted);margin-top:18px}
+
+/* FOOTER */
+footer{background:var(--ink);color:#fff;padding:44px 0 36px}
+.foot-in{display:grid;gap:18px}
+@media(min-width:700px){.foot-in{grid-template-columns:1fr auto;align-items:center}}
+.foot-logo{font-weight:800;font-size:17px;letter-spacing:-.02em}
+.foot-logo span{color:var(--accent)}
+.foot-sub{font-size:13px;color:#8FA29E;margin-top:6px}
+.foot-links{display:flex;gap:20px;font-size:13.5px;color:#9FB0AC}
+.foot-links a{text-decoration:none}
+.foot-links a:hover{color:var(--accent)}
+.foot-legal{
+  border-top:1px solid rgba(255,255,255,.1);margin-top:30px;padding-top:22px;
+  font-size:12.5px;color:#7E908C;line-height:1.6;
 }
 </style>
 </head>
@@ -452,950 +382,523 @@ h2.title{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:18px;max-width:760px
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLB9HGKB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- ════════ HEADER ════════ -->
-<header class="header">
-  <div class="container header-inner">
-    <img src="assets/img/evoluze-logo.png" alt="Evoluze Marketing" class="logo-img"/>
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a href="#" class="logo">Evoluze <span>Odonto</span></a>
+    <a href="#diagnostico" class="btn">Quero minha agenda</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow on-dark">Assessoria exclusiva para clínicas odontológicas</span>
+        <h1>Sua agenda cheia não significa nada se o convênio leva a maior parte.</h1>
+        <p class="lead">Estruturamos a aquisição de paciente particular para clínicas odontológicas que querem parar de trabalhar muito e faturar pouco.</p>
+        <div class="hero-actions">
+          <a href="#diagnostico" class="btn btn-accent">Quero minha agenda de particular</a>
+          <a href="#metodo" class="btn btn-ghost">Ver o método</a>
+        </div>
+        <div class="trust">
+          <span>Google Ads certificado</span>
+          <span>Meta Ads</span>
+          <span>15+ clientes</span>
+          <span>Contas operadas pessoalmente</span>
+        </div>
+      </div>
+
+      <div class="vid-card">
+        <div class="vid-frame">
+          <!-- [ARQUIVO] salvar o MP4 vertical (H.264/AAC, 1080x1920) em assets/video/eveline.mp4.
+               A capa assets/img/eveline-capa.jpg é provisória (arte com o nome); troque por um frame real quando tiver. -->
+          <video src="assets/video/eveline.mp4" poster="assets/img/eveline-capa.jpg" controls playsinline preload="metadata"></video>
+        </div>
+        <p class="vid-cap">Dra. Eveline Leite, ortodontista — cliente Evoluze</p>
+      </div>
+    </div>
   </div>
 </header>
 
-<!-- ════════ HERO ════════ -->
-<section class="hero">
-  <div class="hero-bg" aria-hidden="true">
-    <img class="hero-photo" src="assets/img/hero-bg.jpg" alt=""/>
-    <div class="hero-scrim"></div>
-    <div class="hero-glow"></div>
-    <!-- linha de previsibilidade (refinada e sutil) -->
-    <svg class="hero-line" viewBox="0 0 1200 600" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="lg" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#00D4C6" stop-opacity="0"/>
-          <stop offset="1" stop-color="#00D4C6" stop-opacity=".4"/>
-        </linearGradient>
-      </defs>
-      <path d="M-40,470 C220,452 360,388 540,360 C740,330 900,300 1240,250"
-            fill="none" stroke="url(#lg)" stroke-width="1.6"/>
-      <path d="M-40,540 C240,528 380,488 560,466 C760,442 940,420 1240,392"
-            fill="none" stroke="#00D4C6" stroke-opacity=".1" stroke-width="1.2"/>
-    </svg>
-    <div class="hero-noise"></div>
-    <div class="hero-vignette"></div>
-  </div>
-  <div class="container">
-    <div class="hero-inner">
-      <span class="eyebrow hero-rv">Assessoria especializada em marketing odontológico</span>
-      <h1 class="hero-rv s2">Sua agenda cheia não significa nada se o <span class="hl">convênio</span> leva a maior parte.</h1>
-      <p class="hero-nicho hero-rv" style="animation-delay:.21s">Assessoria exclusiva para clínicas odontológicas</p>
-      <p class="hero-sub hero-rv s3">Estruturamos a aquisição de paciente particular para clínicas odontológicas. Sem depender de convênio, sem desconto, sem promoção.</p>
-      <div class="hero-cta hero-rv s4">
-        <button class="btn btn-lg" data-open-form>Quero minha agenda de particular
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-      <span class="hero-microtrust hero-rv s5">Análise gratuita · cada conta é operada pessoalmente</span>
-      <div class="hero-creds hero-rv s6" aria-label="Credenciais">
-        <span class="cred">Google Ads Certified</span>
-        <span class="cred">Meta Ads</span>
-        <span class="cred" id="credClinicas">+15 clientes atendidos</span>
-        <span class="cred">Operação 100% pessoal</span>
-      </div>
+<!-- DOR -->
+<section class="pain">
+  <div class="wrap">
+    <div class="sec-head wide">
+      <span class="eyebrow">O problema real</span>
+      <h2>A conta não fecha, e não é porque falta paciente.</h2>
+      <p>Clínica odontológica raramente tem problema de agenda vazia. Tem problema de agenda cheia com a margem errada.</p>
     </div>
-  </div>
-  <a class="hero-scroll" href="#vsl" aria-label="Rolar para o vídeo"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></a>
-</section>
-
-<!-- ════════ VSL ════════ -->
-<section class="section" id="vsl">
-  <div class="container">
-    <div class="vsl-head reveal">
-      <span class="eyebrow">Assista antes de qualquer coisa</span>
-      <h2 class="title">Como construir um fluxo previsível de pacientes particulares no seu consultório</h2>
-    </div>
-    <!-- [VSL] Troque este placeholder pelo embed (YouTube/Vimeo). Ex.: defina data-embed
-         com a URL do player; ao clicar, o vídeo carrega (lazy-load). -->
-    <div class="vsl-frame reveal" id="vslFrame" data-embed="">
-      <img class="vsl-poster" id="vslPoster" alt="" loading="lazy"/>
-      <div class="vsl-play">
-        <div class="vsl-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <span>Vídeo em breve</span>
-      </div>
-    </div>
-    <p class="vsl-caption reveal"><strong>Dra. Eveline Leite</strong>, ortodontista — cliente Evoluze</p>
-    <div class="vsl-cta reveal">
-      <button class="btn btn-lg" data-open-form>Quero minha agenda de particular</button>
+    <div class="pain-list">
+      <div class="pain-item">O convênio define quanto você ganha
+        <em>Você executa o procedimento inteiro e recebe uma fração dele, num prazo que não é seu.</em></div>
+      <div class="pain-item">Volume vira refém
+        <em>Para faturar mais você só tem uma alavanca: atender mais gente, em mais horas.</em></div>
+      <div class="pain-item">Indicação não é previsível
+        <em>Um mês lota, o outro esvazia, e não há nada que você possa fazer para mudar isso.</em></div>
+      <div class="pain-item">O particular chega, mas não fecha
+        <em>Sem processo comercial, o orçamento alto vira "vou pensar" e não volta.</em></div>
     </div>
   </div>
 </section>
 
-<!-- ════════ DOR (adição odonto — remover esta section inteira se quiser estrutura 100% idêntica) ════════ -->
-<section class="section alt" id="dor">
-  <div class="container">
-    <div class="objection reveal">
-      <p>Você atende o dia inteiro e fecha o mês com o faturamento que não corresponde ao esforço. O convênio define quanto vale o seu trabalho. O paciente particular aparece por indicação, quando aparece. E a cadeira que deveria estar com ortodontia, implante ou reabilitação está ocupada com procedimento de tabela.</p>
-      <p><strong>Isso não é problema de competência clínica. É problema de aquisição.</strong></p>
+<!-- TRIO -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">O que muda</span>
+      <h2>Três coisas que mudam quando o particular vira a maior parte da agenda</h2>
     </div>
-  </div>
-</section>
-
-<!-- linha divisória -->
-<div class="divider alt" aria-hidden="true"><svg viewBox="0 0 1200 54" preserveAspectRatio="none"><path d="M0,44 C300,40 500,28 700,22 C900,16 1050,12 1200,8" fill="none" stroke="#00D4C6" stroke-opacity=".35" stroke-width="2"/></svg></div>
-
-<!-- ════════ 3 DORES ════════ -->
-<section class="section alt">
-  <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">O que muda no seu dia a dia</span>
-      <h2 class="title">Três coisas que acontecem quando você para de depender da sorte</h2>
-    </div>
-    <div class="cards3">
-      <div class="card reveal">
-        <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M3 18 L9 12 L13 15 L21 6"/><path d="M21 6h-5M21 6v5"/></svg></div>
+    <div class="grid-3">
+      <div class="card">
+        <span class="num">01</span>
         <h3>Previsibilidade</h3>
-        <p>Pare de depender de indicação e de convênio. Tenha um fluxo constante de pacientes particulares que você consegue prever e planejar mês a mês.</p>
+        <p>Você passa a saber quantos pacientes novos entram por mês, e quanto custou cada um. Planejar contratação e investimento deixa de ser aposta.</p>
       </div>
-      <div class="card reveal d1">
-        <div class="card-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></div>
+      <div class="card">
+        <span class="num">02</span>
         <h3>O paciente certo</h3>
-        <p>Não é sobre mais gente. É sobre o paciente que valoriza o seu trabalho e está pronto para pagar o valor cheio pelo seu procedimento — não o que pechincha.</p>
+        <p>Comunicação feita para quem decide pelo resultado, não pelo preço. Menos orçamento perdido, menos tempo gasto com quem nunca ia fechar.</p>
       </div>
-      <div class="card reveal d2">
-        <div class="card-ic"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 16l4-5 3 3 5-7"/></svg></div>
-        <h3>Um novo patamar</h3>
-        <p>Deixe de brigar por volume. O seu atendimento cresce com margem, com a agenda cheia do tipo de paciente que faz o negócio realmente lucrar.</p>
+      <div class="card">
+        <span class="num">03</span>
+        <h3>Margem de verdade</h3>
+        <p>O mesmo procedimento, com o valor cheio. Você trabalha menos horas para o mesmo faturamento, ou o mesmo tempo para um faturamento maior.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════ MÉTODO — arte de abertura ════════ -->
-<section class="section dark" id="metodo">
-  <div class="metodo-bg" aria-hidden="true">
-    <img class="metodo-photo" src="assets/img/metodo-bg.jpg" alt=""/>
-    <div class="metodo-scrim"></div>
-    <svg class="metodo-chart" viewBox="0 0 420 280" preserveAspectRatio="xMaxYMid meet"><g fill="#00D4C6"><rect x="10" y="200" width="40" height="72" rx="4" opacity=".3"/><rect x="68" y="166" width="40" height="106" rx="4" opacity=".38"/><rect x="126" y="128" width="40" height="144" rx="4" opacity=".46"/><rect x="184" y="92" width="40" height="180" rx="4" opacity=".56"/><rect x="242" y="56" width="40" height="216" rx="4" opacity=".66"/><rect x="300" y="24" width="40" height="248" rx="4" opacity=".78"/></g><path d="M30,196 L88,162 L146,124 L204,88 L262,52 L320,20" fill="none" stroke="#00D4C6" stroke-width="3.5" opacity=".85" stroke-linecap="round" stroke-linejoin="round"/><circle cx="320" cy="20" r="6" fill="#00D4C6"/></svg>
-  </div>
-  <div class="container">
-    <div class="metodo-art reveal">
-      <span class="metodo-kicker" id="metodoKicker">Método</span>
-      <h2 class="metodo-name" id="metodoName">Convênio <span class="hl">Zero</span></h2>
-      <p class="metodo-support">Sistema de captação, conversão e escala de pacientes particulares.</p>
-      <p class="metodo-intro">Não é sobre cancelar seus convênios amanhã. É sobre construir um fluxo de paciente particular consistente o suficiente pra que o convênio deixe de ser a sua sustentação — e passe a ser uma escolha.</p>
+<!-- METODO -->
+<section class="method" id="metodo">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow on-dark">Nosso método</span>
+      <h2>Método Convênio Zero</h2>
+      <p>Um sistema de ponta a ponta que transforma investimento em anúncio em procedimento realizado. Não termina no lead.</p>
     </div>
-    <div class="pilares">
-      <div class="pilar-line" aria-hidden="true">
-        <svg viewBox="0 0 1000 2" preserveAspectRatio="none" style="width:100%;height:2px"><line x1="0" y1="1" x2="1000" y2="1" stroke="#00D4C6" stroke-opacity=".4" stroke-width="2" stroke-dasharray="1.5 8" stroke-linecap="round"/></svg>
-      </div>
-      <div class="pilar reveal">
-        <div class="pilar-ic"><svg viewBox="0 0 24 24"><path d="M5 4v7a7 7 0 0 0 14 0V4"/><line x1="5" y1="4" x2="9.5" y2="4"/><line x1="14.5" y1="4" x2="19" y2="4"/><line x1="5" y1="8.5" x2="9.5" y2="8.5"/><line x1="14.5" y1="8.5" x2="19" y2="8.5"/></svg><span class="pilar-n">01</span></div>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
         <h3>Captação</h3>
-        <p>Tráfego pago operado com rigor (Meta e Google), atraindo o paciente particular certo — não volume, não curioso.</p>
+        <p>Tráfego pago no Meta e no Google, segmentado por procedimento e região, falando com quem paga particular.</p>
       </div>
-      <div class="pilar reveal d1">
-        <div class="pilar-ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="7.5" y1="9" x2="16.5" y2="9"/><line x1="7.5" y1="12.5" x2="13" y2="12.5"/></svg><span class="pilar-n">02</span></div>
+      <div class="step">
+        <div class="n">2</div>
         <h3>Conversão</h3>
-        <p>O paciente não se perde depois do clique: atendimento ágil (IA ou treinamento da equipe) e processo comercial que transforma interesse em agendamento.</p>
+        <p>Resposta rápida no WhatsApp, com IA ou com a sua equipe treinada. Paciente que espera duas horas já marcou em outro lugar.</p>
       </div>
-      <div class="pilar reveal d2">
-        <div class="pilar-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M5 20a7 7 0 0 1 14 0"/></svg><span class="pilar-n">03</span></div>
+      <div class="step">
+        <div class="n">3</div>
         <h3>Acompanhamento</h3>
-        <p>Cada real rastreado até virar procedimento. CRM, métricas e análise de ROI — você sabe exatamente o que entra e o que volta.</p>
+        <p>CRM e rastreamento do anúncio até a cadeira. Você vê quanto custou o paciente que fez o implante, não quanto custou o clique.</p>
       </div>
-      <div class="pilar reveal d3">
-        <div class="pilar-ic"><svg viewBox="0 0 24 24"><path d="M5 20v-5M12 20v-9M19 20v-13"/><polyline points="4 12 9.5 7 13 9.5 20 4"/><polyline points="16 4 20 4 20 8"/></svg><span class="pilar-n">04</span></div>
+      <div class="step">
+        <div class="n">4</div>
         <h3>Escala</h3>
-        <p>Com a máquina medida e funcionando, um plano de crescimento para elevar o seu atendimento a um novo patamar.</p>
+        <p>O investimento sobe quando o número sustenta. Crescimento na medida da sua capacidade de atender.</p>
       </div>
     </div>
-    <p class="metodo-ponte reveal">E isso só funciona porque respeita a <span class="hl">jornada do paciente</span> — do primeiro contato à decisão.</p>
-    <div class="metodo-seta reveal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
   </div>
 </section>
 
-<!-- ════════ FUNIL — como trabalhamos diferente ════════ -->
-<section class="section" id="funil">
-  <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">Como trabalhamos diferente</span>
-      <h2 class="title">Dentista não vende. Dentista se posiciona.</h2>
-      <p class="funil-sub">A maioria dispara anúncio de oferta e espera o paciente decidir sozinho. Nós construímos o caminho inteiro: primeiro a sua clínica aparece e é reconhecida, depois conquista a confiança, e só então faz o convite. A venda vira consequência da autoridade — não de pressão.</p>
+<!-- POSICIONAMENTO -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Posicionamento</span>
+      <h2>Dentista não vende. Dentista se posiciona.</h2>
+      <p>O paciente particular não decide no primeiro anúncio que vê. Ele percorre um caminho, e cada etapa pede um conteúdo diferente.</p>
     </div>
 
-    <div class="funil">
-      <div class="funil-layer reveal" style="--w:100%">
-        <div class="funil-stage"><span class="funil-tag">Descoberta</span><span class="funil-step">Etapa 1</span></div>
-        <div class="funil-content">
-          <p class="funil-quote">“Ah, então isso tem tratamento?”</p>
-          <p class="funil-desc">A sua clínica aparece para muitas pessoas certas. Conteúdo que apresenta e educa — sem preço, sem “agende”. A pessoa te conhece pela primeira vez.</p>
+    <div class="stage">
+      <div class="stage-label">Descoberta</div>
+      <div>
+        <div class="stage-q">"Ah, então isso tem tratamento?"</div>
+        <p>Conteúdo que educa e apresenta a clínica para quem ainda nem sabia que o problema dele tinha solução.</p>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="stage-label">Consideração</div>
+      <div>
+        <div class="stage-q">"Será que funciona pra mim?"</div>
+        <p>Autoridade, caso real e explicação técnica em linguagem de paciente. É aqui que a confiança se constrói e o preço deixa de ser o único critério.</p>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="stage-label">Decisão</div>
+      <div>
+        <div class="stage-q">"Quero agendar."</div>
+        <p>Convite direto para quem já está pronto. Campanha de intenção, remarketing e caminho curto até a conversa.</p>
+      </div>
+    </div>
+
+    <div class="pull">Muita gente entra em cima. As pessoas certas agendam embaixo.</div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="quotes">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Prova social</span>
+      <h2>Quem já saiu da lógica do convênio</h2>
+    </div>
+    <div class="grid-2">
+      <div class="quote">
+        <p>"Aqui no consultório eu só atendo particular, não atendo plano. Só orgânico não dá mais, hoje em dia não tem como. Ele faz toda essa parte de tráfego pago, é excelente profissional."</p>
+        <div class="who">
+          <div class="who-av">JC</div>
+          <div>
+            <div class="who-n">Dra. Joyce Carvalho</div>
+            <div class="who-r">Especialista em clareamento dental</div>
+          </div>
         </div>
       </div>
-      <div class="funil-arrow reveal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-      <div class="funil-layer funil-layer--2 reveal" style="--w:86%">
-        <div class="funil-stage"><span class="funil-tag">Consideração</span><span class="funil-step">Etapa 2</span></div>
-        <div class="funil-content">
-          <p class="funil-quote">“Será que funciona pra mim?”</p>
-          <p class="funil-desc">Conteúdo que responde as dúvidas e mostra a sua autoridade e os seus resultados. A confiança nasce. Você deixa de ser “uma opção” e se torna a escolha certa.</p>
-        </div>
-      </div>
-      <div class="funil-arrow reveal" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
-      <div class="funil-layer funil-layer--final reveal" style="--w:72%">
-        <div class="funil-stage"><span class="funil-tag">Decisão</span><span class="funil-step">Etapa 3</span></div>
-        <div class="funil-content">
-          <p class="funil-quote">“Quero agendar.”</p>
-          <p class="funil-desc">O convite direto, para quem já confia e está pronto. O paciente agenda — e chega muito mais preparado e decidido do que um contato frio.</p>
+      <div class="quote">
+        <p>Depoimento em áudio, enviado pela própria Dra. Eveline:</p>
+        <audio controls preload="none" src="assets/audio/depoimento-eveline-1.mp3">Seu navegador não suporta áudio.</audio>
+        <div class="who">
+          <div class="who-av av-crop"><img src="assets/img/med-ortodontista.jpg" alt="Dra. Eveline Leite"></div>
+          <div>
+            <div class="who-n">Dra. Eveline Leite</div>
+            <div class="who-r">Ortodontista · CRO-MG 45408 · Poços de Caldas, MG</div>
+          </div>
         </div>
       </div>
     </div>
-
-    <p class="funil-close reveal"><strong>Muita gente entra em cima. <span class="hl">As pessoas certas agendam embaixo.</span></strong> E como o paciente chega aquecido, cada agendamento tende a custar menos do que abordar um estranho do zero.</p>
-
-    <p class="funil-plano reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l1.5 4.5L18 10l-4.5 1.5L12 16l-1.5-4.5L6 10l4.5-1.5z"/></svg> Cada clínica recebe esse plano montado sob medida, com peças pensadas para cada etapa da jornada do seu paciente.</p>
   </div>
 </section>
 
-<!-- ════════ PROVA / ÁUDIOS ════════ -->
-<section class="section alt" id="prova">
-  <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">Resultados reais</span>
-      <h2 class="title">Quem já saiu da lógica do convênio</h2>
-      <p class="prova-intro">O que mais importa pra nós é o resultado real de quem confia no nosso trabalho. Ouça abaixo.</p>
-    </div>
-    <div class="prova-grid reveal" id="provaGrid">
-      <!-- [AUDIOS] Cards gerados a partir de CONFIG.depoimentos (JS). Se vazio, a seção é escondida. -->
-    </div>
-  </div>
-</section>
-
-<!-- ════════ CLIENTES — médicos & clínicas ════════ -->
-<section class="section" id="clientes">
-  <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">Médicos e clínicas de referência</span>
-      <h2 class="title">Quem já confia na Evoluze</h2>
-      <p class="clientes-sub">Especialistas e clínicas de diferentes áreas que confiam à Evoluze o crescimento das suas agendas de pacientes particulares.</p>
+<!-- CLIENTES -->
+<section class="clients">
+  <div class="wrap">
+    <div class="clients-sub">Dentistas que confiam na Evoluze</div>
+    <div class="clients-grid">
+      <div class="client"><div class="av-crop"><img src="assets/img/med-ortodontista.jpg" alt="Dra. Eveline Leite" loading="lazy"></div><div><div class="who-n">Dra. Eveline Leite</div><div class="who-r">Ortodontista · CRO-MG 45408</div></div></div>
+      <div class="client"><div class="av-crop"><img src="assets/img/med-fernanda-albejante.jpg" alt="Dra. Fernanda Albejante" loading="lazy"></div><div><div class="who-n">Dra. Fernanda Albejante</div><div class="who-r">Ortodontia e Odontopediatria</div></div></div>
     </div>
 
-    <div class="med-grid">
-      <figure class="med-card reveal"><img src="assets/img/med-isis-minami.jpg" alt="Dra. Isis Veronez Minami — Dermatologista, CRM 149013/SP" loading="lazy"/></figure>
-      <figure class="med-card reveal d1"><img src="assets/img/med-nicole-vargas.jpg" alt="Dr. Nicole Vargas — Endocrinologista, CRM 183312/SP" loading="lazy"/></figure>
-      <figure class="med-card reveal d2"><img src="assets/img/med-eberson-coimbra.jpg" alt="Dr. Eberson Coimbra — Cirurgião Plástico, CRM 111850 | RQE 22481" loading="lazy"/></figure>
-      <figure class="med-card reveal d3"><img src="assets/img/med-martim-marcondes.jpg" alt="Dr. Martim Francisco Marcondes — Ortopedista, CRM 155794 | TEOT 16129" loading="lazy"/></figure>
-      <figure class="med-card reveal"><img src="assets/img/med-pedro-adissi.jpg" alt="Dr. Pedro Adissi — Cirurgião Plástico, CRM-MG 54008" loading="lazy"/></figure>
-      <figure class="med-card reveal d1"><img src="assets/img/med-fernanda-albejante.jpg" alt="Dra. Fernanda Albejante — Ortodontia e Odontopediatria" loading="lazy"/></figure>
-      <figure class="med-card reveal d2"><img src="assets/img/med-ortodontista.jpg" alt="Ortodontista — CRO-MG 45408" loading="lazy"/></figure>
-    </div>
-
-    <div class="clientes-sep reveal"><span>Clínicas &amp; instituições</span></div>
-
-    <div class="logo-wall">
-      <div class="logo-tile reveal"><img src="assets/img/logo-high-line.png" alt="Clínica High Line" loading="lazy"/></div>
-      <div class="logo-tile reveal d1"><img src="assets/img/logo-clinica-adissi.png" alt="Clínica Adissi" loading="lazy"/></div>
-      <div class="logo-tile reveal d2"><img src="assets/img/logo-reviva.png" alt="REVIVA Clínica Médica" loading="lazy"/></div>
-      <div class="logo-tile reveal d3"><img src="assets/img/logo-ibap.png" alt="IBAP — Escola de Oftalmologia" loading="lazy"/></div>
-      <div class="logo-tile reveal"><img src="assets/img/logo-dermafast.png" alt="dermafast" loading="lazy"/></div>
-      <div class="logo-tile reveal d1"><img src="assets/img/logo-nicole-vargas.png" alt="Dr. Nicole Vargas — Medicina Integrada" loading="lazy"/></div>
-      <div class="logo-tile reveal d2"><img src="assets/img/logo-solusono.png" alt="SoluSono" loading="lazy"/></div>
+    <!-- [PROVISÓRIO] clientes de outras áreas da saúde; remover quando a faixa for só odonto -->
+    <div class="clients-sub">Outros profissionais e clínicas atendidos</div>
+    <div class="clients-grid">
+      <div class="client"><div class="av-crop"><img src="assets/img/med-isis-minami.jpg" alt="Dra. Isis Veronez Minami" loading="lazy"></div><div><div class="who-n">Dra. Isis Veronez Minami</div><div class="who-r">Dermatologista · CRM 149013/SP</div></div></div>
+      <div class="client"><div class="av-crop"><img src="assets/img/med-nicole-vargas.jpg" alt="Dr. Nicole Vargas" loading="lazy"></div><div><div class="who-n">Dr. Nicole Vargas</div><div class="who-r">Endocrinologista · CRM 183312/SP</div></div></div>
+      <div class="client"><div class="av-crop"><img src="assets/img/med-eberson-coimbra.jpg" alt="Dr. Eberson Coimbra" loading="lazy"></div><div><div class="who-n">Dr. Eberson Coimbra</div><div class="who-r">Cirurgião Plástico · CRM 111850 · RQE 22481</div></div></div>
+      <div class="client"><div class="av-crop"><img src="assets/img/med-martim-marcondes.jpg" alt="Dr. Martim Francisco Marcondes" loading="lazy"></div><div><div class="who-n">Dr. Martim Francisco Marcondes</div><div class="who-r">Ortopedista · CRM 155794 · TEOT 16129</div></div></div>
+      <div class="client"><div class="av-crop"><img src="assets/img/med-pedro-adissi.jpg" alt="Dr. Pedro Adissi" loading="lazy"></div><div><div class="who-n">Dr. Pedro Adissi</div><div class="who-r">Cirurgião Plástico · CRM-MG 54008</div></div></div>
+      <div class="client is-logo"><img src="assets/img/logo-high-line.png" alt="Clínica High Line" loading="lazy"><div class="who-n">Clínica High Line</div></div>
+      <div class="client is-logo"><img src="assets/img/logo-clinica-adissi.png" alt="Clínica Adissi" loading="lazy"><div class="who-n">Clínica Adissi</div></div>
+      <div class="client is-logo"><img src="assets/img/logo-reviva.png" alt="REVIVA Clínica Médica" loading="lazy"><div class="who-n">REVIVA Clínica Médica</div></div>
+      <div class="client is-logo"><img src="assets/img/logo-ibap.png" alt="IBAP" loading="lazy"><div class="who-n">IBAP</div></div>
+      <div class="client is-logo"><img src="assets/img/logo-dermafast.png" alt="dermafast" loading="lazy"><div class="who-n">dermafast</div></div>
+      <div class="client is-logo"><img src="assets/img/logo-nicole-vargas.png" alt="Dr. Nicole Vargas — Medicina Integrada" loading="lazy"><div class="who-n">Nicole Vargas · Medicina Integrada</div></div>
+      <div class="client is-logo"><img src="assets/img/logo-solusono.png" alt="SoluSono" loading="lazy"><div class="who-n">SoluSono</div></div>
     </div>
   </div>
 </section>
 
-<!-- ════════ ESTUDO DE CASO — Clínica Adissi ════════ -->
-<section class="section" id="case-adissi">
-  <div class="container">
-    <div class="reveal" style="text-align:center;max-width:660px;margin:0 auto">
-      <span class="eyebrow" style="display:block">Estudo de caso</span>
-      <h2 class="title" style="margin:0 auto">Nosso maior case de sucesso</h2>
-    </div>
-    <div class="caso reveal">
-      <div class="caso-media">
-        <img class="caso-foto" src="assets/img/case-adissi.jpg" alt="Fachada da Clínica Adissi, em Poços de Caldas" loading="lazy"/>
-        <div class="caso-logo"><img src="assets/img/logo-clinica-adissi.png" alt="Clínica Adissi" loading="lazy"/></div>
-      </div>
-      <div class="caso-body">
-        <span class="caso-tag">Clínica Adissi · Cirurgia Plástica</span>
-        <h3 class="caso-title">Do tráfego de uma unidade à operação completa da matriz</h3>
-        <div class="caso-local">Poços de Caldas (MG) · São João da Boa Vista (SP)</div>
-        <p>Começamos com o tráfego pago na unidade de São João da Boa Vista. O resultado abriu as portas da matriz, em Poços de Caldas — onde assumimos a assessoria <strong>completa</strong>, de marketing e comercial.</p>
-        <p>Cuidamos de tudo: campanhas, funil, estratégia e posicionamento médico; e, no comercial, contratação, treinamento de equipe, alinhamento, definição de metas e acompanhamento de resultados.</p>
-        <div class="caso-chips">
-          <span class="caso-chip">Marketing completo</span>
-          <span class="caso-chip">Comercial completo</span>
-          <span class="caso-chip">2 unidades</span>
-        </div>
-        <p class="caso-hl">Hoje, a Clínica Adissi vive praticamente <span class="hl">100% de resultados vindos do online</span>.</p>
+<!-- CASE -->
+<section>
+  <div class="wrap">
+    <div class="case">
+      <span class="eyebrow on-dark">Case</span>
+      <h2>[INSERIR: título do case odontológico]</h2>
+      <p class="lead">[INSERIR: o que existia antes, o que foi estruturado, o que mudou. Precisa ser uma clínica odontológica — o case da Adissi é cirurgia plástica e não entra aqui.]</p>
+      <div class="case-stats">
+        <div class="stat"><b>[dado]</b><span>[legenda]</span></div>
+        <div class="stat"><b>[dado]</b><span>[legenda]</span></div>
+        <div class="stat"><b>[dado]</b><span>[legenda]</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════ QUEM É GUSTAVO ════════ -->
-<section class="section alt">
-  <div class="container">
-    <div class="gus-grid">
-      <div class="gus-photo reveal">
-        <!-- [FOTO_GUSTAVO] troque por uma foto profissional quando tiver -->
-        <img src="assets/img/gustavo.jpg" alt="Gustavo Scaciotti, especialista em marketing odontológico" loading="lazy" onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<div class=\'gus-ph-fallback\'>GS</div>')"/>
-      </div>
-      <div class="gus-text reveal d1">
-        <span class="eyebrow">Quem conduz</span>
+<!-- SOBRE -->
+<section>
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-ph"><img src="assets/img/gustavo.jpg" alt="Gustavo Scaciotti, especialista em marketing para saúde" loading="lazy"></div>
+      <div>
+        <span class="eyebrow">Quem opera</span>
         <h2>Gustavo Scaciotti</h2>
-        <div class="gus-role">Especialista em Marketing Odontológico</div>
-        <p>Sou o Gustavo, à frente da Evoluze. Operamos o tráfego de cada cliente de perto — do anúncio ao paciente na cadeira. Não trabalhamos com volume nem com marketing de vaidade: trabalhamos com previsibilidade e retorno mensurável. Atendemos um número limitado de clientes justamente porque resultado de alto padrão exige atenção de alto padrão.</p>
+        <p style="margin-top:18px">Especialista em marketing para saúde. Eu mesmo opero as contas dos clientes — não existe estagiário aprendendo na sua verba.</p>
+        <p style="margin-top:14px">Trabalho com métrica que vira faturamento, não com número que enfeita relatório. E atendo um número limitado de clínicas por vez, porque esse padrão de acompanhamento não escala com carteira grande.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════ DIFERENCIAL ════════ -->
-<section class="section">
-  <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">A diferença</span>
-      <h2 class="title">A maioria entrega lead. Nós entregamos paciente na cadeira.</h2>
+<!-- DIFERENCIAL -->
+<section class="method">
+  <div class="wrap">
+    <div class="sec-head wide">
+      <span class="eyebrow on-dark">Diferencial</span>
+      <h2>A maioria entrega lead. Nós entregamos paciente na cadeira.</h2>
     </div>
-    <div class="checks">
-      <div class="check reveal"><div class="check-ic"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div><p>Operação conduzida de perto, do início ao fim — você não cai na mão de um estagiário.</p></div>
-      <div class="check reveal d1"><div class="check-ic"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div><p>Foco em paciente particular de alto valor, não em volume de lead barato.</p></div>
-      <div class="check reveal d2"><div class="check-ic"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div><p>Cada real rastreado até o procedimento. Você sempre sabe o retorno.</p></div>
-      <div class="check reveal d3"><div class="check-ic"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div><p>Cuidamos do caminho inteiro: do anúncio ao agendamento, não só do anúncio.</p></div>
+    <div class="grid-2">
+      <div class="step"><h3>Operação próxima</h3><p>Sua conta é operada por quem você contratou, do começo ao fim.</p></div>
+      <div class="step"><h3>Foco em particular</h3><p>Toda a estrutura é desenhada para o paciente que paga o valor cheio.</p></div>
+      <div class="step"><h3>Rastreio até o procedimento</h3><p>Do clique ao tratamento fechado, com o custo real de cada paciente.</p></div>
+      <div class="step"><h3>Responsabilidade pelo funil inteiro</h3><p>Se o problema está no atendimento e não no anúncio, a gente fala e ajuda a corrigir.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ════════ SERVIÇOS ════════ -->
-<section class="section dark" id="servicos">
-  <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">O que entregamos</span>
-      <h2 class="title">Nossos Serviços</h2>
-      <p class="servicos-sub">Tudo o que a sua clínica ou consultório precisa para atrair, converter e escalar pacientes particulares.</p>
+<!-- SERVICOS -->
+<section class="serv">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">O que fazemos</span>
+      <h2>Nossos serviços</h2>
     </div>
-    <div class="servicos-grid">
-      <div class="servico-card reveal">
-        <div class="servico-ic"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><line x1="20" y1="20" x2="14.6" y2="14.6"/></svg></div>
+    <div class="grid-serv">
+      <div class="serv-card">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></div>
         <h3>Tráfego pago para odontologia</h3>
-        <p>Meta e Google Ads estruturados para procedimento de ticket alto, não para captação em volume.</p>
+        <p>Captura de quem já está procurando implante, ortodontia ou clareamento na sua região, no momento da busca.</p>
       </div>
-      <div class="servico-card reveal d1">
-        <div class="servico-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/><polyline points="21 16 15.5 10.5 5 20"/></svg></div>
+      <div class="serv-card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></div>
         <h3>Posicionamento de especialista</h3>
-        <p>Sua clínica deixa de competir por preço e passa a competir por autoridade clínica.</p>
+        <p>Geração de demanda no Instagram e no Facebook para quem ainda não buscou, mas tem o problema e o poder de decisão.</p>
       </div>
-      <div class="servico-card reveal d2">
-        <div class="servico-ic"><svg viewBox="0 0 24 24"><path d="M4 4h16l-6 9v6l-4 2v-8z"/></svg></div>
-        <h3>Funil de paciente particular</h3>
-        <p>Do anúncio até a cadeira, com qualificação antes de ocupar sua agenda.</p>
-      </div>
-      <div class="servico-card reveal">
-        <div class="servico-ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/><polyline points="13 8 10.5 12 12.5 12 11 15.5"/></svg></div>
+      <div class="serv-card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.5 8.5 0 01-3.9-.9L3 21l1.9-5A8.4 8.4 0 0112 3a8.4 8.4 0 019 8.5z"/></svg></div>
         <h3>Atendimento com IA no WhatsApp</h3>
-        <p>Resposta imediata, qualificação e agendamento sem depender da recepção estar livre.</p>
+        <p>Resposta imediata no WhatsApp, qualificação do paciente e agendamento, inclusive fora do horário da recepção.</p>
       </div>
-      <div class="servico-card reveal d1">
-        <div class="servico-ic"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="serv-card">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg></div>
+        <h3>Funil de paciente particular</h3>
+        <p>Cada contato organizado por etapa, com follow-up definido. Orçamento não fechado deixa de sumir na conversa.</p>
+      </div>
+      <div class="serv-card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.9"/></svg></div>
         <h3>Estruturação comercial</h3>
-        <p>O que sua equipe fala quando o paciente pergunta o preço define se ele fecha ou some.</p>
+        <p>Quem atende o WhatsApp decide seu faturamento. Treinamos abordagem, objeção de preço e retomada de orçamento.</p>
       </div>
-      <div class="servico-card reveal d2">
-        <div class="servico-ic"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="20" y2="6"/><polyline points="3 6 4.5 7.5 7 4.5"/><line x1="8" y1="12" x2="20" y2="12"/><polyline points="3 12 4.5 13.5 7 10.5"/><line x1="8" y1="18" x2="20" y2="18"/><polyline points="3 18 4.5 19.5 7 16.5"/></svg></div>
+      <div class="serv-card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
         <h3>Acompanhamento e métrica</h3>
-        <p>Você sabe quanto custou cada paciente novo e quanto ele deixou na clínica.</p>
+        <p>Desenho do caminho do paciente da primeira mensagem ao tratamento fechado, com meta e acompanhamento.</p>
       </div>
     </div>
-    <p class="servicos-nota reveal">O que entra no seu plano é definido na reunião de diagnóstico, conforme a necessidade da sua clínica. Você não paga por solução que não vai usar.</p>
+    <p class="note">O que entra no seu plano é definido na reunião de diagnóstico. Você não paga por solução que não vai usar.</p>
   </div>
 </section>
 
-<!-- ════════ CFM ════════ -->
-<section class="section alt">
-  <div class="container">
-    <div class="cfm reveal">
-      <div class="cfm-text">
-        <span class="eyebrow">Ética e conformidade</span>
-        <h2 class="title">Na odontologia, você pode mostrar resultado. Nós usamos isso a seu favor.</h2>
-        <p>Diferente da medicina, o CFO permite divulgar o antes e depois dos seus casos desde a Resolução 196/2019 — com consentimento livre e esclarecido do paciente e identificação do cirurgião-dentista responsável. E, desde a Resolução 271/2025, publicada após decisão do CADE, programas de desconto, sorteios e brindes deixaram de ser infração ética. É mais liberdade do que o marketing médico tem. Nós usamos a primeira parte, não a segunda: resultado clínico atrai o paciente certo; promoção atrai quem pechincha.</p>
-        <p style="margin-top:14px">O que continua proibido, continua proibido: nada de tabela de preços ou honorários, nada de mercantilização (Código de Ética, Resolução CFO 118/2012), e toda peça leva o nome e o número de inscrição do profissional ou da clínica, como exige o artigo 43. Crescimento sem expor a sua reputação.</p>
+<!-- CFO -->
+<section>
+  <div class="wrap">
+    <div class="cfo-box">
+      <span class="eyebrow">Ética e conselho</span>
+      <h2>Marketing dentro das regras do CFO — inclusive no que ele permite.</h2>
+      <p style="margin-top:16px;max-width:60ch">A maioria das clínicas deixa de usar recurso que o Conselho autoriza, por medo ou por informação desatualizada. Conhecer a regra não é só evitar problema: é usar tudo o que está disponível.</p>
+
+      <div class="cfo-cols">
+        <div class="cfo-col can">
+          <h3>O que você pode e talvez não saiba</h3>
+          <ul>
+            <li>Divulgar antes e depois, com consentimento formal do paciente e identificação profissional, conforme a Resolução CFO 196/2019</li>
+            <li>Anunciar desconto e promoção, liberado pela Resolução CFO 271/2025, após decisão do CADE</li>
+            <li>Produzir conteúdo educativo sobre procedimentos e técnicas</li>
+            <li>Usar depoimento de paciente dentro dos critérios do Conselho</li>
+          </ul>
+        </div>
+        <div class="cfo-col cant">
+          <h3>O que continua vedado</h3>
+          <ul>
+            <li>Divulgar tabela de preços e honorários</li>
+            <li>Mercantilização da odontologia, nos termos da Resolução CFO 118/2012</li>
+            <li>Garantia de resultado ou promessa de cura</li>
+            <li>Anúncio sem nome do responsável e número de inscrição no CRO, exigidos pelo Art. 43</li>
+          </ul>
+        </div>
       </div>
-      <!-- [IMAGEM_CFO] colocar o logo oficial (website.cfo.org.br/logos) em assets/img/cfo.png e restaurar:
-           <img class="cfm-logo" src="assets/img/cfo.png" alt="Conselho Federal de Odontologia (CFO)" loading="lazy"/> -->
+
+      <p class="cfo-foot">Toda campanha que sobe é revisada contra essas regras antes de ir ao ar. Este conteúdo é informativo e não substitui a orientação do seu CRO regional.</p>
     </div>
   </div>
 </section>
 
-<!-- ════════ OBJEÇÃO ════════ -->
-<section class="section">
-  <div class="container">
-    <div class="objection reveal">
-      <h2 class="title" style="margin-left:auto;margin-right:auto">Você cuida dos pacientes. Da máquina de aquisição, cuidamos nós.</h2>
-      <p>Você não precisa virar especialista em tráfego, nem montar equipe de marketing, nem aprender ferramenta nenhuma. Você precisa de uma agenda previsível de pacientes particulares e de um time que opere isso com rigor, todo dia. Essa parte é com a gente.</p>
+<!-- FORM -->
+<section class="form-sec" id="diagnostico">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow on-dark">Análise gratuita</span>
+      <h2>Reunião de diagnóstico da sua clínica</h2>
+      <p>Uma conversa para entender onde está o gargalo — captação, atendimento ou fechamento — e o que faria diferença primeiro. Sem apresentação de slides.</p>
+    </div>
+
+    <div class="form-card">
+      <div class="progress">
+        <i class="on" id="p1"></i><i id="p2"></i><i id="p3"></i><i id="p4"></i>
+      </div>
+
+      <!-- ETAPA 1 -->
+      <div id="s1">
+        <div class="step-q">Qual o seu papel na clínica?</div>
+        <div class="step-h">Para eu entender com quem estou falando.</div>
+        <div class="opts">
+          <button class="opt" onclick="go(2,'papel','Dentista dono de clínica')">Sou dentista e dono da clínica</button>
+          <button class="opt" onclick="go(2,'papel','Dentista em clínica de terceiros')">Sou dentista, atendo em clínica de terceiros</button>
+          <button class="opt" onclick="go(2,'papel','Sócio não-dentista')">Sou sócio ou gestor, não sou dentista</button>
+          <button class="opt" onclick="go(2,'papel','Outro')">Outro</button>
+        </div>
+      </div>
+
+      <!-- ETAPA 2 -->
+      <div id="s2" class="hidden">
+        <div class="step-q">Quantos dentistas atendem na clínica?</div>
+        <div class="step-h">Contando você.</div>
+        <div class="opts">
+          <button class="opt" onclick="go(3,'tamanho','1')">Só eu</button>
+          <button class="opt" onclick="go(3,'tamanho','2 a 4')">2 a 4 dentistas</button>
+          <button class="opt" onclick="go(3,'tamanho','5 ou mais')">5 ou mais</button>
+        </div>
+        <button class="back" onclick="back(1)">← voltar</button>
+      </div>
+
+      <!-- ETAPA 3 -->
+      <div id="s3" class="hidden">
+        <div class="step-q">Você já investe em anúncio hoje?</div>
+        <div class="step-h">Meta, Google ou qualquer mídia paga.</div>
+        <div class="opts">
+          <button class="opt" onclick="go(4,'verba','Não investe')">Ainda não invisto</button>
+          <button class="opt" onclick="go(4,'verba','Até R$1.000')">Até R$1.000 por mês</button>
+          <button class="opt" onclick="go(4,'verba','R$1.000 a R$5.000')">Entre R$1.000 e R$5.000</button>
+          <button class="opt" onclick="go(4,'verba','Acima de R$5.000')">Acima de R$5.000</button>
+        </div>
+        <button class="back" onclick="back(2)">← voltar</button>
+      </div>
+
+      <!-- ETAPA 4 -->
+      <div id="s4" class="hidden">
+        <div class="step-q">Por onde eu falo com você?</div>
+        <div class="step-h">Retorno em até um dia útil.</div>
+        <form class="fields" onsubmit="enviar(event)">
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input id="nome" type="text" placeholder="Seu nome" required>
+          </div>
+          <div class="field">
+            <label for="zap">WhatsApp</label>
+            <input id="zap" type="tel" placeholder="(13) 90000-0000" required>
+          </div>
+          <div class="field">
+            <label for="cidade">Cidade</label>
+            <input id="cidade" type="text" placeholder="Cidade e estado" required>
+          </div>
+          <div class="field">
+            <label for="area">Principal área da clínica</label>
+            <select id="area" required>
+              <option value="">Selecione</option>
+              <option>Implantodontia</option>
+              <option>Ortodontia</option>
+              <option>Estética dental e clareamento</option>
+              <option>Harmonização orofacial</option>
+              <option>Odontopediatria</option>
+              <option>Prótese</option>
+              <option>Clínica geral</option>
+              <option>Outra</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-accent btn-block" style="margin-top:6px">Quero minha agenda de particular</button>
+        </form>
+        <button class="back" onclick="back(3)">← voltar</button>
+      </div>
+
+      <!-- FIM -->
+      <div id="sOk" class="hidden">
+        <div class="done">
+          <div class="tick">✓</div>
+          <h3>Recebido.</h3>
+          <p>Vou olhar sua clínica antes de falar com você e retorno pelo WhatsApp em até um dia útil.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ════════ CTA FINAL ════════ -->
-<section class="section dark cta-final">
-  <div class="container">
-    <span class="eyebrow reveal" style="display:block">O próximo passo</span>
-    <h2 class="reveal">Este é o momento de tirar a sua agenda da dependência da sorte.</h2>
-    <p class="lead reveal d1">Nós não fazemos marketing de vaidade. Fazemos paciente particular chegar, de forma previsível e mensurável. Se você está pronto para isso, faça a análise gratuita.</p>
-    <p class="cta-nicho reveal d1">Assessoria exclusiva para clínicas odontológicas</p>
-    <div class="reveal d1"><button class="btn btn-lg" data-open-form>Quero minha agenda de particular
-      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </button></div>
-    <p class="cta-scarcity reveal d2">Atendo um número limitado de clientes por vez.</p>
+<!-- FINAL -->
+<section class="final">
+  <div class="wrap">
+    <h2>Este é o momento de tirar sua agenda da dependência do convênio.</h2>
+    <p>Enquanto a maior parte do seu faturamento for definida por uma tabela que não é sua, crescer significa só trabalhar mais.</p>
+    <a href="#diagnostico" class="btn btn-accent">Quero minha agenda de particular</a>
+    <p class="limit">Atendo um número limitado de clínicas por vez.</p>
   </div>
 </section>
 
-<!-- ════════ FOOTER ════════ -->
-<footer class="footer">
-  <div class="container">
-    <img src="assets/img/evoluze-logo.png" alt="Evoluze Marketing" class="logo-img footer-logo-img"/>
-    <p>Evoluze — Assessoria especializada em marketing odontológico para clínicas e consultórios.</p>
-    <p class="copy">© <span id="ano">2026</span> Evoluze. Todos os direitos reservados.</p>
-    <p class="copy"><a href="privacidade.html" style="color:rgba(255,255,255,.55);text-decoration:underline">Política de Privacidade</a></p>
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <div>
+        <div class="foot-logo">Evoluze <span>Odonto</span></div>
+        <div class="foot-sub">Aquisição de paciente particular para clínicas odontológicas</div>
+      </div>
+      <div class="foot-links">
+        <a href="#metodo">Método</a>
+        <a href="#diagnostico">Diagnóstico</a>
+        <a href="#">Privacidade</a>
+      </div>
+    </div>
+    <div class="foot-legal">
+      © 2026 Evoluze. Todos os direitos reservados.<br>
+      Conteúdo informativo, elaborado em conformidade com as normas de publicidade do Conselho Federal de Odontologia. Não substitui orientação do CRO regional.
+    </div>
   </div>
 </footer>
 
-<!-- ════════ STICKY CTA (mobile) ════════ -->
-<div class="sticky-cta"><button class="btn" data-open-form>Quero minha agenda de particular</button></div>
-
-<!-- ════════ MODAL FORMULÁRIO ════════ -->
-<div class="modal" id="formModal" role="dialog" aria-modal="true" aria-label="Análise gratuita">
-  <div class="modal-inner">
-    <button class="modal-close" id="formClose" aria-label="Fechar formulário">&times;</button>
-    <div class="modal-progress"><div class="modal-progress-bar" id="progressBar"></div></div>
-    <div class="stage" id="formStage"></div>
-  </div>
-</div>
-
 <script>
-/* ════════════════════════════════════════════════════════════
-   CONFIGURAÇÃO — edite tudo por aqui (variáveis isoladas no topo)
-   ════════════════════════════════════════════════════════════ */
-const CONFIG = {
-  whatsapp:          "[WHATSAPP]",            // só dígitos com 55, ex: 5513999999999
-  formspreeId:       "[FORMSPREE_ID]",        // ex: xabcdwef
-  emailLeads:        "[EMAIL_LEADS]",         // referência (destino real é na conta Formspree)
-  faixaInvestimento: "a partir de R$ 1.997 de honorário, mais uma verba de anúncio a partir de R$ 1.000 (investida diretamente na plataforma de anúncios)", // valor oficial — ancora no Cenário 2/3 (997 fica como carta na call)
-  clinicasAtendidas: "+15 clientes atendidos", // selo de autoridade no hero — Gustavo ajusta
-  vslEmbed:          "", // alternativa YouTube (embed). Deixe vazio se usar vslVideo.
-  vslVideo:          "", // [VIDEO_EVELINE] arquivo MP4 próprio, ex.: "assets/video/depoimento-eveline.mp4" (vertical 9:16 ou horizontal)
-  vslVideoVertical:  true, // true = player em pé (9:16, centralizado); false = 16:9
-  vslPoster:         "", // capa opcional do MP4, ex.: "assets/img/eveline-capa.jpg"
-  // Depoimentos em áudio — edite nome/identificação/foto/áudio livremente.
-  // Item sem 'audio' é pulado; lista vazia esconde a seção inteira.
-  depoimentos: [
-    { nome:"Dra. Cíntia Braghrolli", identificacao:"Cliente Evoluze", foto:"assets/img/depo-cintia.jpg", audio:"assets/audio/depoimento-cintia.mp3" },
-    { nome:"Bruna", identificacao:"Clínica Adissi", foto:"assets/img/depo-bruna.jpg", audio:"assets/audio/depoimento-bruna.mp3" }
-    // Fora do odonto: Lívia (Clínica Adissi, cirurgia plástica). Dra. Eveline fica só no vídeo do topo.
-  ],
-  formEndpoint:      "",                       // FASE 2: WhatsApp ativo via VPS
-  chatWebhookUrl:    "https://evoluzechat.com.br/webhook/lead",          // Evoluze Chat — endpoint do chatbot
-  chatWebhookToken:  "4453644d8e27f253966837ff9f17566b8e1eb3cd50ce4f15", // Evoluze Chat — token Bearer
-  linkAgenda:        "https://evoluzechat.com.br/agenda/public/12",       // link público da agenda (botão na tela de sucesso p/ leads quentes)
-  // Nomes dos parâmetros que a AGENDA aceita na URL p/ pré-preencher (o lead não digita de novo, só escolhe horário).
-  // Se a agenda usar outros nomes (ex.: telefone/phone/celular), troque aqui. Se não aceitar, é ignorado (não quebra).
-  agendaParams:      { nome:"nome", whatsapp:"whatsapp", email:"email" }
-};
+var dados = {};
 
-/* dispara conversão no Pixel/GTM se estiverem configurados */
-function fireConversion(){
-  // id único por lead → Google DEDUPLICA (conta 1) mesmo se a tag mandar o hit 2x
-  var _txid='lead_'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);
-  try{ if(typeof fbq==='function') fbq('track','Lead'); }catch(e){}
-  try{ if(typeof gtag==='function') gtag('event','conversion',{'send_to':'AW-18428282557/HXZuCNGd0e0cEL2NpdNE','transaction_id':_txid}); }catch(e){}
-  try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:'lead_form_submit'}); }catch(e){}
-}
-
-document.getElementById('ano').textContent = new Date().getFullYear();
-(function(){var c=document.getElementById('credClinicas'); if(c && CONFIG.clinicasAtendidas) c.textContent=CONFIG.clinicasAtendidas;})();
-
-/* ════════════ NOME DO MÉTODO — troque aqui em 1 lugar só ════════════ */
-const NOME_METODO = "Método Convênio Zero";
-(function(){
-  // ocorrências em texto corrido
-  document.querySelectorAll('[data-metodo]').forEach(function(e){ e.textContent = NOME_METODO; });
-  // arte tipográfica: 1ª palavra vira o "kicker"; o resto é o nome, com a última palavra em teal
-  var parts = NOME_METODO.trim().split(/\s+/);
-  var kick = document.getElementById('metodoKicker');
-  var name = document.getElementById('metodoName');
-  if(name && parts.length){
-    var kicker = parts.shift();
-    if(kick) kick.textContent = kicker;
-    if(parts.length){
-      var last = parts.pop();
-      name.innerHTML = (parts.length ? parts.join(' ') + ' ' : '') + '<span class="hl">' + last + '</span>';
-    } else { name.textContent = kicker; }
-  }
-})();
-
-/* ════════════ REVEAL no scroll ════════════ */
-(function(){
-  const els=document.querySelectorAll('.reveal:not(.in)');
-  if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
-  const io=new IntersectionObserver((ents)=>{
-    ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-  },{threshold:.12});
-  els.forEach(e=>io.observe(e));
-})();
-
-/* ════════════ VSL (arquivo MP4 próprio) — autoplay mudo + clique para ativar o som ════════════ */
-(function(){
-  var vf=document.getElementById('vslFrame');
-  if(!vf || !CONFIG.vslVideo) return; // sem arquivo: cai no bloco do YouTube abaixo (ou "Vídeo em breve")
-  if(CONFIG.vslVideoVertical) vf.classList.add('vertical');
-  var poster=document.getElementById('vslPoster');
-  if(poster){ if(CONFIG.vslPoster) poster.src=CONFIG.vslPoster; else poster.remove(); }
-  var play=vf.querySelector('.vsl-play'); if(play) play.remove();
-  var v=document.createElement('video');
-  v.src=CONFIG.vslVideo; v.muted=true; v.autoplay=true; v.playsInline=true; v.setAttribute('playsinline',''); v.preload='metadata';
-  if(CONFIG.vslPoster) v.poster=CONFIG.vslPoster;
-  v.onerror=function(){ vf.innerHTML='<div class="vsl-play"><div class="vsl-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><span>Vídeo em breve</span></div>'; };
-  vf.appendChild(v);
-  var un=document.createElement('button');
-  un.type='button'; un.className='vsl-unmute';
-  un.innerHTML='<span class="vsl-unmute-ic">🔊</span><span class="vsl-unmute-tx">Seu vídeo já começou — clique para ativar o som</span>';
-  vf.appendChild(un);
-  un.addEventListener('click',function(){ v.muted=false; v.currentTime=0; v.controls=true; v.play(); un.remove(); });
-  vf.style.cursor='default';
-})();
-
-/* ════════════ VSL (YouTube) — autoplay mudo ao entrar + clique para ativar o som ════════════ */
-(function(){
-  var vf=document.getElementById('vslFrame');
-  if(!vf || CONFIG.vslVideo || !CONFIG.vslEmbed) return; // sem vídeo: mantém "Vídeo em breve"
-  var id=(CONFIG.vslEmbed.match(/embed\/([^?&\/]+)/)||[])[1];
-  // capa enquanto o player carrega
-  var poster=document.getElementById('vslPoster');
-  if(id && poster){
-    poster.onerror=function(){ this.onerror=null; this.src='https://i.ytimg.com/vi/'+id+'/hqdefault.jpg'; };
-    poster.src='https://i.ytimg.com/vi/'+id+'/maxresdefault.jpg';
-  }
-  var play=vf.querySelector('.vsl-play'); if(play) play.remove();
-  function src(mute){ return 'https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&mute='+(mute?1:0)+'&rel=0&modestbranding=1&playsinline=1'; }
-  // autoplay MUDO ao entrar (navegador só permite mudo sem clique)
-  var ifr=document.createElement('iframe');
-  ifr.src=src(true);
-  ifr.setAttribute('allow','autoplay; fullscreen; picture-in-picture; encrypted-media');
-  ifr.setAttribute('allowfullscreen','');
-  vf.appendChild(ifr);
-  // overlay para ativar o som (recarrega com áudio, do início)
-  var un=document.createElement('button');
-  un.type='button'; un.className='vsl-unmute';
-  un.innerHTML='<span class="vsl-unmute-ic">🔊</span><span class="vsl-unmute-tx">Seu vídeo já começou — clique para ativar o som</span>';
-  vf.appendChild(un);
-  un.addEventListener('click',function(){ ifr.src=src(false); un.remove(); });
-  vf.style.cursor='default';
-})();
-
-/* ════════════ Grid de depoimentos em áudio (a partir de CONFIG.depoimentos) ════════════ */
-(function(){
-  const sec=document.getElementById('prova');
-  const grid=document.getElementById('provaGrid');
-  // só entram depoimentos com áudio definido — item sem áudio é pulado, não vira card quebrado
-  const list=(CONFIG.depoimentos||[]).filter(function(d){ return d && d.audio; });
-  if(!grid || !list.length){ if(sec) sec.style.display='none'; return; }
-  function iniciais(nome){
-    return (nome||'').trim().split(/\s+/).slice(0,2).map(function(p){ return p.charAt(0); }).join('').toUpperCase() || '•';
-  }
-  grid.innerHTML=list.map(function(d){
-    const ini=iniciais(d.nome);
-    const fotoHtml = d.foto
-      ? '<img class="depo-foto" src="'+d.foto+'" alt="'+(d.nome||'')+'" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"/><div class="avatar" style="display:none">'+ini+'</div>'
-      : '<div class="avatar">'+ini+'</div>';
-    return '<div class="audio-card">'
-      +'<div class="audio-top">'
-        +'<div class="depo-avatar-wrap">'+fotoHtml+'</div>'
-        +'<div class="audio-who"><strong>'+(d.nome||'')+'</strong><span>'+(d.identificacao||'')+'</span></div>'
-      +'</div>'
-      +'<audio class="audio-real" controls preload="none" src="'+d.audio+'">Seu navegador não suporta áudio.</audio>'
-    +'</div>';
-  }).join('');
-})();
-
-/* ════════════════════════════════════════════════════════════
-   FORMULÁRIO MULTI-STEP
-   ════════════════════════════════════════════════════════════ */
-const _faixa = (CONFIG.faixaInvestimento && CONFIG.faixaInvestimento.indexOf('[')===-1) ? CONFIG.faixaInvestimento : 'compatível com esse objetivo';
-/* opções da etapa "área" — dependem da formação escolhida na 1ª etapa (sem contradição possível) */
-var AREAS_ODONTO = ['Implantodontia','Ortodontia','Odontologia estética','Harmonização orofacial','Reabilitação oral / prótese','Odontopediatria','Clínica geral','Outra especialidade'];
-var AREA_OPCOES = {
-  'Sou dentista e atendo na minha própria clínica': AREAS_ODONTO,
-  'Sou dentista e trabalho em clínica de terceiros': AREAS_ODONTO,
-  'Sou dono ou sócio de clínica odontológica (não sou dentista)': AREAS_ODONTO
-};
-const STEPS=[
-  {type:'choice', key:'formacao', q:'Qual a sua formação?',
-   options:['Sou dentista e atendo na minha própria clínica','Sou dentista e trabalho em clínica de terceiros','Sou dono ou sócio de clínica odontológica (não sou dentista)','Outro']},
-  {type:'choice', key:'area', q:'Qual a principal área da clínica?', options:function(){ return AREA_OPCOES[state.formacao]||[]; }},
-  {type:'text', key:'clinica', q:'Qual o nome do seu consultório ou clínica?', placeholder:'Ex.: Clínica São Lucas'},
-  {type:'choice', key:'faturamento', q:'Quanto você fatura por mês, aproximadamente?',
-   options:['Até R$ 10 mil','R$ 10 mil a R$ 30 mil','R$ 30 mil a R$ 50 mil','R$ 50 mil a R$ 100 mil','Acima de R$ 100 mil']},
-  {type:'choice', key:'investe', q:'Vocês já investem em anúncio hoje?',
-   options:['Não, nunca investimos','Já investimos, mas sem resultado claro','Sim, investimos e queremos escalar']},
-  {type:'choice', key:'desafio', q:'Qual o maior desafio hoje?',
-   options:['Agenda imprevisível / depende de indicação','Dependência de convênio (queremos mais particular)','Já vamos bem, queremos escalar','Atraímos paciente errado / que pechincha']},
-  {type:'choice', key:'budget', q:'O investimento faz sentido?',
-   sub:'Um trabalho sério de aquisição envolve um investimento mensal '+_faixa+'.<br><br>Faz sentido para o seu momento?',
-   options:['Sim, faz sentido','Ainda não tenho certeza']},
-  {type:'text', key:'nome', q:'Qual o seu nome?', placeholder:'Seu nome completo'},
-  {type:'tel', key:'whatsapp', q:'Qual o seu melhor WhatsApp?', sub:'É por onde você recebe a análise e os próximos passos.', placeholder:'(00) 00000-0000'}
-];
-
-const state={};
-let idx=0;
-const modal=document.getElementById('formModal');
-const stage=document.getElementById('formStage');
-const bar=document.getElementById('progressBar');
-let lastFocus=null;
-
-function openForm(){lastFocus=document.activeElement;modal.classList.add('open');document.body.style.overflow='hidden';idx=0;render();try{window.__evForm&&window.__evForm('open',0);}catch(e){}}
-function closeForm(){modal.classList.remove('open');document.body.style.overflow='';if(lastFocus)lastFocus.focus();}
-document.querySelectorAll('[data-open-form]').forEach(b=>b.addEventListener('click',openForm));
-document.getElementById('formClose').addEventListener('click',closeForm);
-modal.addEventListener('click',e=>{if(e.target===modal)closeForm();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeForm();});
-
-function setProgress(){bar.style.width=(idx/(STEPS.length))*100+'%';}
-
-function render(){
-  const s=STEPS[idx];setProgress();
-  let html='<div class="step">';
-  if(idx>0) html+='<button class="step-back" id="back"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg> Voltar</button>';
-
-  if(s.type==='intro'){
-    html+='<span class="intro-pill">'+s.eyebrow+'</span><h3>'+s.q+'</h3>';
-    html+='<div class="step-actions"><button class="btn" id="next">'+s.cta+'</button></div>';
-  } else {
-    if(s.eyebrow) html+='<div class="step-eyebrow">'+s.eyebrow+'</div>';
-    html+='<h3>'+s.q+(s.sub?'<small>'+s.sub+'</small>':'')+'</h3>';
-    if(s.type==='choice'){
-      var opts=(typeof s.options==='function')?s.options():(s.options||[]);
-      html+='<div class="opts">';
-      opts.forEach((o,i)=>{html+='<button class="opt" data-val="'+o.replace(/"/g,'&quot;')+'"><span class="opt-dot"></span>'+o+'</button>';});
-      html+='</div>';
-    } else {
-      const it = s.type==='tel'?'tel':'text';
-      const val = state[s.key]?(' value="'+state[s.key].replace(/"/g,'&quot;')+'"'):'';
-      html+='<input class="field" id="inp" type="'+it+'" placeholder="'+(s.placeholder||'')+'"'+val+' autocomplete="off"/>';
-      html+='<div class="step-err" id="err"></div>';
-      html+='<div class="step-actions"><button class="btn" id="next">Continuar</button></div>';
-    }
-  }
-  html+='</div>';
-  stage.innerHTML=html;
-
-  if(idx>0) document.getElementById('back').onclick=()=>{idx--;render();};
-
-  if(s.type==='intro'){
-    document.getElementById('next').onclick=()=>{idx++;render();};
-  } else if(s.type==='choice'){
-    stage.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
-      var val=b.getAttribute('data-val'); state[s.key]=val;
-      if(s.key==='formacao' && val==='Outro'){ disqualify(); return; }
-      advance();
-    });
-  } else {
-    const inp=document.getElementById('inp');
-    if(s.type==='tel'){
-      inp.setAttribute('inputmode','numeric');
-      inp.setAttribute('maxlength','20'); // espaço p/ colar +55 antes da máscara limpar
-      inp.value=maskPhone(inp.value);
-      inp.addEventListener('input',function(){ inp.value=maskPhone(inp.value); if(isValidFone(inp.value)) err(''); });
-      inp.addEventListener('blur',function(){ if(inp.value.trim() && !isValidFone(inp.value)) err('Confira o número — parece estar incompleto ou incorreto.'); });
-    }
-    inp.focus();
-    const go=()=>{
-      let v=inp.value.trim();
-      if(s.type==='tel'){
-        if(!isValidFone(v)){ err('Confira o número — parece estar incompleto ou incorreto.'); return; }
-        v=maskPhone(v);
-      } else if(!v){
-        err('Por favor, preencha este campo.');return;
-      }
-      state[s.key]=v;advance();
-    };
-    document.getElementById('next').onclick=go;
-    inp.addEventListener('keydown',e=>{if(e.key==='Enter')go();});
+function paint(n){
+  for(var i=1;i<=4;i++){
+    document.getElementById('p'+i).className = (i<=n) ? 'on' : '';
   }
 }
-function err(m){const e=document.getElementById('err');if(e)e.textContent=m;}
-
-function advance(){
-  try{ var _s=STEPS[idx]; if(_s && window.__evForm) window.__evForm(_s.key, idx+1); }catch(e){}
-  if(idx<STEPS.length-1){idx++;render();}
-  else finish();
+function show(id){
+  ['s1','s2','s3','s4','sOk'].forEach(function(k){
+    document.getElementById(k).classList.add('hidden');
+  });
+  document.getElementById(id).classList.remove('hidden');
 }
-
-function finish(){
-  setProgress();bar.style.width='100%';
-  // Sem corte duro: todos seguem. Faturamento é só informativo;
-  // o orçamento apenas CLASSIFICA o lead (quente x morno) no payload.
-  submitLead();
+function go(n, campo, valor){
+  dados[campo] = valor;
+  show('s'+n);
+  paint(n);
 }
-
-/* caminho DESQUALIFICADO: "Outro" — encerra sem NENHUMA conversão
-   (sem Pixel Lead, sem webhook, sem lead no painel). Só marca a métrica 'desqualificado'. */
-function disqualify(){
-  try{ if(window.__evForm) window.__evForm('desqualificado', 99); }catch(e){}
-  bar.style.width='100%';
-  stage.innerHTML=doneDisqualifiedHTML();
+function back(n){
+  show('s'+n);
+  paint(n);
 }
-function doneDisqualifiedHTML(){
-  return '<div class="done">'
-    +'<div class="done-ic"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>'
-    +'<h3>Obrigado pelo seu interesse! 🙏</h3>'
-    +'<p>No momento, a nossa assessoria atende <strong>exclusivamente dentistas e clínicas odontológicas</strong> — por isso ainda não conseguimos te atender da melhor forma agora.</p>'
-    +'<p class="done-sub">Agradecemos de verdade o seu contato e desejamos muito sucesso no seu trabalho!</p>'
-  +'</div>';
-}
+function enviar(e){
+  e.preventDefault();
+  dados.nome = document.getElementById('nome').value;
+  dados.whatsapp = document.getElementById('zap').value;
+  dados.cidade = document.getElementById('cidade').value;
+  dados.area = document.getElementById('area').value;
 
-function doneHTML(t,p){
-  return '<div class="done"><div class="done-ic"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div><h3>'+t+'</h3><p>'+p+'</p></div>';
-}
+  // ===================================================================
+  // AQUI ENTRA O DESTINO DO LEAD.
+  // [PENDENTE] webhook/CRM do odonto (o site médico manda para o Evoluze Chat
+  // e para o Supabase; os endpoints novos do odonto ainda não foram definidos).
+  // ===================================================================
+  console.log('Lead:', dados);
 
-/* monta a URL da agenda já com os dados do lead (nome/WhatsApp) para ele NÃO
-   digitar de novo — só escolher o horário. Os nomes dos parâmetros vêm de
-   CONFIG.agendaParams. Se a agenda ignorar, não quebra (só não pré-preenche). */
-function buildAgendaUrl(){
-  var base=(CONFIG.linkAgenda||'').trim();
-  if(!base || base.indexOf('[')!==-1) return '';
-  var map=CONFIG.agendaParams||{};
-  var vals={ nome:state.nome||'', whatsapp:toWhatsApp(state.whatsapp), email:state.email||'' };
-  var qs=[];
-  for(var k in map){ if(map[k] && vals[k]){ qs.push(encodeURIComponent(map[k])+'='+encodeURIComponent(vals[k])); } }
-  if(!qs.length) return base;
-  return base+(base.indexOf('?')===-1?'?':'&')+qs.join('&');
-}
+  // Conversão — dispara SÓ aqui, junto com o envio do lead (nunca no carregamento).
+  // id único por lead: o Google deduplica se a tag mandar o hit 2x.
+  var txid = 'lead_' + Date.now().toString(36) + Math.random().toString(36).slice(2,8);
+  try{ if(typeof fbq==='function') fbq('track','Lead'); }catch(err){}
+  try{ if(typeof gtag==='function') gtag('event','conversion',{'send_to':'AW-18428282557/HXZuCNGd0e0cEL2NpdNE','transaction_id':txid}); }catch(err){}
+  try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:'lead_form_submit'}); }catch(err){}
 
-/* tela de sucesso p/ lead QUALIFICADO (quente): agradecimento + botão de agenda.
-   O botão é ADICIONAL — não interfere no envio (Formspree/webhook) nem na IA no WhatsApp. */
-function doneAgendaHTML(){
-  var link=buildAgendaUrl();
-  var botao = link
-    ? '<div class="step-actions"><a class="btn" href="'+link.replace(/&/g,'&amp;')+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg> Agendar minha reunião de diagnóstico</a></div>'
-    : '';
-  return '<div class="done">'
-    +'<div class="done-ic"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>'
-    +'<h3>Reunião de diagnóstico da sua clínica</h3>'
-    +'<p>30 minutos analisando sua estrutura atual de aquisição e o que precisa mudar pra entrar paciente particular de forma consistente. Sem proposta genérica e sem apresentação de slides.</p>'
-    +botao
-    +'<p class="done-sub">Se preferir, nossa atendente também te chama no WhatsApp para combinarmos.</p>'
-  +'</div>';
-}
-
-/* normaliza o WhatsApp para 55 + DDD + número (só dígitos) */
-function toWhatsApp(raw){
-  var d=(raw||'').replace(/\D/g,'');
-  if(d.length>=12 && d.slice(0,2)==='55') return d;   // já veio com 55
-  if(d.length>=10 && d.length<=11) return '55'+d;       // DDD + número
-  return d;                                             // fallback: envia como veio
-}
-
-/* máscara BR enquanto digita: (99) 99999-9999 (celular) e (99) 9999-9999 (fixo). Limpa +55 colado. */
-function maskPhone(v){
-  var d=(v||'').replace(/\D/g,'');
-  if(d.length>11 && d.slice(0,2)==='55') d=d.slice(2); // colou com +55
-  d=d.slice(0,11);
-  if(!d) return '';
-  if(d.length<3) return '('+d;
-  var out='('+d.slice(0,2)+') ', rest=d.slice(2);
-  if(rest.length<=4) return out+rest;
-  if(d.length<=10) return out+rest.slice(0,4)+'-'+rest.slice(4); // fixo 9999-9999
-  return out+rest.slice(0,5)+'-'+rest.slice(5);                  // celular 99999-9999
-}
-/* valida telefone BR — fixo (10) ou celular (11 dígitos): DDD real, 9 no celular, sem repetição/sequência */
-var DDD_VALIDOS=[11,12,13,14,15,16,17,18,19,21,22,24,27,28,31,32,33,34,35,37,38,41,42,43,44,45,46,47,48,49,51,53,54,55,61,62,63,64,65,66,67,68,69,71,73,74,75,77,79,81,82,83,84,85,86,87,88,89,91,92,93,94,95,96,97,98,99];
-/* true se os dígitos formam sequência crescente ou decrescente de 1 em 1 (ex.: 123456789, 987654321) */
-function foneSeq(s){
-  var asc=true, desc=true;
-  for(var i=1;i<s.length;i++){
-    var diff=s.charCodeAt(i)-s.charCodeAt(i-1);
-    if(diff!==1) asc=false;
-    if(diff!==-1) desc=false;
-  }
-  return asc||desc;
-}
-function isValidFone(raw){
-  var d=(raw||'').replace(/\D/g,'');
-  if(d.length>11 && d.slice(0,2)==='55') d=d.slice(2);            // ignora +55 colado
-  if(d.length!==10 && d.length!==11) return false;               // 10 (fixo) ou 11 (celular)
-  if(DDD_VALIDOS.indexOf(parseInt(d.slice(0,2),10))===-1) return false; // DDD real
-  var sub=d.slice(2);                                            // dígitos após o DDD
-  if(d.length===11 && sub.charAt(0)!=='9') return false;         // celular começa com 9
-  if(/^(\d)\1*$/.test(sub)) return false;                        // todos iguais após o DDD
-  if(foneSeq(sub)) return false;                                 // sequência crescente/decrescente
-  return true;
-}
-
-/* faturamento de R$ 30 mil pra cima? (mesma régua do painel) */
-function fatAlto(f){ f=String(f||''); var nums=(f.match(/\d+/g)||[]).map(Number); if(!nums.length) return false; if(/acima/i.test(f)) return true; if(/^at[eé]/i.test(f.trim())) return nums[0]>30; return nums[0]>=30; }
-/* código estável da formação (robusto a mudança de texto): dono_clinica | dentista_terceiros | medico_dentista | '' */
-function formacaoCod(f){ f=String(f||'').toLowerCase();
-  if(/dono|s[óo]cio|gestor/.test(f)) return 'dono_clinica';
-  if(/terceiro/.test(f)) return 'dentista_terceiros';
-  if(/m[eé]dico|dentista/.test(f)) return 'medico_dentista';
-  if(/profissional/.test(f)) return 'profissional_saude';
-  return ''; }
-/* classificação do lead: quente | morno | frio (idêntica à do painel) */
-function classificarLead(st, orc){
-  if(orc!=='sim') return 'frio';
-  if(fatAlto(st.faturamento)) return 'quente';
-  // ticket alto: Implantodontia/Harmonização orofacial na faixa 10-30 mil → Quente
-  if((st.area==='Implantodontia' || st.area==='Harmonização orofacial') && st.faturamento==='R$ 10 mil a R$ 30 mil') return 'quente';
-  return 'morno';
-}
-
-async function submitLead(){
-  stage.innerHTML='<div class="done"><h3>Enviando...</h3><p>Só um instante.</p></div>';
-
-  // dados coletados no formulário (obs.: o form não coleta e-mail -> vai vazio)
-  const dados={
-    nome:state.nome||'', whatsapp:toWhatsApp(state.whatsapp), email:state.email||'',
-    formacao:state.formacao||'', clinica:state.clinica||'', area:state.area||'',
-    faturamento:state.faturamento||'', investe:state.investe||'', desafio:state.desafio||''
-  };
-  // classificação pelo portão de orçamento: 'sim' (quente) x 'duvida' (morno)
-  const orcamento = (state.budget==='Sim, faz sentido') ? 'sim' : 'duvida';
-
-  // ── campos p/ o webhook: formação codificada + classificação (quente/morno/frio) ──
-  // "Outro" nem chega aqui (rota de desqualificação não dispara webhook).
-  var formacaoCodigo = formacaoCod(state.formacao);
-  var classificacao = classificarLead(state, orcamento);
-
-  // ── 1) Evoluze Chat (webhook) — só leads QUALIFICADOS chegam aqui (ver finish()) ──
-  const enviaChat=(async()=>{
-    try{
-      const r=await fetch(CONFIG.chatWebhookUrl,{
-        method:'POST',
-        headers:{'Content-Type':'application/json','Authorization':'Bearer '+CONFIG.chatWebhookToken},
-        body:JSON.stringify({
-          nome:dados.nome, whatsapp:dados.whatsapp, email:dados.email, clinica:dados.clinica,
-          area:dados.area, faturamento:dados.faturamento, investe:dados.investe,
-          desafio:dados.desafio, orcamento:orcamento, origem:"site-performance",
-          formacao:formacaoCodigo, classificacao:classificacao
-        })
-      });
-      if(!r.ok){ console.error('Evoluze Chat: HTTP '+r.status); return false; }
-      return true;
-    }catch(e){ console.error('Evoluze Chat: falha no envio do webhook', e); return false; }
-  })();
-
-  // ── 2) Formspree (mantido, em paralelo e isolado) ──
-  const enviaFormspree=(async()=>{
-    if(!(CONFIG.formspreeId && CONFIG.formspreeId.indexOf('[')===-1)){
-      console.warn('Formspree não configurado — lead não enviado por e-mail.');
-      return false;
-    }
-    try{
-      const r=await fetch('https://formspree.io/f/'+CONFIG.formspreeId,{
-        method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-        body:JSON.stringify({
-          nome:dados.nome, whatsapp:dados.whatsapp, clinica:dados.clinica, area:dados.area,
-          faturamento:dados.faturamento, investe:dados.investe, desafio:dados.desafio,
-          budget:state.budget||'', orcamento:orcamento, origem:"site-performance",
-          _subject:'Novo lead — Evoluze (Análise gratuita)'
-        })
-      });
-      return r.ok===true;
-    }catch(e){ console.error('Formspree: falha no envio', e); return false; }
-  })();
-
-  // ── 3) Supabase (banco próprio — alimenta o Painel de leads) ──
-  const enviaSupabase=(async()=>{
-    try{
-      var O=window.__evOrigin||{};
-      var SB="https://gmycqvvvglexbtbqkjzi.supabase.co";
-      var KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdteWNxdnZ2Z2xleGJ0YnFranppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc1NjU1NjksImV4cCI6MjA5MzE0MTU2OX0.EZ1kmm1fcIMyQ4ALlBYhmtYeE26712ePH7HQOPkc_yQ";
-      const r=await fetch(SB+"/rest/v1/leads",{
-        method:'POST',
-        headers:{'Content-Type':'application/json','apikey':KEY,'Authorization':'Bearer '+KEY,'Prefer':'return=minimal'},
-        body:JSON.stringify({
-          nome:dados.nome, whatsapp:dados.whatsapp, email:dados.email,
-          formacao:dados.formacao, clinica:dados.clinica, area:dados.area,
-          faturamento:dados.faturamento, investe:dados.investe, desafio:dados.desafio,
-          budget:state.budget||'', orcamento:orcamento, origem:'site-performance',
-          source:(O.source||'').slice(0,60), medium:(O.medium||'').slice(0,60),
-          campaign:(O.campaign||'').slice(0,120), device:O.device||'',
-          referrer:(O.ref||'').slice(0,300), visitor_id:O.vid||''
-        })
-      });
-      if(!r.ok){ console.error('Supabase leads: HTTP '+r.status); return false; }
-      return true;
-    }catch(e){ console.error('Supabase leads: falha no envio', e); return false; }
-  })();
-
-  // os três disparam em PARALELO; a falha de um não afeta o outro
-  const resultados = await Promise.all([enviaChat, enviaFormspree, enviaSupabase]);
-  const chatOk = resultados[0], formspreeOk = resultados[1], supabaseOk = resultados[2];
-
-  // sucesso se ALGUM destino recebeu o lead. O banco (Supabase) é confiável, então a
-  // conversão (Pixel Lead + evento do Google) dispara sempre que o lead é CAPTURADO —
-  // nunca fica refém do webhook do Evoluze Chat. Só cai no erro se TODOS falharem.
-  if(chatOk || formspreeOk || supabaseOk){
-    fireConversion();
-    try{ window.__evForm && window.__evForm('submit',9); }catch(e){}
-    // lead QUALIFICADO (quente) = mesma régua que classifica o webhook: orçamento 'sim'.
-    // Qualificado vê o botão de agenda; morno recebe só o agradecimento (a IA nutre no WhatsApp).
-    var qualificado = (orcamento === 'sim');
-    stage.innerHTML = qualificado
-      ? doneAgendaHTML()
-      : doneHTML('Recebemos suas respostas!','Em breve você recebe uma mensagem no seu WhatsApp com os próximos passos.');
-  } else {
-    stage.innerHTML='<div class="done"><h3>Ops, algo falhou no envio.</h3><p>Tente novamente em instantes.</p><div class="step-actions"><button class="btn" id="retry">Tentar de novo</button></div></div>';
-    document.getElementById('retry').onclick=submitLead;
-  }
+  show('sOk');
+  paint(4);
 }
 </script>
 
-<!-- ════════ ANALYTICS PRÓPRIO (Supabase) — registra acesso anônimo ════════ -->
-<script>
-(function(){
-  if(window.__EV_PREVIEW) return; // prévia: sem analytics
-  try{
-    var SB="https://gmycqvvvglexbtbqkjzi.supabase.co";
-    var KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdteWNxdnZ2Z2xleGJ0YnFranppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc1NjU1NjksImV4cCI6MjA5MzE0MTU2OX0.EZ1kmm1fcIMyQ4ALlBYhmtYeE26712ePH7HQOPkc_yQ";
-    var ua=navigator.userAgent||"";
-    var isBot=/bot|crawl|spider|slurp|bing|yandex|duckduck|baidu|facebookexternalhit|embedly|quora|pinterest|semrush|ahrefs|lighthouse|headless|preview|monitor|uptime/i.test(ua);
-    var vid=localStorage.getItem('_ev_vid');
-    if(!vid){ vid=Date.now().toString(36)+Math.random().toString(36).slice(2,10); localStorage.setItem('_ev_vid',vid); }
-    var qs=new URLSearchParams(location.search), ref=document.referrer||"", host="";
-    try{ host=ref?new URL(ref).hostname:""; }catch(e){}
-    var source=qs.get('utm_source')||"";
-    if(!source){
-      if(/facebook|instagram|fb\.|\.fb|l\.facebook|lm\.facebook/i.test(host)) source='meta';
-      else if(/google/i.test(host)) source='google';
-      else if(/bing/i.test(host)) source='bing';
-      else if(host && host.indexOf(location.hostname)===-1) source=host.replace(/^www\./,'');
-      else source='direto';
-    }
-    var device=(window.matchMedia&&window.matchMedia('(max-width:768px)').matches)?'mobile':'desktop';
-    try{ window.__evOrigin={source:source, medium:(qs.get('utm_medium')||''), campaign:(qs.get('utm_campaign')||''), device:device, vid:vid, ref:ref}; }catch(e){}
-    // helper de funil: registra progresso no formulário (abrir, cada resposta, enviar)
-    try{
-      window.__evForm=function(step,i){
-        try{
-          fetch(SB+"/rest/v1/form_events",{
-            method:'POST',
-            headers:{'Content-Type':'application/json','apikey':KEY,'Authorization':'Bearer '+KEY,'Prefer':'return=minimal'},
-            body:JSON.stringify({visitor_id:vid, step:step, step_index:i, source:source.slice(0,60), device:device, is_bot:isBot}),
-            keepalive:true
-          }).catch(function(){});
-        }catch(e){}
-      };
-    }catch(e){}
-    fetch(SB+"/rest/v1/page_events",{
-      method:'POST',
-      headers:{'Content-Type':'application/json','apikey':KEY,'Authorization':'Bearer '+KEY,'Prefer':'return=minimal'},
-      body:JSON.stringify({
-        path:location.pathname, referrer:ref.slice(0,300), source:source.slice(0,60),
-        medium:(qs.get('utm_medium')||'').slice(0,60), campaign:(qs.get('utm_campaign')||'').slice(0,120),
-        device:device, visitor_id:vid, is_bot:isBot
-      }),
-      keepalive:true
-    }).catch(function(){});
-  }catch(e){}
-})();
-</script>
 </body>
 </html>
