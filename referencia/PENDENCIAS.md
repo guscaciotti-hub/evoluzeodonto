@@ -1,8 +1,8 @@
 # Pendências da versão nova (arquivo único `public/index.html`)
 
-## Arquivos que faltam
-- `public/assets/video/eveline.mp4` — vídeo vertical 9:16 da Dra. Eveline (H.264/AAC, 1080×1920). O `<video>` já aponta pra esse caminho; até o arquivo chegar o player mostra a capa e não toca.
-- `public/assets/img/eveline-capa.jpg` — hoje é uma arte provisória com o nome dela. Trocar por um frame real do vídeo.
+## Vídeo da Dra. Eveline (feito)
+- Original: `eveline.editado.mp4` na release `video-eveline` (41 MB, HEVC 10-bit, não toca em todo navegador).
+- No site: `public/assets/video/eveline.mp4`, recodificado em H.264/AAC 1080×1920, 14 MB. Capa `eveline-capa.jpg` é um frame real. A release pode ser apagada quando quiser.
 
 ## Blocos [INSERIR] que continuam abertos
 - **Case odontológico** (`<!-- CASE -->`): título, texto (antes / o que foi estruturado / o que mudou) e os 3 números. Não tenho dados de nenhuma clínica odontológica pra preencher sem inventar. O da Adissi é cirurgia plástica e não entra.
