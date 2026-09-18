@@ -22,24 +22,37 @@
 <!-- ════════════════════════════════════════════════════════════
      RASTREAMENTO — cole os IDs e descomente quando tiver
      ════════════════════════════════════════════════════════════ -->
+<!-- MODO PRÉVIA: em *.vercel.app, *.netlify.app, *.github.io, localhost e file://, NADA de rastreamento
+     dispara e o formulário NÃO envia lead de verdade (só mostra a tela de sucesso). No domínio final, tudo liga. -->
+<script>
+window.__EV_PREVIEW = /\.vercel\.app$|\.netlify\.app$|\.github\.io$|^localhost$|^127\./.test(location.hostname) || location.protocol==='file:';
+if(window.__EV_PREVIEW){
+  document.write('<meta name="robots" content="noindex,nofollow">');
+  (function(){var f=window.fetch;window.fetch=function(u,o){if(/supabase\.co|evoluzechat\.com\.br\/webhook|formspree\.io/.test(String(u)))return Promise.resolve(new Response('{}',{status:200}));return f.apply(this,arguments);};})();
+}
+</script>
 <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NLB9HGKB');</script>
+<script>if(!window.__EV_PREVIEW)(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NLB9HGKB');</script>
 <!-- End Google Tag Manager -->
 <!-- Meta Pixel (ID público — OK ficar no site). Evento Lead dispara no envio do form. -->
 <script>
+if(!window.__EV_PREVIEW){
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1596531545529516');
 fbq('track','PageView');
+}
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1596531545529516&ev=PageView&noscript=1"/></noscript>
 
 <!-- Google tag (gtag.js) — Google Ads. A conversão "LEAD - Médico/Dentista/Dono" dispara no envio do form (ver fireConversion). -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18428282557"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18428282557');
+  if(!window.__EV_PREVIEW){
+    var _g=document.createElement('script'); _g.async=true; _g.src='https://www.googletagmanager.com/gtag/js?id=AW-18428282557'; document.head.appendChild(_g);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18428282557');
+  }
 </script>
 <!-- End Meta Pixel -->
 
@@ -1338,6 +1351,7 @@ async function submitLead(){
 <!-- ════════ ANALYTICS PRÓPRIO (Supabase) — registra acesso anônimo ════════ -->
 <script>
 (function(){
+  if(window.__EV_PREVIEW) return; // prévia: sem analytics
   try{
     var SB="https://gmycqvvvglexbtbqkjzi.supabase.co";
     var KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdteWNxdnZ2Z2xleGJ0YnFranppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc1NjU1NjksImV4cCI6MjA5MzE0MTU2OX0.EZ1kmm1fcIMyQ4ALlBYhmtYeE26712ePH7HQOPkc_yQ";
