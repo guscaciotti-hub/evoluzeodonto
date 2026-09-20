@@ -1,4 +1,4 @@
-# Evoluze Odonto — funil odontológico
+# Gustavo Scaciotti — gestor de tráfego para odontologia (ex-Evoluze Odonto)
 
 Clone estrutural do site médico (`guscaciotti-hub/SITE-LOCAL`, evoluzemarketingmedico.com.br), para virar a versão odontológica: **mesmo layout, design e componentes; só copy e parte das imagens mudam.**
 

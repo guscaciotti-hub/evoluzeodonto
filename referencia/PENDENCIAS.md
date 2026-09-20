@@ -1,11 +1,13 @@
-# Pendências da versão nova (arquivo único `public/index.html`)
+# Pendências (arquivo único `public/index.html`)
+
+Posicionamento atual: **Gustavo Scaciotti, gestor de tráfego individual**, primeira pessoa do singular. Domínio novo: `gustavogestordetrafego.com.br` (canonical e og:url já apontam pra ele; DNS e hospedagem ainda por configurar). "Evoluze" só aparece no depoimento da Dra. Joyce.
 
 ## Vídeos
 - **Dra. Eveline (feito)**: original `eveline.editado.mp4` na release `video-eveline` (41 MB, HEVC 10-bit). No site: `public/assets/video/eveline-web.mp4`, 720×1280, CRF 24, faststart, 10 MB. Capa `eveline-capa.jpg` é um frame real. Começa mudo ao abrir, com botão de som (decisão do Gustavo; o brief pedia sem autoplay).
 - **Dra. Joyce (falta o arquivo)**: subir o MP4 numa release, como foi feito com a Eveline. Vai no lugar do card de texto dela nos depoimentos, marcado `[VIDEO_JOYCE]` no HTML, com o mesmo tratamento 9:16, poster, sem autoplay.
 
-## Blocos [INSERIR] que continuam abertos
-- **Case da Dra. Joyce Carvalho** (`<!-- CASE -->`): título com o resultado, texto de 3 a 4 linhas e os 3 números (investimento mensal, nº de pacientes ou leads, ticket médio ou retorno). Placeholders nomeados já no lugar; Gustavo fornece os números.
+## Case (feito)
+- Case da Dra. Eveline Leite com os números autorizados por ela (R$4 mil/mês em tráfego, R$80 mil+ de faturamento, 100% particular). Sem vídeo no case; o dela já está no hero.
 
 ## Lead: ligado ao agente Evoluze Comercial (falta colar o token)
 `enviar()` faz POST em `https://evoluzechat.com.br/webhook/lead` (mesmo endpoint do site médico) com nome, whatsapp (55+DDD), cidade, area, papel, tamanho, verba e `origem: "site-odonto"`. Conversão (Pixel Lead, Google Ads, dataLayer) dispara depois do POST responder, com fallback de 5 s. Erro do POST só no console; o lead sempre vê a tela final. Em prévia (github.io) o POST não sai.
