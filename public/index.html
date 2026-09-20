@@ -303,12 +303,14 @@ p{color:var(--muted);font-size:16px}
 .grid-serv{display:grid;gap:16px}
 @media(min-width:640px){.grid-serv{grid-template-columns:1fr 1fr}}
 @media(min-width:960px){.grid-serv{grid-template-columns:repeat(3,1fr)}}
-.serv-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px}
+.serv-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:var(--radius);padding:26px 24px}
 .serv-card .ico{
-  width:38px;height:38px;border-radius:11px;background:var(--ink);
+  width:46px;height:46px;border-radius:11px;background:var(--ink);
   display:flex;align-items:center;justify-content:center;margin-bottom:16px;
 }
-.serv-card .ico svg{width:19px;height:19px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.serv-card .entrega{font-weight:600;color:var(--ink);font-size:13.5px;margin-top:10px}
+.serv-card .entrega strong{color:var(--accent-ink)}
+.serv-card .ico svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .serv-card h3{margin-bottom:8px}
 .serv-card p{font-size:14.5px}
 .note{
@@ -708,7 +710,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;back
       <div class="step">
         <div class="n">3</div>
         <h3>Acompanhamento</h3>
-        <p>CRM e rastreamento do anúncio até a cadeira. Você vê quanto custou o paciente que fez o implante, não quanto custou o clique.</p>
+        <p>Rastreamento do anúncio até a cadeira. Você vê quanto custou o paciente que fez o implante, não quanto custou o clique.</p>
       </div>
       <div class="step">
         <div class="n">4</div>
@@ -732,8 +734,8 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;back
     <div class="stage">
       <div class="stage-label">Descoberta</div>
       <div>
-        <div class="stage-q">"Ah, então isso tem tratamento?"</div>
-        <p>Conteúdo que educa e apresenta a clínica para quem ainda nem sabia que o problema dele tinha solução.</p>
+        <div class="stage-q">"Ah, então dá pra mudar isso?"</div>
+        <p>Conteúdo que mostra o que é possível — a lente, o clareamento, o implante — para quem se acostumou com o sorriso que tem e nunca imaginou outro.</p>
       </div>
     </div>
     <div class="stage">
@@ -824,13 +826,13 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;back
 <section class="bg-grid">
   <div class="wrap">
     <div class="case">
-      <span class="eyebrow on-dark">Case</span>
-      <h2>[INSERIR: título do case odontológico]</h2>
-      <p class="lead">[INSERIR: o que existia antes, o que foi estruturado, o que mudou. Precisa ser uma clínica odontológica — o case da Adissi é cirurgia plástica e não entra aqui.]</p>
+      <span class="eyebrow on-dark">Case · Clareamento dental</span>
+      <h2>[INSERIR: título — uma frase com o resultado]</h2>
+      <p class="lead">[INSERIR: o que existia antes, o que foi estruturado, o que mudou — 3 a 4 linhas]</p>
       <div class="case-stats">
-        <div class="stat"><b>[dado]</b><span>[legenda]</span></div>
-        <div class="stat"><b>[dado]</b><span>[legenda]</span></div>
-        <div class="stat"><b>[dado]</b><span>[legenda]</span></div>
+        <div class="stat"><b>[INSERIR: investimento mensal]</b><span>investidos por mês</span></div>
+        <div class="stat"><b>[INSERIR: nº de pacientes ou leads]</b><span>pacientes particulares no período</span></div>
+        <div class="stat"><b>[INSERIR: ticket médio ou retorno]</b><span>[legenda]</span></div>
       </div>
     </div>
   </div>
@@ -879,32 +881,38 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;back
       <div class="serv-card">
         <div class="ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></div>
         <h3>Tráfego pago para odontologia</h3>
-        <p>Captura de quem já está procurando implante, ortodontia ou clareamento na sua região, no momento da busca.</p>
+        <p>Meta e Google, segmentados por procedimento e região.</p>
+        <p class="entrega"><strong>Entrega:</strong> campanhas ativas, otimização semanal, relatório de custo por paciente.</p>
       </div>
       <div class="serv-card">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></div>
         <h3>Posicionamento de especialista</h3>
-        <p>Geração de demanda no Instagram e no Facebook para quem ainda não buscou, mas tem o problema e o poder de decisão.</p>
+        <p>Conteúdo e anúncio que colocam você como referência no procedimento que mais dá margem.</p>
+        <p class="entrega"><strong>Entrega:</strong> linha editorial, criativos e roteiro de vídeo alinhados ao CFO.</p>
       </div>
       <div class="serv-card">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.5 8.5 0 01-3.9-.9L3 21l1.9-5A8.4 8.4 0 0112 3a8.4 8.4 0 019 8.5z"/></svg></div>
         <h3>Atendimento com IA no WhatsApp</h3>
-        <p>Resposta imediata no WhatsApp, qualificação do paciente e agendamento, inclusive fora do horário da recepção.</p>
+        <p>Resposta em segundos, qualificação e agendamento, fora do horário da recepção inclusive.</p>
+        <p class="entrega"><strong>Entrega:</strong> agente configurado com a agenda da clínica e handoff para a sua equipe.</p>
       </div>
       <div class="serv-card">
         <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg></div>
         <h3>Funil de paciente particular</h3>
-        <p>Cada contato organizado por etapa, com follow-up definido. Orçamento não fechado deixa de sumir na conversa.</p>
+        <p>Cada contato organizado por etapa, com follow-up definido.</p>
+        <p class="entrega"><strong>Entrega:</strong> CRM configurado, cadência de retomada de orçamento, ninguém some na conversa.</p>
       </div>
       <div class="serv-card">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.9"/></svg></div>
         <h3>Estruturação comercial</h3>
-        <p>Quem atende o WhatsApp decide seu faturamento. Treinamos abordagem, objeção de preço e retomada de orçamento.</p>
+        <p>Quem atende o WhatsApp decide seu faturamento.</p>
+        <p class="entrega"><strong>Entrega:</strong> treinamento da recepção em abordagem, objeção de preço e retomada de orçamento.</p>
       </div>
       <div class="serv-card">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
         <h3>Acompanhamento e métrica</h3>
-        <p>Desenho do caminho do paciente da primeira mensagem ao tratamento fechado, com meta e acompanhamento.</p>
+        <p>Do clique ao tratamento fechado, com o número real.</p>
+        <p class="entrega"><strong>Entrega:</strong> dashboard com custo por lead e por paciente, atualizado toda semana.</p>
       </div>
     </div>
     <p class="note">O que entra no seu plano é definido na reunião de diagnóstico. Você não paga por solução que não vai usar.</p>
@@ -1037,7 +1045,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;back
         <div class="done">
           <div class="tick">✓</div>
           <h3>Recebido.</h3>
-          <p>Vou olhar sua clínica antes de falar com você e retorno pelo WhatsApp em até um dia útil.</p>
+          <p>Já te chamei no WhatsApp — confere lá que a gente marca o horário agora.</p>
         </div>
       </div>
     </div>
@@ -1131,20 +1139,57 @@ function enviar(e){
   dados.area = document.getElementById('area').value;
 
   // ===================================================================
-  // AQUI ENTRA O DESTINO DO LEAD.
-  // [PENDENTE] fetch() para o webhook/CRM do odonto (endpoints ainda não definidos).
+  // DESTINO DO LEAD: webhook do agente Evoluze Comercial (mesmo endpoint do site médico).
+  // papel, tamanho e verba vão preenchidos — o agente não deve perguntar de novo.
   // ===================================================================
-  console.log('Lead:', dados);
+  var payload = {
+    nome: dados.nome, whatsapp: normalizaZap(dados.whatsapp), cidade: dados.cidade, area: dados.area,
+    papel: dados.papel || '', tamanho: dados.tamanho || '', verba: dados.verba || '',
+    origem: 'site-odonto'
+  };
+  console.log('Lead:', payload);
 
-  // Conversão — dispara SÓ aqui, junto com o envio do lead (nunca no carregamento, nunca no botão do hero).
-  // id único por lead: o Google deduplica se a tag mandar o hit 2x.
-  var txid = 'lead_' + Date.now().toString(36) + Math.random().toString(36).slice(2,8);
-  try{ if(typeof fbq==='function') fbq('track','Lead'); }catch(err){}
-  try{ if(typeof gtag==='function') gtag('event','conversion',{'send_to':'AW-18428282557/HXZuCNGd0e0cEL2NpdNE','transaction_id':txid}); }catch(err){}
-  try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:'lead_form_submit'}); }catch(err){}
-
+  // A tela final aparece na hora — o lead nunca vê erro. Falha do POST vai só pro console.
   show('sOk');
   paint(4);
+
+  var conversaoFeita = false;
+  function conversao(){
+    // Dispara SÓ aqui, após o POST (nunca no carregamento, nunca no botão do hero).
+    if(conversaoFeita) return; conversaoFeita = true;
+    var txid = 'lead_' + Date.now().toString(36) + Math.random().toString(36).slice(2,8); // id único: o Google deduplica
+    try{ if(typeof fbq==='function') fbq('track','Lead'); }catch(err){}
+    try{ if(typeof gtag==='function') gtag('event','conversion',{'send_to':'AW-18428282557/HXZuCNGd0e0cEL2NpdNE','transaction_id':txid}); }catch(err){}
+    try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:'lead_form_submit'}); }catch(err){}
+  }
+
+  if(window.__EV_PREVIEW){
+    console.log('Prévia: POST não enviado.'); conversao(); return;
+  }
+  try{
+    fetch(WEBHOOK_URL, {
+      method:'POST', keepalive:true,
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+WEBHOOK_TOKEN},
+      body: JSON.stringify(payload)
+    }).then(function(r){
+      if(!r.ok) console.error('Webhook Evoluze Comercial: HTTP '+r.status);
+    }).catch(function(err){
+      console.error('Webhook Evoluze Comercial: falha no envio', err);
+    }).finally(conversao);
+  }catch(err){ console.error('Webhook Evoluze Comercial: erro', err); conversao(); }
+  setTimeout(conversao, 5000); // garante a conversão mesmo se o POST demorar
+}
+
+// Webhook do agente Evoluze Comercial (o mesmo do site médico). Para trocar, edite aqui.
+var WEBHOOK_URL   = 'https://evoluzechat.com.br/webhook/lead';
+var WEBHOOK_TOKEN = '[COLAR_TOKEN_DO_EVOLUZE_CHAT]'; // o mesmo Bearer token usado no site médico (CONFIG.chatWebhookToken)
+
+/* WhatsApp para 55 + DDD + número, só dígitos */
+function normalizaZap(raw){
+  var d = String(raw||'').replace(/\D/g,'');
+  if(d.length>=12 && d.slice(0,2)==='55') return d;
+  if(d.length>=10 && d.length<=11) return '55'+d;
+  return d;
 }
 </script>
 

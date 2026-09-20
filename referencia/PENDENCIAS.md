@@ -5,10 +5,12 @@
 - **Dra. Joyce (falta o arquivo)**: subir o MP4 numa release, como foi feito com a Eveline. Vai no lugar do card de texto dela nos depoimentos, marcado `[VIDEO_JOYCE]` no HTML, com o mesmo tratamento 9:16, poster, sem autoplay.
 
 ## Blocos [INSERIR] que continuam abertos
-- **Case odontológico** (`<!-- CASE -->`): título, texto (antes / o que foi estruturado / o que mudou) e os 3 números. Não tenho dados de nenhuma clínica odontológica pra preencher sem inventar. O da Adissi é cirurgia plástica e não entra.
+- **Case da Dra. Joyce Carvalho** (`<!-- CASE -->`): título com o resultado, texto de 3 a 4 linhas e os 3 números (investimento mensal, nº de pacientes ou leads, ticket médio ou retorno). Placeholders nomeados já no lugar; Gustavo fornece os números.
 
-## Lead: destino ainda não ligado
-`enviar()` só dá `console.log` e mostra a tela "Recebido". A conversão (Pixel Lead, Google Ads, `dataLayer`) já dispara ali. Falta o `fetch()` pro webhook/CRM do odonto (o site médico usa Evoluze Chat + Supabase com credenciais próprias, listadas no item 10 do dossiê).
+## Lead: ligado ao agente Evoluze Comercial (falta colar o token)
+`enviar()` faz POST em `https://evoluzechat.com.br/webhook/lead` (mesmo endpoint do site médico) com nome, whatsapp (55+DDD), cidade, area, papel, tamanho, verba e `origem: "site-odonto"`. Conversão (Pixel Lead, Google Ads, dataLayer) dispara depois do POST responder, com fallback de 5 s. Erro do POST só no console; o lead sempre vê a tela final. Em prévia (github.io) o POST não sai.
+- **Pendente**: trocar `[COLAR_TOKEN_DO_EVOLUZE_CHAT]` no fim do script pelo Bearer token do site médico (`CONFIG.chatWebhookToken` no index.html do SITE-LOCAL). A trava de segurança do ambiente não deixa esse valor entrar num commit feito daqui.
+- O agente precisa tratar papel, tamanho e verba como já respondidos (não perguntar de novo) — ajuste do lado do Evoluze Chat.
 
 ## Rastreamento portado do site médico (IDs compartilhados)
 - GTM `GTM-NLB9HGKB`, Pixel `1596531545529516`, Google Ads `AW-18428282557` com o rótulo de conversão `HXZuCNGd0e0cEL2NpdNE`.
