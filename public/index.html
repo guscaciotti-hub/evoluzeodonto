@@ -289,10 +289,16 @@ p{color:var(--muted);font-size:16px}
 @media(min-width:768px){.case{padding:48px 44px}}
 .case h2{color:#fff;max-width:20ch}
 .case .lead{color:#A9BAB6;margin-top:18px;max-width:58ch}
+.case{display:grid;gap:28px}
+@media(min-width:860px){.case{grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}}
+.case-media{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1)}
+.case-media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;display:block}
+@media(min-width:860px){.case-media img{aspect-ratio:4/5}}
+.case-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(10,16,15,.45));pointer-events:none}
 .case-stats{display:grid;gap:14px;margin-top:32px}
 @media(min-width:620px){.case-stats{grid-template-columns:repeat(3,1fr)}}
 .stat{border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px}
-.stat b{display:block;font-size:22px;color:var(--accent);letter-spacing:-.02em}
+.stat b{display:block;font-size:clamp(18px,1.6vw,22px);color:var(--accent);letter-spacing:-.02em;white-space:nowrap}
 .stat span{font-size:13px;color:#9FB0AC;display:block;margin-top:4px}
 
 /* SOBRE */
@@ -833,6 +839,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;back
 <section class="bg-grid">
   <div class="wrap">
     <div class="case">
+      <div class="case-body">
       <span class="eyebrow on-dark">Case · Dra. Eveline Leite</span>
       <h2>R$4 mil por mês em tráfego, agenda lotada de particular.</h2>
       <p class="lead">A Dra. Eveline atende exclusivamente particular e escalou em lentes de resina e em formação para dentistas. Com R$4 mil por mês em tráfego bem estruturado, mantém a agenda cheia de paciente particular e um faturamento acima de R$80 mil por mês — sem depender de convênio e sem depender de indicação.</p>
@@ -841,6 +848,8 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;back
         <div class="stat"><b>R$80 mil+</b><span>de faturamento mensal</span></div>
         <div class="stat"><b>100%</b><span>particular, zero convênio</span></div>
       </div>
+      </div>
+      <div class="case-media"><img src="assets/img/eveline-case.jpg" alt="Dra. Eveline Leite em atendimento" loading="lazy"></div>
     </div>
   </div>
 </section>
