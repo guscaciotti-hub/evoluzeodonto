@@ -291,10 +291,18 @@ p{color:var(--muted);font-size:16px}
 .case .lead{color:#A9BAB6;margin-top:18px;max-width:58ch}
 .case{display:grid;gap:28px}
 @media(min-width:860px){.case{grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}}
-.case-media{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1)}
-.case-media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;display:block}
+.case-side{display:flex;flex-direction:column;gap:14px;align-items:center}
+@media(min-width:860px){.case-side{align-items:flex-end}}
+.case-media{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1);width:100%;max-width:340px}
+.case-media img{width:100%;height:100%;object-fit:cover;object-position:center 25%;aspect-ratio:1/1;display:block;filter:saturate(.9)}
 @media(min-width:860px){.case-media img{aspect-ratio:4/5}}
-.case-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(10,16,15,.45));pointer-events:none}
+.case-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,16,15,0) 45%,rgba(10,16,15,.85));pointer-events:none}
+.case-id{position:absolute;left:16px;right:16px;bottom:14px;z-index:1;display:flex;flex-direction:column;gap:2px}
+.case-id strong{font-size:14.5px;font-weight:700;color:#fff;letter-spacing:-.01em}
+.case-id span{font-size:12px;color:var(--accent);font-weight:600}
+.case-creds{display:flex;flex-wrap:wrap;gap:8px;max-width:340px;justify-content:center}
+@media(min-width:860px){.case-creds{justify-content:flex-end}}
+.case-creds span{font-size:11.5px;font-weight:600;color:#C9D6D3;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);padding:6px 11px;border-radius:999px;line-height:1.3}
 .case-stats{display:grid;gap:14px;margin-top:32px}
 @media(min-width:620px){.case-stats{grid-template-columns:repeat(3,1fr)}}
 .stat{border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px}
@@ -849,7 +857,17 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;back
         <div class="stat"><b>100%</b><span>particular, zero convênio</span></div>
       </div>
       </div>
-      <div class="case-media"><img src="assets/img/eveline-case.jpg" alt="Dra. Eveline Leite em atendimento" loading="lazy"></div>
+      <div class="case-side">
+        <div class="case-media">
+          <img src="assets/img/eveline-case.jpg" alt="Dra. Eveline Leite em atendimento" loading="lazy">
+          <div class="case-id"><strong>Dra. Eveline Leite</strong><span>Ortodontista · CRO-MG 45408</span></div>
+        </div>
+        <div class="case-creds">
+          <span>Referência em lentes naturais, delicadas e personalizadas</span>
+          <span>Curso Áurea · Lentes Naturais</span>
+          <span>Embaixadora @riscofinno</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
