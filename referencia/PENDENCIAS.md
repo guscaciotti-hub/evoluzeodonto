@@ -10,7 +10,7 @@ Posicionamento atual: **Gustavo Scaciotti, gestor de tráfego individual**, prim
 - Case da Dra. Eveline Leite com os números autorizados por ela (R$4 mil/mês em tráfego, R$80 mil+ de faturamento, 100% particular). Sem vídeo no case; o dela já está no hero.
 
 ## Lead: ligado ao agente Evoluze Comercial (falta colar o token)
-`enviar()` faz POST em `https://evoluzechat.com.br/webhook/lead` (mesmo endpoint do site médico) com nome, whatsapp (55+DDD), cidade, area, papel, tamanho, verba e `origem: "site-odonto"`. Conversão (Pixel Lead, Google Ads, dataLayer) dispara depois do POST responder, com fallback de 5 s. Erro do POST só no console; o lead sempre vê a tela final. Em prévia (github.io) o POST não sai.
+`enviar()` faz POST em `https://evoluzechat.com.br/webhook/lead` (mesmo endpoint do site médico) com nome, whatsapp (55+DDD), papel, tamanho, verba e `origem: "site-odonto"` (cidade e area vão vazios: saíram do formulário). Conversão (Pixel Lead, Google Ads, dataLayer) dispara depois do POST responder, com fallback de 5 s. Erro do POST só no console; o lead sempre vê a tela final. Em prévia (github.io) o POST não sai.
 - **Pendente**: trocar `[COLAR_TOKEN_DO_EVOLUZE_CHAT]` no fim do script pelo Bearer token do site médico (`CONFIG.chatWebhookToken` no index.html do SITE-LOCAL). A trava de segurança do ambiente não deixa esse valor entrar num commit feito daqui.
 - O agente precisa tratar papel, tamanho e verba como já respondidos (não perguntar de novo) — ajuste do lado do Evoluze Chat.
 
@@ -20,9 +20,8 @@ Posicionamento atual: **Gustavo Scaciotti, gestor de tráfego individual**, prim
 - Criar IDs próprios do odonto quando for separar os dados.
 
 ## Faixa de prova social
-- Dentistas: Dra. Eveline Leite (CRO-MG 45408) e Dra. Fernanda Albejante (falta o CRO dela).
-- "Outros profissionais e clínicas atendidos": médicos e clínicas do site médico, mantidos por decisão do Gustavo. Só sair quando ele mandar.
-- Faltam: CRO e foto da Dra. Joyce Carvalho; clínicas odontológicas com nome e logo. Slot marcado `[ADICIONAR]` no HTML.
+- Em destaque: Dra. Eveline Leite (CRO-MG 45408), Dra. Joyce Carvalho (CRO-MG 66793) e Dra. Fernanda Albejante (falta o CRO dela).
+- Médicos e clínicas do site médico viraram uma menção discreta em texto ("Entre outros clientes da saúde..."), por decisão do Gustavo antes do tráfego frio.
 
 ## Depoimentos
 - Dra. Eveline entrou com o áudio 1 (`depoimento-eveline-1.mp3`); os áudios 2 e 3 estão na pasta. Se preferir texto, transcrever.
