@@ -275,6 +275,9 @@ p{color:var(--muted);font-size:16px}
 .av-crop{width:96px;height:96px;border-radius:50%;overflow:hidden;flex:0 0 auto;position:relative}
 .av-crop img{position:absolute;width:200%;height:200%;left:-50%;top:-26%;max-width:none}
 .who-av.av-crop{width:40px;height:40px}
+.av-photo{width:96px;height:96px;border-radius:50%;overflow:hidden;flex:0 0 auto}
+.av-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.who-av.av-photo{width:40px;height:40px}
 .clients-sub{
   display:flex;align-items:center;gap:14px;margin:0 0 16px;font-size:11px;font-weight:700;
   letter-spacing:2px;text-transform:uppercase;color:var(--accent-ink);
@@ -792,10 +795,10 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;back
       <div class="quote">
         <p>"Aqui no consultório eu só atendo particular, não atendo plano. Só orgânico não dá mais, hoje em dia não tem como. O Gustavo, da Evoluze, faz toda essa parte de tráfego pago, é excelente profissional."</p>
         <div class="who">
-          <div class="who-av">JC</div>
+          <div class="who-av av-photo"><img src="assets/img/joyce.jpg" alt="Dra. Joyce Carvalho"></div>
           <div>
             <div class="who-n">Dra. Joyce Carvalho</div>
-            <div class="who-r">Especialista em clareamento dental</div>
+            <div class="who-r">Harmonização Orofacial e Clínica Geral · CRO-MG 66793 · Poços de Caldas, MG</div>
           </div>
         </div>
       </div>
@@ -820,6 +823,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;back
     <div class="clients-sub">Dentistas que confiam no meu trabalho</div>
     <div class="clients-grid">
       <div class="client"><div class="av-crop"><img src="assets/img/med-ortodontista.jpg" alt="Dra. Eveline Leite" loading="lazy"></div><div><div class="who-n">Dra. Eveline Leite</div><div class="who-r">Ortodontista · CRO-MG 45408</div></div></div>
+      <div class="client"><div class="av-photo"><img src="assets/img/joyce.jpg" alt="Dra. Joyce Carvalho" loading="lazy"></div><div><div class="who-n">Dra. Joyce Carvalho</div><div class="who-r">Harmonização Orofacial · CRO-MG 66793</div></div></div>
       <div class="client"><div class="av-crop"><img src="assets/img/med-fernanda-albejante.jpg" alt="Dra. Fernanda Albejante" loading="lazy"></div><div><div class="who-n">Dra. Fernanda Albejante</div><div class="who-r">Ortodontia e Odontopediatria</div></div></div>
       <!-- [ADICIONAR] Dra. Joyce Carvalho (clareamento) quando tiver foto e CRO; clínicas odontológicas com nome e logo:
            <div class="client is-logo"><img src="assets/img/logo-clinica.png" alt="Nome da clínica"><div class="who-n">Nome da clínica</div></div> -->
