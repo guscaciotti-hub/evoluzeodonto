@@ -1237,8 +1237,10 @@ function enviar(e){
     try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:'lead_form_submit',classificacao:payload.classificacao}); }catch(err){}
   }
 
-  if(window.__EV_PREVIEW){
-    console.log('Prévia: POST não enviado.'); telaFinal(payload, true); conversao(); return;
+  // Prévia (github.io/vercel/netlify/local): não envia lead de teste — a não ser que a URL traga ?envioreal=1,
+  // uma chave só pra teste ponta a ponta no próprio github.io (mantém noindex e rastreamento desligados).
+  if(window.__EV_PREVIEW && !/[?&]envioreal=1/.test(location.search)){
+    console.log('Prévia: POST não enviado. (use ?envioreal=1 na URL para um teste real)'); telaFinal(payload, true); conversao(); return;
   }
   try{
     fetch(WEBHOOK_URL, {
