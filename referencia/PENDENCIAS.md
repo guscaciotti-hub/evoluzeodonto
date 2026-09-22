@@ -10,8 +10,8 @@ Posicionamento atual: **Gustavo Scaciotti, gestor de tráfego individual**, prim
 - Case da Dra. Eveline Leite com os números autorizados por ela (R$4 mil/mês em tráfego, R$80 mil+ de faturamento, 100% particular). Sem vídeo no case; o dela já está no hero.
 
 ## Lead: ligado ao agente Evoluze Comercial (falta colar o token)
-`enviar()` faz POST em `https://evoluzechat.com.br/webhook/lead` (mesmo endpoint do site médico) com nome, whatsapp (55+DDD), papel, tamanho, verba e `origem: "site-odonto"` (cidade e area vão vazios: saíram do formulário). Conversão (Pixel Lead, Google Ads, dataLayer) dispara depois do POST responder, com fallback de 5 s. Erro do POST só no console; o lead sempre vê a tela final. Em prévia (github.io) o POST não sai.
-- **Pendente**: trocar `[COLAR_TOKEN_DO_EVOLUZE_CHAT]` no fim do script pelo Bearer token do site médico (`CONFIG.chatWebhookToken` no index.html do SITE-LOCAL). A trava de segurança do ambiente não deixa esse valor entrar num commit feito daqui.
+`enviar()` faz POST em `https://evoluzechat.com.br/webhook/lead` com nome, whatsapp (55+DDD), papel/tamanho/verba em valores curtos (dono_clinica, 2a4, 1k_5k...), `origem: "site-odonto"` e `classificacao` (quente/morno/frio, derivada no site). Sem cidade/area. Tela final: quente vê botão da agenda pré-preenchida; morno/frio só o aviso do WhatsApp. Conversão (Pixel Lead, Google Ads, dataLayer) dispara depois do POST responder, com fallback de 5 s. Erro do POST só no console; o lead sempre vê a tela final. Em prévia (github.io) o POST não sai.
+- Token do webhook já colado (mesmo do site médico).
 - O agente precisa tratar papel, tamanho e verba como já respondidos (não perguntar de novo) — ajuste do lado do Evoluze Chat.
 
 ## Rastreamento portado do site médico (IDs compartilhados)
