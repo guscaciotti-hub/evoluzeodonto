@@ -1173,8 +1173,8 @@ h2 .hl{color:var(--accent-ink)}
 })();
 
 var EV_TESTE = /[?&]envioreal=1/.test(location.search);
-function dbg(msg,cor){
-  if(!EV_TESTE) return;
+function dbg(msg,cor,force){
+  if(!EV_TESTE && !force) return; // 'force' mostra o aviso mesmo sem ?envioreal=1 (ex.: modo prévia)
   var el=document.getElementById('envDebug');
   if(!el){ el=document.createElement('div'); el.id='envDebug';
     el.style.cssText='position:fixed;left:10px;right:10px;bottom:10px;z-index:9999;background:#0A100F;color:#fff;border:1px solid #00F2E3;border-radius:12px;padding:14px 16px;font:13px/1.5 monospace;max-height:50vh;overflow:auto;box-shadow:0 10px 40px rgba(0,0,0,.6)';
@@ -1250,7 +1250,12 @@ function enviar(e){
   // Prévia (github.io/vercel/netlify/local): não envia lead de teste — a não ser que a URL traga ?envioreal=1,
   // uma chave só pra teste ponta a ponta no próprio github.io (mantém noindex e rastreamento desligados).
   if(window.__EV_PREVIEW && !/[?&]envioreal=1/.test(location.search)){
-    console.log('Prévia: POST não enviado. (use ?envioreal=1 na URL para um teste real)'); telaFinal(payload, true); conversao(); return;
+    console.log('Prévia: POST não enviado. (use ?envioreal=1 na URL para um teste real)');
+    // Aviso VISÍVEL na tela — é por isso que "não dispara": estamos em modo prévia.
+    dbg('MODO PRÉVIA ('+location.hostname+'): o POST NÃO foi enviado.','#ffd27d',true);
+    dbg('Pra um teste real, abra: '+location.origin+location.pathname+'?envioreal=1','#00F2E3',true);
+    dbg('No domínio final (gustavogestordetrafego.com.br) o envio é automático — sem chave.','#7FFCF4',true);
+    telaFinal(payload, true); conversao(); return;
   }
   dbg('Enviando POST para '+WEBHOOK_URL+' …','#00F2E3');
   dbg('token: Bearer '+String(WEBHOOK_TOKEN).slice(0,7)+'…'+String(WEBHOOK_TOKEN).slice(-4)+' ('+String(WEBHOOK_TOKEN).length+' chars)');
