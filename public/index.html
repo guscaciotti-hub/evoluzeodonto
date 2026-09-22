@@ -1172,16 +1172,6 @@ h2 .hl{color:var(--accent-ink)}
   v.addEventListener('volumechange',function(){ if(!v.muted && b.parentNode) b.remove(); });
 })();
 
-var EV_TESTE = /[?&]envioreal=1/.test(location.search);
-function dbg(msg,cor,force){
-  if(!EV_TESTE && !force) return; // 'force' mostra o aviso mesmo sem ?envioreal=1 (ex.: modo prévia)
-  var el=document.getElementById('envDebug');
-  if(!el){ el=document.createElement('div'); el.id='envDebug';
-    el.style.cssText='position:fixed;left:10px;right:10px;bottom:10px;z-index:9999;background:#0A100F;color:#fff;border:1px solid #00F2E3;border-radius:12px;padding:14px 16px;font:13px/1.5 monospace;max-height:50vh;overflow:auto;box-shadow:0 10px 40px rgba(0,0,0,.6)';
-    document.body.appendChild(el); }
-  var linha=document.createElement('div'); linha.textContent=msg; if(cor) linha.style.color=cor; el.appendChild(linha);
-}
-
 var dados = {};
 
 function paint(n){
@@ -1247,43 +1237,22 @@ function enviar(e){
     try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:'lead_form_submit',classificacao:payload.classificacao}); }catch(err){}
   }
 
-  // Prévia (github.io/vercel/netlify/local): não envia lead de teste — a não ser que a URL traga ?envioreal=1,
-  // uma chave só pra teste ponta a ponta no próprio github.io (mantém noindex e rastreamento desligados).
-  if(window.__EV_PREVIEW && !/[?&]envioreal=1/.test(location.search)){
-    console.log('Prévia: POST não enviado. (use ?envioreal=1 na URL para um teste real)');
-    // Aviso VISÍVEL na tela — é por isso que "não dispara": estamos em modo prévia.
-    dbg('MODO PRÉVIA ('+location.hostname+'): o POST NÃO foi enviado.','#ffd27d',true);
-    dbg('Pra um teste real, abra: '+location.origin+location.pathname+'?envioreal=1','#00F2E3',true);
-    dbg('No domínio final (gustavogestordetrafego.com.br) o envio é automático — sem chave.','#7FFCF4',true);
-    telaFinal(payload, true); conversao(); return;
-  }
-  dbg('Enviando POST para '+WEBHOOK_URL+' …','#00F2E3');
-  dbg('token: Bearer '+String(WEBHOOK_TOKEN).slice(0,7)+'…'+String(WEBHOOK_TOKEN).slice(-4)+' ('+String(WEBHOOK_TOKEN).length+' chars)');
-  dbg('payload: '+JSON.stringify(payload));
+  // Envia o lead pro webhook do agente Evoluze Comercial — sempre, em qualquer endereço (github.io ou domínio final).
   try{
     fetch(WEBHOOK_URL, {
       method:'POST', keepalive:true,
       headers:{'Content-Type':'application/json','Authorization':'Bearer '+WEBHOOK_TOKEN},
       body: JSON.stringify(payload)
     }).then(function(r){
-      dbg('Resposta HTTP '+r.status+(r.ok?' (ok)':' (erro)'), r.ok?'#7FFCF4':'#ff8f7d');
       return r.text().then(function(txt){
         var j={}; try{ j=JSON.parse(txt); }catch(e){}
-        dbg('Corpo: '+(txt||'(vazio)'));
-        if(r.status===401){ dbg('=> 401: token recusado pelo servidor.','#ff8f7d'); console.error('Webhook 401'); }
-        else if(r.status===400){ dbg('=> 400: nome/WhatsApp inválido.','#ff8f7d'); console.error('Webhook 400',j); }
-        else if(r.ok && j.sent===false){ dbg('=> ok, mas sent:false (mensagem não saiu — número sem WhatsApp ou agente offline).','#ffd27d'); }
-        else if(r.ok){ dbg('=> ok! sent:'+(j.sent!==false)+' — deve chegar no WhatsApp.','#7FFCF4'); }
-        else console.error('Webhook HTTP '+r.status,j);
+        if(!r.ok) console.error('Webhook HTTP '+r.status, j||txt);
         telaFinal(payload, r.ok ? (j.sent!==false) : false);
       });
     }).catch(function(err){
-      // Se cair aqui em teste, quase sempre é CORS: o navegador bloqueou antes de chegar no servidor.
-      dbg('FALHA no fetch: '+(err&&err.message||err),'#ff8f7d');
-      dbg('=> provável CORS: o servidor precisa liberar a origem '+location.origin+' (Access-Control-Allow-Origin).','#ffd27d');
       console.error('Webhook: falha de rede/CORS', err);
     }).finally(conversao);
-  }catch(err){ dbg('Erro JS: '+(err&&err.message||err),'#ff8f7d'); console.error('Webhook: erro', err); conversao(); }
+  }catch(err){ console.error('Webhook: erro', err); conversao(); }
   setTimeout(conversao, 5000); // garante a conversão mesmo se o POST demorar
 }
 
