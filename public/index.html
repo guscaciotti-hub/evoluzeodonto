@@ -1172,6 +1172,16 @@ h2 .hl{color:var(--accent-ink)}
   v.addEventListener('volumechange',function(){ if(!v.muted && b.parentNode) b.remove(); });
 })();
 
+var EV_TESTE = /[?&]envioreal=1/.test(location.search);
+function dbg(msg,cor){
+  if(!EV_TESTE) return;
+  var el=document.getElementById('envDebug');
+  if(!el){ el=document.createElement('div'); el.id='envDebug';
+    el.style.cssText='position:fixed;left:10px;right:10px;bottom:10px;z-index:9999;background:#0A100F;color:#fff;border:1px solid #00F2E3;border-radius:12px;padding:14px 16px;font:13px/1.5 monospace;max-height:50vh;overflow:auto;box-shadow:0 10px 40px rgba(0,0,0,.6)';
+    document.body.appendChild(el); }
+  var linha=document.createElement('div'); linha.textContent=msg; if(cor) linha.style.color=cor; el.appendChild(linha);
+}
+
 var dados = {};
 
 function paint(n){
@@ -1242,25 +1252,33 @@ function enviar(e){
   if(window.__EV_PREVIEW && !/[?&]envioreal=1/.test(location.search)){
     console.log('Prévia: POST não enviado. (use ?envioreal=1 na URL para um teste real)'); telaFinal(payload, true); conversao(); return;
   }
+  dbg('Enviando POST para '+WEBHOOK_URL+' …','#00F2E3');
+  dbg('token: Bearer '+String(WEBHOOK_TOKEN).slice(0,7)+'…'+String(WEBHOOK_TOKEN).slice(-4)+' ('+String(WEBHOOK_TOKEN).length+' chars)');
+  dbg('payload: '+JSON.stringify(payload));
   try{
     fetch(WEBHOOK_URL, {
       method:'POST', keepalive:true,
       headers:{'Content-Type':'application/json','Authorization':'Bearer '+WEBHOOK_TOKEN},
       body: JSON.stringify(payload)
     }).then(function(r){
-      // 200: lê "sent" (mensagem saiu no WhatsApp ou não). 401/400: loga; a tela neutra já cobre o lead.
-      return r.json().catch(function(){ return {}; }).then(function(j){
-        if(r.status===401) console.error('Webhook: 401 Unauthorized — confira o WEBHOOK_TOKEN.');
-        else if(r.status===400) console.error('Webhook: 400 — nome/WhatsApp inválido.', j);
-        else if(!r.ok) console.error('Webhook: HTTP '+r.status, j);
-        // sent!==false => trata como enviado (true ou ausente). sent===false => texto neutro, sem prometer WhatsApp.
-        telaFinal(payload, r.ok ? (j && j.sent!==false) : false);
+      dbg('Resposta HTTP '+r.status+(r.ok?' (ok)':' (erro)'), r.ok?'#7FFCF4':'#ff8f7d');
+      return r.text().then(function(txt){
+        var j={}; try{ j=JSON.parse(txt); }catch(e){}
+        dbg('Corpo: '+(txt||'(vazio)'));
+        if(r.status===401){ dbg('=> 401: token recusado pelo servidor.','#ff8f7d'); console.error('Webhook 401'); }
+        else if(r.status===400){ dbg('=> 400: nome/WhatsApp inválido.','#ff8f7d'); console.error('Webhook 400',j); }
+        else if(r.ok && j.sent===false){ dbg('=> ok, mas sent:false (mensagem não saiu — número sem WhatsApp ou agente offline).','#ffd27d'); }
+        else if(r.ok){ dbg('=> ok! sent:'+(j.sent!==false)+' — deve chegar no WhatsApp.','#7FFCF4'); }
+        else console.error('Webhook HTTP '+r.status,j);
+        telaFinal(payload, r.ok ? (j.sent!==false) : false);
       });
     }).catch(function(err){
-      // Rede/timeout: o backend deduplica pelo número; mantém a tela neutra (nem promete nem nega).
-      console.error('Webhook: falha de rede', err);
+      // Se cair aqui em teste, quase sempre é CORS: o navegador bloqueou antes de chegar no servidor.
+      dbg('FALHA no fetch: '+(err&&err.message||err),'#ff8f7d');
+      dbg('=> provável CORS: o servidor precisa liberar a origem '+location.origin+' (Access-Control-Allow-Origin).','#ffd27d');
+      console.error('Webhook: falha de rede/CORS', err);
     }).finally(conversao);
-  }catch(err){ console.error('Webhook: erro', err); conversao(); }
+  }catch(err){ dbg('Erro JS: '+(err&&err.message||err),'#ff8f7d'); console.error('Webhook: erro', err); conversao(); }
   setTimeout(conversao, 5000); // garante a conversão mesmo se o POST demorar
 }
 
