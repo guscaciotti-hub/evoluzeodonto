@@ -408,6 +408,7 @@ p{color:var(--muted);font-size:16px}
 .field input::placeholder{color:#6F817D}
 .field input:focus,.field select:focus{outline:none;border-color:var(--accent)}
 .field select option{background:var(--ink-2);color:#fff}
+.field-erro{color:#ff8f7d;font-size:13px;font-weight:600;margin:-6px 0 2px;min-height:1px}
 .back{
   background:none;border:0;color:#8FA29E;font-size:13.5px;font-weight:600;
   cursor:pointer;margin-top:18px;font-family:inherit;padding:4px 0;
@@ -1095,6 +1096,7 @@ h2 .hl{color:var(--accent-ink)}
             <label for="zap">WhatsApp</label>
             <input id="zap" type="tel" placeholder="(13) 90000-0000" required>
           </div>
+          <div id="zapErro" class="field-erro" role="alert"></div>
           <button type="submit" class="btn btn-accent btn-block" style="margin-top:6px">Quero minha agenda de particular</button>
         </form>
         <button class="back" onclick="back(3)">← voltar</button>
@@ -1194,27 +1196,34 @@ function back(n){
 }
 function enviar(e){
   e.preventDefault();
-  dados.nome = document.getElementById('nome').value;
-  dados.whatsapp = document.getElementById('zap').value;
+  dados.nome = (document.getElementById('nome').value||'').trim();
+  var zap = normalizaZap(document.getElementById('zap').value);
+  var erro = document.getElementById('zapErro');
+
+  // Validação no site (evita 400 do backend): nome + WhatsApp com 55 e no mínimo 10 dígitos após o 55.
+  if(!dados.nome){ erro.textContent='Por favor, digite o seu nome.'; return; }
+  if(zap.replace(/\D/g,'').length < 12){ erro.textContent='Confere o WhatsApp: precisa do DDD e do número completos.'; return; }
+  erro.textContent='';
+  dados.whatsapp = zap;
 
   // ===================================================================
   // DESTINO DO LEAD: webhook do agente Evoluze Comercial (mesmo endpoint do site médico).
-  // papel/tamanho/verba são enviados como valores curtos normalizados (os botões já os gravam assim).
-  // O agente recebe tudo pronto e não deve perguntar de novo.
+  // papel/tamanho/verba vão em valores curtos normalizados (os botões já os gravam assim).
+  // Só origem "site-odonto" separa do funil médico. Nenhum campo do médico é enviado.
   // ===================================================================
   var payload = {
     nome: dados.nome,
-    whatsapp: normalizaZap(dados.whatsapp),
+    whatsapp: dados.whatsapp,
+    origem: 'site-odonto',           // literal e obrigatório
     papel: dados.papel || '',        // dono_clinica | dentista_terceiros | socio_gestor | outro
     tamanho: dados.tamanho || '',    // 1 | 2a4 | 5mais
     verba: dados.verba || '',        // nao_investe | ate_1k | 1k_5k | acima_5k
-    origem: 'site-odonto',
     classificacao: classificar(dados.papel, dados.verba) // quente | morno | frio
   };
   console.log('Lead:', payload);
 
-  // A tela final aparece na hora, conforme a classificação — o lead nunca vê erro.
-  telaFinal(payload);
+  // Tela final aparece na hora, em estado neutro (não promete WhatsApp até o backend confirmar).
+  telaFinal(payload, null);
   show('sOk');
   paint(4);
 
@@ -1229,7 +1238,7 @@ function enviar(e){
   }
 
   if(window.__EV_PREVIEW){
-    console.log('Prévia: POST não enviado.'); conversao(); return;
+    console.log('Prévia: POST não enviado.'); telaFinal(payload, true); conversao(); return;
   }
   try{
     fetch(WEBHOOK_URL, {
@@ -1237,11 +1246,19 @@ function enviar(e){
       headers:{'Content-Type':'application/json','Authorization':'Bearer '+WEBHOOK_TOKEN},
       body: JSON.stringify(payload)
     }).then(function(r){
-      if(!r.ok) console.error('Webhook Evoluze Comercial: HTTP '+r.status);
+      // 200: lê "sent" (mensagem saiu no WhatsApp ou não). 401/400: loga; a tela neutra já cobre o lead.
+      return r.json().catch(function(){ return {}; }).then(function(j){
+        if(r.status===401) console.error('Webhook: 401 Unauthorized — confira o WEBHOOK_TOKEN.');
+        else if(r.status===400) console.error('Webhook: 400 — nome/WhatsApp inválido.', j);
+        else if(!r.ok) console.error('Webhook: HTTP '+r.status, j);
+        // sent!==false => trata como enviado (true ou ausente). sent===false => texto neutro, sem prometer WhatsApp.
+        telaFinal(payload, r.ok ? (j && j.sent!==false) : false);
+      });
     }).catch(function(err){
-      console.error('Webhook Evoluze Comercial: falha no envio', err);
+      // Rede/timeout: o backend deduplica pelo número; mantém a tela neutra (nem promete nem nega).
+      console.error('Webhook: falha de rede', err);
     }).finally(conversao);
-  }catch(err){ console.error('Webhook Evoluze Comercial: erro', err); conversao(); }
+  }catch(err){ console.error('Webhook: erro', err); conversao(); }
   setTimeout(conversao, 5000); // garante a conversão mesmo se o POST demorar
 }
 
@@ -1255,18 +1272,24 @@ function classificar(papel, verba){
   return 'frio';
 }
 
-/* Tela final: quente vê o botão da agenda pré-preenchida; morno/frio só o aviso do WhatsApp */
+/* Tela final. sent: true = 1ª mensagem saiu no WhatsApp; false = lead salvo mas sem mensagem;
+   null = ainda sem resposta (estado neutro). Quente sempre vê o botão da agenda pré-preenchida. */
 var LINK_AGENDA = 'https://evoluzechat.com.br/agenda/public/12';
-function telaFinal(p){
+function telaFinal(p, sent){
   var t=document.getElementById('okTitulo'), x=document.getElementById('okTexto'), a=document.getElementById('okAgenda');
+  var promete = (sent===true); // só promete o WhatsApp quando o backend confirmou o envio
   if(p.classificacao==='quente'){
     t.textContent='Recebido!';
-    x.textContent='Toca abaixo pra marcar agora — ou aguarda que já te chamo no WhatsApp.';
+    x.textContent = promete
+      ? 'Toca abaixo pra marcar agora — ou aguarda que já te chamo no WhatsApp.'
+      : 'Toca abaixo pra marcar agora. Em instantes também falo com você.';
     a.href=LINK_AGENDA+'?nome='+encodeURIComponent(p.nome)+'&whatsapp='+encodeURIComponent(p.whatsapp)+'&email=';
     a.classList.remove('hidden');
   } else {
-    t.textContent='Recebido.';
-    x.textContent='Já te chamo no WhatsApp — confere lá que a gente marca o horário.';
+    t.textContent = promete ? 'Recebido.' : 'Recebido!';
+    x.textContent = promete
+      ? 'Já te chamei no WhatsApp — confere lá que a gente marca o horário agora.'
+      : 'Em instantes falamos com você.';
     a.classList.add('hidden');
   }
 }
