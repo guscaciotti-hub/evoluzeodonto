@@ -340,6 +340,8 @@ p{color:var(--muted);font-size:16px}
 
 /* SERVICOS */
 .serv{background:var(--soft)}
+.serv-intro{max-width:64ch;margin:-16px 0 30px;font-size:17px;line-height:1.55;color:var(--muted)}
+@media(min-width:768px){.serv-intro{font-size:19px}}
 .grid-serv{display:grid;gap:16px}
 @media(min-width:640px){.grid-serv{grid-template-columns:1fr 1fr}}
 @media(min-width:960px){.grid-serv{grid-template-columns:repeat(3,1fr)}}
@@ -376,6 +378,15 @@ p{color:var(--muted);font-size:16px}
 .can li::before{content:"✓";color:var(--accent-ink)}
 .cant li::before{content:"✕";color:#C4483B}
 .cfo-foot{margin-top:26px;font-size:13.5px;color:var(--muted);line-height:1.55}
+/* Selo de conformidade (premium, na paleta do site) */
+.cfo-seal-wrap{margin:0 0 20px}
+.cfo-seal{width:118px;height:118px;display:block}
+@media(min-width:768px){
+  .cfo-box{position:relative}
+  .cfo-seal-wrap{position:absolute;top:34px;right:36px;margin:0}
+  .cfo-seal{width:126px;height:126px}
+  .cfo-box>h2,.cfo-box>p{max-width:calc(100% - 160px)}
+}
 
 /* FORM */
 .form-sec{background:var(--ink);color:#fff;scroll-margin-top:72px}
@@ -952,22 +963,23 @@ h2 .hl{color:var(--accent-ink)}
 <!-- SERVICOS -->
 <section class="serv">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head wide">
       <span class="eyebrow">O que eu faço</span>
       <h2>Como eu trabalho</h2>
     </div>
+    <p class="serv-intro">Uma assessoria completa. Não sou agência de anúncios — eu construo a máquina de crescimento da sua clínica, do primeiro clique ao contrato assinado.</p>
     <div class="grid-serv">
       <div class="serv-card">
         <div class="ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></div>
         <h3>Tráfego pago para odontologia</h3>
-        <p>Meta e Google, segmentados por procedimento e região.</p>
+        <p>Meta e Google, segmentado por procedimento e região, falando com quem paga particular.</p>
         <p class="entrega"><strong>Entrega:</strong> campanhas ativas, otimização semanal que eu mesmo faço, relatório de custo por paciente.</p>
       </div>
       <div class="serv-card">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg></div>
-        <h3>Posicionamento de especialista</h3>
-        <p>Conteúdo e anúncio que colocam você como referência no procedimento que mais dá margem.</p>
-        <p class="entrega"><strong>Entrega:</strong> linha editorial, criativos e roteiro de vídeo alinhados ao CFO.</p>
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
+        <h3>Sites &amp; páginas de conversão</h3>
+        <p>Site e landing page da clínica feitos pra transformar visita em agendamento — não em cartão de visita bonito.</p>
+        <p class="entrega"><strong>Entrega:</strong> página construída por mim, com rastreamento e integração ao WhatsApp e ao seu CRM.</p>
       </div>
       <div class="serv-card">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.5 8.5 0 01-3.9-.9L3 21l1.9-5A8.4 8.4 0 0112 3a8.4 8.4 0 019 8.5z"/></svg></div>
@@ -976,21 +988,21 @@ h2 .hl{color:var(--accent-ink)}
         <p class="entrega"><strong>Entrega:</strong> agente que eu configuro com a agenda da clínica e handoff para a sua equipe.</p>
       </div>
       <div class="serv-card">
-        <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg></div>
-        <h3>Funil de paciente particular</h3>
-        <p>Cada contato organizado por etapa, com follow-up definido.</p>
-        <p class="entrega"><strong>Entrega:</strong> CRM que eu configuro, cadência de retomada de orçamento, ninguém some na conversa.</p>
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z"/></svg></div>
+        <h3>Posicionamento de especialista</h3>
+        <p>Conteúdo e anúncio que colocam você como referência no procedimento que mais dá margem.</p>
+        <p class="entrega"><strong>Entrega:</strong> linha editorial, criativos e roteiro de vídeo alinhados ao CFO.</p>
       </div>
       <div class="serv-card">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.9"/></svg></div>
-        <h3>Estruturação comercial</h3>
-        <p>Quem atende o WhatsApp decide seu faturamento.</p>
-        <p class="entrega"><strong>Entrega:</strong> eu treino a recepção em abordagem, objeção de preço e retomada de orçamento.</p>
+        <h3>Estrutura comercial &amp; CRM</h3>
+        <p>Do lead ao contrato: funil organizado por etapa e recepção treinada pra fechar particular.</p>
+        <p class="entrega"><strong>Entrega:</strong> CRM que eu configuro, cadência de retomada de orçamento e treino de abordagem e objeção de preço.</p>
       </div>
       <div class="serv-card">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
         <h3>Acompanhamento e métrica</h3>
-        <p>Do clique ao tratamento fechado, com o número real.</p>
+        <p>Do clique ao tratamento fechado, com o número real de cada paciente.</p>
         <p class="entrega"><strong>Entrega:</strong> dashboard com custo por lead e por paciente, que eu atualizo toda semana.</p>
       </div>
     </div>
@@ -1002,6 +1014,29 @@ h2 .hl{color:var(--accent-ink)}
 <section class="bg-grid">
   <div class="wrap">
     <div class="cfo-box">
+      <div class="cfo-seal-wrap">
+        <svg class="cfo-seal" viewBox="0 0 140 140" role="img" aria-label="Marketing em conformidade com as normas do CFO">
+          <defs>
+            <path id="cfoArcTop" d="M 20 70 A 50 50 0 0 1 120 70" fill="none"/>
+            <path id="cfoArcBot" d="M 22 70 A 48 48 0 0 0 118 70" fill="none"/>
+          </defs>
+          <circle cx="70" cy="70" r="66" fill="none" stroke="var(--ink)" stroke-width="1.6"/>
+          <circle cx="70" cy="70" r="60" fill="none" stroke="var(--accent-ink)" stroke-width="1" opacity=".55"/>
+          <circle cx="70" cy="70" r="55" fill="none" stroke="var(--ink)" stroke-width="1.3" stroke-dasharray="0.5 4.6" stroke-linecap="round" opacity=".5"/>
+          <text font-family="'Plus Jakarta Sans',system-ui" font-size="9.4" font-weight="700" letter-spacing="1.3" fill="var(--ink)">
+            <textPath href="#cfoArcTop" startOffset="50%" text-anchor="middle">EM CONFORMIDADE COM</textPath>
+          </text>
+          <text font-family="'Plus Jakarta Sans',system-ui" font-size="9.4" font-weight="700" letter-spacing="1.3" fill="var(--ink)">
+            <textPath href="#cfoArcBot" startOffset="50%" text-anchor="middle">AS NORMAS DO CFO</textPath>
+          </text>
+          <circle cx="13" cy="70" r="1.7" fill="var(--accent-ink)"/>
+          <circle cx="127" cy="70" r="1.7" fill="var(--accent-ink)"/>
+          <g transform="translate(70 68)">
+            <path d="M0,-22 C9,-17.5 16.5,-16.5 20,-15.5 C20,-3.5 15.5,11 0,20 C-15.5,11 -20,-3.5 -20,-15.5 C-16.5,-16.5 -9,-17.5 0,-22 Z" fill="none" stroke="var(--ink)" stroke-width="2.1" stroke-linejoin="round"/>
+            <path d="M-9,-1 L-2.5,6.5 L11,-10" fill="none" stroke="var(--accent-ink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+        </svg>
+      </div>
       <span class="eyebrow">Ética e conselho</span>
       <h2>Marketing dentro das regras do CFO — <span class="hl">inclusive no que ele permite.</span></h2>
       <p style="margin-top:16px;max-width:60ch">A maioria das clínicas deixa de usar recurso que o Conselho autoriza, por medo ou por informação desatualizada. Conhecer a regra não é só evitar problema: é usar tudo o que está disponível.</p>
@@ -1244,6 +1279,10 @@ function enviar(e){
   };
   console.log('Lead:', payload);
 
+  // 2º destino (adicional, não substitui nada): painel Evoluze — mesma caixa de Leads dos outros sites.
+  // Fire-and-forget: dispara em segundo plano e, se falhar, ignora silenciosamente (não trava a experiência).
+  enviarLeadPainel(payload);
+
   // Tela final aparece na hora, em estado neutro (não promete WhatsApp até o backend confirmar).
   telaFinal(payload, null);
   show('sOk');
@@ -1313,6 +1352,29 @@ function telaFinal(p, sent){
 // Webhook do agente Evoluze Comercial (o mesmo do site médico). Para trocar, edite aqui.
 var WEBHOOK_URL   = 'https://evoluzechat.com.br/webhook/lead';
 var WEBHOOK_TOKEN = '4453644d8e27f253966837ff9f17566b8e1eb3cd50ce4f15'; // Bearer token do Evoluze Chat (mesmo do site médico)
+
+/* 2º destino do lead: painel Evoluze (mesma caixa de Leads dos outros sites). CORS liberado, sem token.
+   Fire-and-forget: NÃO bloqueia o usuário e, se falhar, ignora silenciosamente. Não afeta o webhook acima. */
+var PAINEL_LEADS_URL = 'https://evoluze-painel.vercel.app/api/leads';
+function enviarLeadPainel(p){
+  try{
+    var corpo = {
+      origem: 'site-odonto',
+      nome: p.nome,
+      whatsapp: p.whatsapp,
+      telefone: p.whatsapp,            // alias — o painel aceita telefone ou whatsapp
+      papel: p.papel || '',
+      tamanho: p.tamanho || '',
+      verba: p.verba || '',
+      classificacao: p.classificacao || ''
+    };
+    fetch(PAINEL_LEADS_URL, {
+      method:'POST', keepalive:true,
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(corpo)
+    }).catch(function(){}); // fire-and-forget
+  }catch(e){ /* silencioso */ }
+}
 
 /* WhatsApp para 55 + DDD + número, só dígitos */
 function normalizaZap(raw){
