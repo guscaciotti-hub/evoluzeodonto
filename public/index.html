@@ -1041,7 +1041,7 @@ h2 .hl{color:var(--accent-ink)}
       <p>Uma conversa para entender onde está o gargalo — captação, atendimento ou fechamento — e o que faria diferença primeiro. Sem apresentação de slides.</p>
     </div>
 
-    <div class="form-card">
+    <div class="form-card" id="form">
       <div class="progress">
         <i class="on" id="p1"></i><i id="p2"></i><i id="p3"></i><i id="p4"></i>
       </div>
@@ -1170,6 +1170,28 @@ h2 .hl{color:var(--accent-ink)}
     var p=v.play(); if(p&&p.catch) p.catch(function(){});
   });
   v.addEventListener('volumechange',function(){ if(!v.muted && b.parentNode) b.remove(); });
+})();
+
+/* CTA "Quero minha agenda": rola até o formulário e o deixa bem enquadrado (centralizado)
+   na tela, tanto no desktop quanto no mobile — em vez de parar no topo da seção. */
+(function(){
+  var alvo = document.getElementById('form');
+  if(!alvo) return;
+  function enquadra(suave){
+    alvo.scrollIntoView({behavior: suave ? 'smooth' : 'auto', block:'center'});
+  }
+  var links = document.querySelectorAll('a[href="#diagnostico"], a[href="#form"]');
+  Array.prototype.forEach.call(links, function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      enquadra(true);
+      try{ history.replaceState(null,'','#diagnostico'); }catch(_){}
+    });
+  });
+  // Se a página abrir já com #diagnostico/#form, reenquadra no card (o navegador para no topo da seção).
+  if(/#(diagnostico|form)$/.test(location.hash)){
+    setTimeout(function(){ enquadra(false); }, 60);
+  }
 })();
 
 var dados = {};
