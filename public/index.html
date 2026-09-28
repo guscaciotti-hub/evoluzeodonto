@@ -31,11 +31,13 @@ if(window.__EV_PREVIEW){ document.write('<meta name="robots" content="noindex,no
 <script>
 if(!window.__EV_PREVIEW){
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','1596531545529516');
+fbq('init','8112794485508212');
 fbq('track','PageView');
 }
 </script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1596531545529516&ev=PageView&noscript=1"/></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=8112794485508212&ev=PageView&noscript=1"/></noscript>
+<!-- Verificação de domínio Meta: descomente e cole o código real (Business Manager > Domínios > gustavoodonto.com.br > meta-tag). -->
+<!-- <meta name="facebook-domain-verification" content="COLE_O_CODIGO_AQUI"> -->
 
 <!-- Google Ads (gtag.js) — código base. A conversão dispara SÓ dentro de enviar(). -->
 <script>
@@ -1268,6 +1270,12 @@ function enviar(e){
   // papel/tamanho/verba vão em valores curtos normalizados (os botões já os gravam assim).
   // Só origem "site-odonto" separa do funil médico. Nenhum campo do médico é enviado.
   // ===================================================================
+  // ID único do evento Meta: gerado ANTES do POST, vai no payload (meta_event_id) e é reusado
+  // no fbq('track','Lead', ...,{eventID}) — serve pra deduplicar quando ligarmos a Conversions API.
+  var metaEventId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+                    : ('ev-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2));
+  var metaTestCode = (location.search.match(/[?&]test_event=([^&]+)/) || [])[1] || '';
+
   var payload = {
     nome: dados.nome,
     whatsapp: dados.whatsapp,
@@ -1275,7 +1283,8 @@ function enviar(e){
     papel: dados.papel || '',        // dono_clinica | dentista_terceiros | socio_gestor | outro
     tamanho: dados.tamanho || '',    // 1 | 2a4 | 5mais
     verba: dados.verba || '',        // nao_investe | ate_1k | 1k_5k | acima_5k
-    classificacao: classificar(dados.papel, dados.verba) // quente | morno | frio
+    classificacao: classificar(dados.papel, dados.verba), // quente | morno | frio
+    meta_event_id: metaEventId       // dedup com a Conversions API (browser + servidor usam o mesmo id)
   };
   console.log('Lead:', payload);
 
@@ -1293,7 +1302,7 @@ function enviar(e){
     // Dispara SÓ aqui, após o POST, para TODOS que concluem (inclusive 'outro'). Nunca no carregamento.
     if(conversaoFeita) return; conversaoFeita = true;
     var txid = 'lead_' + Date.now().toString(36) + Math.random().toString(36).slice(2,8); // id único: o Google deduplica
-    try{ if(typeof fbq==='function') fbq('track','Lead'); }catch(err){}
+    // OBS: o evento Lead do Meta NÃO dispara aqui — ele dispara só quando o webhook confirma ok:true (ver abaixo).
     try{ if(typeof gtag==='function') gtag('event','conversion',{'send_to':'AW-18428282557/HXZuCNGd0e0cEL2NpdNE','transaction_id':txid}); }catch(err){}
     try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:'lead_form_submit',classificacao:payload.classificacao}); }catch(err){}
   }
@@ -1308,6 +1317,8 @@ function enviar(e){
       return r.text().then(function(txt){
         var j={}; try{ j=JSON.parse(txt); }catch(e){}
         if(!r.ok) console.error('Webhook HTTP '+r.status, j||txt);
+        // Evento Lead do Meta: SÓ quando o webhook confirma ok:true. Nunca no erro, no clique ou no load.
+        if(r.ok && j && j.ok===true){ dispararLeadMeta(payload.classificacao, metaEventId, metaTestCode); }
         telaFinal(payload, r.ok ? (j.sent!==false) : false);
       });
     }).catch(function(err){
@@ -1325,6 +1336,25 @@ function classificar(papel, verba){
   if(papel==='dono_clinica' && (verba==='1k_5k' || verba==='acima_5k')) return 'quente';
   if(papel==='dono_clinica' || papel==='socio_gestor') return 'morno';
   return 'frio';
+}
+
+/* Evento Lead do Meta (padrão). Chamado SÓ após o webhook confirmar ok:true.
+   - Em modo prévia (host de teste sem ?envioreal=1): não dispara, só loga a supressão.
+   - eventID = mesmo id enviado ao webhook (meta_event_id) — dedup com a Conversions API.
+   - ?test_event=XXXX na URL: passa test_event_code pra validar no "Testar eventos" sem sujar dados reais. */
+function dispararLeadMeta(classificacao, eventId, testCode){
+  if(window.__EV_PREVIEW && !/[?&]envioreal=1/.test(location.search)){
+    console.log('[pixel] Lead suprimido (preview)');
+    return;
+  }
+  try{
+    if(typeof fbq!=='function'){ console.log('[pixel] Lead suprimido (fbq indisponível)'); return; }
+    var params = { content_name:'formulario-odonto', content_category:'odonto', lead_classificacao: classificacao };
+    var opts = { eventID: eventId };
+    if(testCode){ opts.test_event_code = testCode; }
+    fbq('track','Lead', params, opts);
+    console.log('[pixel] Lead enviado', eventId, testCode ? ('(test_event '+testCode+')') : '');
+  }catch(err){ console.error('[pixel] erro ao disparar Lead', err); }
 }
 
 /* Tela final. sent: true = 1ª mensagem saiu no WhatsApp; false = lead salvo mas sem mensagem;
