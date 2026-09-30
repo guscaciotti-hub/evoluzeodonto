@@ -39,8 +39,16 @@ fbq('track','PageView');
 <!-- Verificação de domínio Meta: descomente e cole o código real (Business Manager > Domínios > gustavoodonto.com.br > meta-tag). -->
 <!-- <meta name="facebook-domain-verification" content="COLE_O_CODIGO_AQUI"> -->
 
-<!-- Google Ads / GA4: agora via Google Tag Manager (GTM-TPSN65QC, conta AW-16661846471).
-     A conversão é montada dentro do GTM, acionada pelo evento dataLayer "lead_confirmado" (dispara no ok:true do webhook). -->
+<!-- Google Ads (gtag.js) — conta do odonto AW-16661846471. A conversão dispara SÓ no ok:true do webhook (ver enviar()). -->
+<script>
+if(!window.__EV_PREVIEW){
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function(){ dataLayer.push(arguments); };
+  var _g=document.createElement('script'); _g.async=true; _g.src='https://www.googletagmanager.com/gtag/js?id=AW-16661846471'; document.head.appendChild(_g);
+  gtag('js', new Date());
+  gtag('config', 'AW-16661846471');
+}
+</script>
 
 <style>
 :root{
@@ -1303,8 +1311,7 @@ function enviar(e){
         // Conversões: SÓ quando o webhook confirma ok:true. Nunca no erro, no clique ou no load.
         if(r.ok && j && j.ok===true){
           dispararLeadMeta(payload.classificacao, metaEventId, metaTestCode);
-          // Sinal pro GTM (GTM-TPSN65QC) montar a conversão do Google Ads (AW-16661846471) no momento certo.
-          try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:'lead_confirmado', classificacao:payload.classificacao, meta_event_id:metaEventId}); }catch(err){}
+          dispararConversaoGoogle(metaEventId);
         }
         telaFinal(payload, r.ok ? (j.sent!==false) : false);
       });
@@ -1341,6 +1348,22 @@ function dispararLeadMeta(classificacao, eventId, testCode){
     fbq('track','Lead', params, opts);
     console.log('[pixel] Lead enviado', eventId, testCode ? ('(test_event '+testCode+')') : '');
   }catch(err){ console.error('[pixel] erro ao disparar Lead', err); }
+}
+
+/* Conversão do Google Ads (conta AW-16661846471, ação "Enviar formulário de lead").
+   Chamada SÓ após o webhook confirmar ok:true. Suprime em modo prévia igual ao pixel.
+   transaction_id = mesmo id do lead (garante uma conversão por envio; o Google deduplica). */
+var GADS_SEND_TO = 'AW-16661846471/9jUECJr054sdEMez_og-';
+function dispararConversaoGoogle(txid){
+  if(window.__EV_PREVIEW && !/[?&]envioreal=1/.test(location.search)){
+    console.log('[gads] conversão suprimida (preview)');
+    return;
+  }
+  try{
+    if(typeof gtag!=='function'){ console.log('[gads] conversão suprimida (gtag indisponível)'); return; }
+    gtag('event','conversion',{ 'send_to': GADS_SEND_TO, 'transaction_id': txid });
+    console.log('[gads] conversão enviada', GADS_SEND_TO, txid);
+  }catch(err){ console.error('[gads] erro na conversão', err); }
 }
 
 /* Tela final. sent: true = 1ª mensagem saiu no WhatsApp; false = lead salvo mas sem mensagem;
