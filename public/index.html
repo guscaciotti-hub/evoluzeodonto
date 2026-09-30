@@ -24,7 +24,7 @@ if(window.__EV_PREVIEW){ document.write('<meta name="robots" content="noindex,no
 </script>
 
 <!-- Google Tag Manager -->
-<script>if(!window.__EV_PREVIEW)(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NLB9HGKB');</script>
+<script>if(!window.__EV_PREVIEW)(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TPSN65QC');</script>
 <!-- End Google Tag Manager -->
 
 <!-- Meta Pixel — código base (PageView). O evento Lead dispara SÓ dentro de enviar(). -->
@@ -39,16 +39,9 @@ fbq('track','PageView');
 <!-- Verificação de domínio Meta: descomente e cole o código real (Business Manager > Domínios > gustavoodonto.com.br > meta-tag). -->
 <!-- <meta name="facebook-domain-verification" content="COLE_O_CODIGO_AQUI"> -->
 
-<!-- Google Ads (gtag.js) — código base. A conversão dispara SÓ dentro de enviar(). -->
-<script>
-if(!window.__EV_PREVIEW){
-  var _g=document.createElement('script'); _g.async=true; _g.src='https://www.googletagmanager.com/gtag/js?id=AW-18428282557'; document.head.appendChild(_g);
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18428282557');
-}
-</script>
+<!-- Google Ads / GA4: agora via Google Tag Manager (GTM-TPSN65QC, conta AW-16661846471).
+     A conversão é montada dentro do GTM, acionada pelo evento dataLayer "lead_confirmado" (dispara no ok:true do webhook). -->
+
 <style>
 :root{
   --ink:#0A100F;
@@ -650,7 +643,7 @@ h2 .hl{color:var(--accent-ink)}
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLB9HGKB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPSN65QC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <nav class="nav">
@@ -1297,16 +1290,6 @@ function enviar(e){
   show('sOk');
   paint(4);
 
-  var conversaoFeita = false;
-  function conversao(){
-    // Dispara SÓ aqui, após o POST, para TODOS que concluem (inclusive 'outro'). Nunca no carregamento.
-    if(conversaoFeita) return; conversaoFeita = true;
-    var txid = 'lead_' + Date.now().toString(36) + Math.random().toString(36).slice(2,8); // id único: o Google deduplica
-    // OBS: o evento Lead do Meta NÃO dispara aqui — ele dispara só quando o webhook confirma ok:true (ver abaixo).
-    try{ if(typeof gtag==='function') gtag('event','conversion',{'send_to':'AW-18428282557/HXZuCNGd0e0cEL2NpdNE','transaction_id':txid}); }catch(err){}
-    try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:'lead_form_submit',classificacao:payload.classificacao}); }catch(err){}
-  }
-
   // Envia o lead pro webhook do agente Evoluze Comercial — sempre, em qualquer endereço (github.io ou domínio final).
   try{
     fetch(WEBHOOK_URL, {
@@ -1317,15 +1300,18 @@ function enviar(e){
       return r.text().then(function(txt){
         var j={}; try{ j=JSON.parse(txt); }catch(e){}
         if(!r.ok) console.error('Webhook HTTP '+r.status, j||txt);
-        // Evento Lead do Meta: SÓ quando o webhook confirma ok:true. Nunca no erro, no clique ou no load.
-        if(r.ok && j && j.ok===true){ dispararLeadMeta(payload.classificacao, metaEventId, metaTestCode); }
+        // Conversões: SÓ quando o webhook confirma ok:true. Nunca no erro, no clique ou no load.
+        if(r.ok && j && j.ok===true){
+          dispararLeadMeta(payload.classificacao, metaEventId, metaTestCode);
+          // Sinal pro GTM (GTM-TPSN65QC) montar a conversão do Google Ads (AW-16661846471) no momento certo.
+          try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:'lead_confirmado', classificacao:payload.classificacao, meta_event_id:metaEventId}); }catch(err){}
+        }
         telaFinal(payload, r.ok ? (j.sent!==false) : false);
       });
     }).catch(function(err){
       console.error('Webhook: falha de rede/CORS', err);
-    }).finally(conversao);
-  }catch(err){ console.error('Webhook: erro', err); conversao(); }
-  setTimeout(conversao, 5000); // garante a conversão mesmo se o POST demorar
+    });
+  }catch(err){ console.error('Webhook: erro', err); }
 }
 
 /* Classificação derivada no site (mesma régua do médico):
