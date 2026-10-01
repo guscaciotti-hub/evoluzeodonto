@@ -31,11 +31,11 @@ if(window.__EV_PREVIEW){ document.write('<meta name="robots" content="noindex,no
 <script>
 if(!window.__EV_PREVIEW){
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','8112794485508212');
+fbq('init','935094829284493');
 fbq('track','PageView');
 }
 </script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=8112794485508212&ev=PageView&noscript=1"/></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=935094829284493&ev=PageView&noscript=1"/></noscript>
 <!-- Verificação de domínio Meta: descomente e cole o código real (Business Manager > Domínios > gustavoodonto.com.br > meta-tag). -->
 <!-- <meta name="facebook-domain-verification" content="COLE_O_CODIGO_AQUI"> -->
 
@@ -1285,8 +1285,13 @@ function enviar(e){
     tamanho: dados.tamanho || '',    // 1 | 2a4 | 5mais
     verba: dados.verba || '',        // nao_investe | ate_1k | 1k_5k | acima_5k
     classificacao: classificar(dados.papel, dados.verba), // quente | morno | frio
-    meta_event_id: metaEventId       // dedup com a Conversions API (browser + servidor usam o mesmo id)
+    // Dados pra deduplicação com a Conversions API (CAPI roda no VPS). NENHUM token aqui.
+    meta_event_id: metaEventId,      // mesmo id usado no fbq (browser) e na CAPI (servidor)
+    meta_fbp: getCookie('_fbp') || null,  // cookie do pixel (browser id)
+    meta_fbc: getCookie('_fbc') || null,  // cookie de clique no anúncio (só quando veio de ad)
+    page_url: location.href
   };
+  if(metaTestCode){ payload.test_event_code = metaTestCode; } // só em teste; o servidor usa na CAPI
   console.log('Lead:', payload);
 
   // 2º destino (adicional, não substitui nada): painel Evoluze — mesma caixa de Leads dos outros sites.
@@ -1329,6 +1334,14 @@ function classificar(papel, verba){
   if(papel==='dono_clinica' && (verba==='1k_5k' || verba==='acima_5k')) return 'quente';
   if(papel==='dono_clinica' || papel==='socio_gestor') return 'morno';
   return 'frio';
+}
+
+/* Lê um cookie por nome (ex.: _fbp, _fbc do pixel). Retorna null se não existir. */
+function getCookie(name){
+  try{
+    var m = document.cookie.match('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g,'\\$1') + '=([^;]*)');
+    return m ? decodeURIComponent(m[1]) : null;
+  }catch(e){ return null; }
 }
 
 /* Evento Lead do Meta (padrão). Chamado SÓ após o webhook confirmar ok:true.
