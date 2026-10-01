@@ -1275,7 +1275,8 @@ function enviar(e){
 
   // Validação no site (evita 400 do backend): nome + WhatsApp com 55 e no mínimo 10 dígitos após o 55.
   if(!dados.nome){ erro.textContent='Por favor, digite o seu nome.'; return; }
-  if(zap.replace(/\D/g,'').length < 12){ erro.textContent='Confere o WhatsApp: precisa do DDD e do número completos.'; return; }
+  // Exige celular BR válido: 55 + DDD(2) + 9 + 8 dígitos = 13 no total. O "9" do celular é obrigatório.
+  if(!/^55\d{2}9\d{8}$/.test(zap.replace(/\D/g,''))){ erro.textContent='Confere o WhatsApp: coloque DDD + celular com o 9 (ex.: (13) 99999-9999).'; return; }
   erro.textContent='';
   dados.whatsapp = zap;
 
