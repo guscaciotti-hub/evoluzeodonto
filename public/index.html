@@ -659,6 +659,15 @@ h2 .hl{color:var(--accent-ink)}
   .final::before{animation:none}
   *{transition-duration:.001s!important}
 }
+/* Botão de enviar desabilitado até o WhatsApp ser válido */
+.btn-accent:disabled{opacity:.42;cursor:not-allowed;filter:saturate(.55);box-shadow:none}
+/* Etapa de agenda embutida na tela de sucesso */
+.agenda-box{margin-top:24px;text-align:left}
+.agenda-tit{font-size:19px;font-weight:700;color:#fff;margin-bottom:4px}
+.agenda-sub{font-size:14px;color:#A9BAB6;margin-bottom:14px}
+.agenda-embed{width:100%;height:620px;border:0;border-radius:14px;background:#fff;display:block;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.agenda-fallback{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent);text-decoration:underline}
+@media(max-width:600px){.agenda-embed{height:560px}}
 </style>
 </head>
 <body>
@@ -1148,7 +1157,7 @@ h2 .hl{color:var(--accent-ink)}
             <input id="zap" type="tel" placeholder="(13) 90000-0000" required>
           </div>
           <div id="zapErro" class="field-erro" role="alert"></div>
-          <button type="submit" class="btn btn-accent btn-block" style="margin-top:6px">Quero agendar meu diagnóstico</button>
+          <button type="submit" id="btnEnviar" class="btn btn-accent btn-block" style="margin-top:6px" disabled>Quero agendar meu diagnóstico</button>
         </form>
         <button class="back" onclick="back(3)">← voltar</button>
       </div>
@@ -1159,7 +1168,13 @@ h2 .hl{color:var(--accent-ink)}
           <div class="tick">✓</div>
           <h3 id="okTitulo">Recebido.</h3>
           <p id="okTexto">Já te chamo no WhatsApp — confere lá que a gente marca o horário.</p>
-          <a id="okAgenda" class="btn btn-accent hidden" href="#" target="_blank" rel="noopener" style="margin-top:22px">Agendar minha reunião de diagnóstico</a>
+        </div>
+        <!-- Etapa de agenda: revelada só depois do webhook confirmar ok:true -->
+        <div id="agendaBox" class="agenda-box hidden">
+          <div class="agenda-tit">Escolha o melhor horário pro seu diagnóstico</div>
+          <div class="agenda-sub">Reunião de 30 min pelo Google Meet. Se preferir, também te chamo no WhatsApp.</div>
+          <iframe id="agendaFrame" class="agenda-embed" title="Agenda do diagnóstico" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a id="agendaLink" class="agenda-fallback" href="#" target="_blank" rel="noopener">A agenda não abriu? Toque aqui pra abrir em outra aba ↗</a>
         </div>
       </div>
     </div>
@@ -1270,15 +1285,13 @@ function back(n){
 function enviar(e){
   e.preventDefault();
   dados.nome = (document.getElementById('nome').value||'').trim();
-  var zap = normalizaZap(document.getElementById('zap').value);
   var erro = document.getElementById('zapErro');
+  var zapLocal = zapDigitos(document.getElementById('zap').value); // 11 dígitos (DDD + celular)
 
-  // Validação no site (evita 400 do backend): nome + WhatsApp com 55 e no mínimo 10 dígitos após o 55.
   if(!dados.nome){ erro.textContent='Por favor, digite o seu nome.'; return; }
-  // Exige celular BR válido: 55 + DDD(2) + 9 + 8 dígitos = 13 no total. O "9" do celular é obrigatório.
-  if(!/^55\d{2}9\d{8}$/.test(zap.replace(/\D/g,''))){ erro.textContent='Confere o WhatsApp: coloque DDD + celular com o 9 (ex.: (13) 99999-9999).'; return; }
+  if(!celularBRvalido(zapLocal)){ erro.textContent='Confira seu WhatsApp — é por ele que vou te mandar a confirmação.'; return; }
   erro.textContent='';
-  dados.whatsapp = zap;
+  dados.whatsapp = '55' + zapLocal;   // normalizado 55DDXXXXXXXXX (13 dígitos)
 
   // ===================================================================
   // DESTINO DO LEAD: webhook do agente Evoluze Comercial (mesmo endpoint do site médico).
@@ -1331,6 +1344,7 @@ function enviar(e){
         if(r.ok && j && j.ok===true){
           dispararLeadMeta(payload.classificacao, metaEventId, metaTestCode);
           dispararConversaoGoogle(metaEventId);
+          mostrarAgenda(payload);   // revela a etapa de agendamento embutida
         }
         telaFinal(payload, r.ok ? (j.sent!==false) : false);
       });
@@ -1393,27 +1407,94 @@ function dispararConversaoGoogle(txid){
   }catch(err){ console.error('[gads] erro na conversão', err); }
 }
 
-/* Tela final. sent: true = 1ª mensagem saiu no WhatsApp; false = lead salvo mas sem mensagem;
-   null = ainda sem resposta (estado neutro). Quente sempre vê o botão da agenda pré-preenchida. */
+/* Tela final. sent: true = 1ª mensagem saiu no WhatsApp; false = lead salvo sem mensagem;
+   null = ainda sem resposta. A agenda embutida é revelada à parte (mostrarAgenda) no ok:true. */
 var LINK_AGENDA = 'https://evoluzechat.com.br/agenda/public/12';
 function telaFinal(p, sent){
-  var t=document.getElementById('okTitulo'), x=document.getElementById('okTexto'), a=document.getElementById('okAgenda');
-  var promete = (sent===true); // só promete o WhatsApp quando o backend confirmou o envio
-  if(p.classificacao==='quente'){
-    t.textContent='Recebido!';
-    x.textContent = promete
-      ? 'Toca abaixo pra marcar agora — ou aguarda que já te chamo no WhatsApp.'
-      : 'Toca abaixo pra marcar agora. Em instantes também falo com você.';
-    a.href=LINK_AGENDA+'?nome='+encodeURIComponent(p.nome)+'&whatsapp='+encodeURIComponent(p.whatsapp)+'&email=';
-    a.classList.remove('hidden');
+  var t=document.getElementById('okTitulo'), x=document.getElementById('okTexto');
+  t.textContent='Recebido!';
+  if(sent===null){
+    x.textContent='Confirmando seu envio…';
+  } else if(sent===true){
+    x.textContent='Já te chamei no WhatsApp. Se quiser adiantar, escolha o melhor horário aqui embaixo.';
   } else {
-    t.textContent = promete ? 'Recebido.' : 'Recebido!';
-    x.textContent = promete
-      ? 'Já te chamei no WhatsApp — confere lá que a gente marca o horário agora.'
-      : 'Em instantes falamos com você.';
-    a.classList.add('hidden');
+    x.textContent='Agora escolha o melhor horário pro seu diagnóstico aqui embaixo. Em instantes também falo com você.';
   }
 }
+
+/* Revela a etapa de agendamento com a agenda do EvoluzeChat embutida, pré-preenchida. */
+function mostrarAgenda(p){
+  try{
+    var box=document.getElementById('agendaBox'), fr=document.getElementById('agendaFrame'), lk=document.getElementById('agendaLink');
+    if(!box||!fr) return;
+    var url=LINK_AGENDA+'?nome='+encodeURIComponent(p.nome||'')+'&whatsapp='+encodeURIComponent(p.whatsapp||'')+'&email=';
+    if(!fr.getAttribute('src')) fr.setAttribute('src',url);  // carrega a agenda só agora, já pré-preenchida
+    if(lk) lk.href=url;
+    box.classList.remove('hidden');
+  }catch(e){ console.error('agenda: erro ao abrir', e); }
+}
+
+/* Evento Schedule do Meta (pixel 935094829284493), disparado quando o agendamento conclui.
+   event_id próprio; não altera o evento Lead. (CAPI de Schedule exigiria envio ao VPS — não configurado.) */
+var scheduleFeito=false;
+function dispararSchedule(){
+  if(scheduleFeito) return; scheduleFeito=true;
+  if(window.__EV_PREVIEW && !/[?&]envioreal=1/.test(location.search)){ console.log('[pixel] Schedule suprimido (preview)'); return; }
+  try{
+    if(typeof fbq!=='function'){ console.log('[pixel] Schedule suprimido (fbq indisponível)'); return; }
+    var id=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():('sch-'+Date.now().toString(36));
+    fbq('track','Schedule',{content_name:'agendamento-odonto',content_category:'odonto'},{eventID:id});
+    console.log('[pixel] Schedule enviado', id);
+  }catch(e){ console.error('[pixel] Schedule erro', e); }
+}
+/* Ouve o iframe da agenda (EvoluzeChat) sinalizar conclusão. Best-effort: depende da agenda emitir postMessage. */
+window.addEventListener('message', function(ev){
+  try{
+    if(typeof ev.origin!=='string' || ev.origin.indexOf('evoluzechat.com.br')<0) return;
+    var d=ev.data, s=(typeof d==='string')?d:JSON.stringify(d||'');
+    if(/agendad|scheduled|booked|appointment|confirmad/i.test(s)) dispararSchedule();
+  }catch(e){}
+});
+
+/* ===== Validação/formatação do WhatsApp (celular BR real) ===== */
+var DDDS_VALIDOS='11 12 13 14 15 16 17 18 19 21 22 24 27 28 31 32 33 34 35 37 38 41 42 43 44 45 46 47 48 49 51 53 54 55 61 62 63 64 65 66 67 68 69 71 73 74 75 77 79 81 82 83 84 85 86 87 88 89 91 92 93 94 95 96 97 98 99'.split(' ');
+function zapDigitos(raw){
+  var d=String(raw||'').replace(/\D/g,'');
+  if(d.length>11 && d.slice(0,2)==='55') d=d.slice(2); // tira o DDI 55 se veio junto
+  return d.slice(0,11);                                 // DDD(2) + celular(9)
+}
+function celularBRvalido(d){
+  if(!/^\d{11}$/.test(d)) return false;                 // 11 dígitos
+  if(DDDS_VALIDOS.indexOf(d.slice(0,2))<0) return false; // DDD oficial da Anatel
+  if(d.charAt(2)!=='9') return false;                    // 3º dígito (1º do celular) = 9
+  var n=d.slice(2);                                      // 9 dígitos do celular
+  if(/^(\d)\1{8}$/.test(n)) return false;                // todos iguais (ex.: 999999999)
+  if('0123456789'.indexOf(n.slice(1))>=0) return false;  // sequência crescente (ex.: 9 12345678)
+  if('9876543210'.indexOf(n)>=0) return false;           // sequência decrescente (ex.: 987654321)
+  if(['912345678','987654321','900000000','911111111','912345679'].indexOf(n)>=0) return false; // testes óbvios
+  return true;
+}
+function mascaraZapFmt(raw){
+  var d=zapDigitos(raw);
+  if(!d) return '';
+  if(d.length<=2) return '('+d;
+  if(d.length<=7) return '('+d.slice(0,2)+') '+d.slice(2);
+  return '('+d.slice(0,2)+') '+d.slice(2,7)+'-'+d.slice(7,11);
+}
+/* Máscara em tempo real + habilita o botão só quando o celular é válido */
+(function(){
+  var zap=document.getElementById('zap'), btn=document.getElementById('btnEnviar'), err=document.getElementById('zapErro');
+  if(!zap||!btn) return;
+  function avalia(){
+    var d=zapDigitos(zap.value), ok=celularBRvalido(d);
+    btn.disabled=!ok;
+    if(d.length>=11 && !ok){ if(err) err.textContent='Confira seu WhatsApp — é por ele que vou te mandar a confirmação.'; }
+    else if(ok && err){ err.textContent=''; }
+  }
+  zap.addEventListener('input',function(){ zap.value=mascaraZapFmt(zap.value); avalia(); });
+  zap.addEventListener('blur',avalia);
+  avalia();
+})();
 
 // Webhook do agente Evoluze Comercial (o mesmo do site médico). Para trocar, edite aqui.
 var WEBHOOK_URL   = 'https://evoluzechat.com.br/webhook/lead';
@@ -1440,14 +1521,6 @@ function enviarLeadPainel(p){
       body: JSON.stringify(corpo)
     }).catch(function(){}); // fire-and-forget
   }catch(e){ /* silencioso */ }
-}
-
-/* WhatsApp para 55 + DDD + número, só dígitos */
-function normalizaZap(raw){
-  var d = String(raw||'').replace(/\D/g,'');
-  if(d.length>=12 && d.slice(0,2)==='55') return d;
-  if(d.length>=10 && d.length<=11) return '55'+d;
-  return d;
 }
 </script>
 
