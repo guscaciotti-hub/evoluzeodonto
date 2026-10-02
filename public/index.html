@@ -668,6 +668,10 @@ h2 .hl{color:var(--accent-ink)}
 .agenda-embed{width:100%;height:620px;border:0;border-radius:14px;background:#fff;display:block;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .agenda-fallback{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent);text-decoration:underline}
 @media(max-width:600px){.agenda-embed{height:560px}}
+/* Caminho alternativo discreto: WhatsApp direto, abaixo do card do quiz */
+.quiz-alt{text-align:center;margin-top:18px}
+.zap-alt{display:inline-block;font-size:14px;font-weight:600;color:#A9BAB6;text-decoration:none;border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:10px 20px;transition:color .2s,border-color .2s}
+.zap-alt:hover{color:#fff;border-color:var(--accent)}
 </style>
 </head>
 <body>
@@ -1178,6 +1182,9 @@ h2 .hl{color:var(--accent-ink)}
         </div>
       </div>
     </div>
+    <div class="quiz-alt">
+      <a class="zap-alt" href="https://wa.me/5513976047672?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20agendar%20meu%20diagn%C3%B3stico%20de%20capta%C3%A7%C3%A3o." target="_blank" rel="noopener" onclick="dispararContact()">Prefere falar direto? Me chama no WhatsApp</a>
+    </div>
   </div>
 </section>
 
@@ -1447,6 +1454,18 @@ function dispararSchedule(){
     console.log('[pixel] Schedule enviado', id);
   }catch(e){ console.error('[pixel] Schedule erro', e); }
 }
+/* Evento Contact do Meta (pixel 935094829284493): clique no "Me chama no WhatsApp".
+   event_id próprio; NÃO dispara Lead. Não dispara com ?preview=1. (CAPI de Contact exigiria VPS — não configurado.) */
+function dispararContact(){
+  if(/[?&]preview=1/.test(location.search)){ console.log('[pixel] Contact suprimido (preview=1)'); return; }
+  try{
+    if(typeof fbq!=='function'){ console.log('[pixel] Contact suprimido (fbq indisponível)'); return; }
+    var id=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():('ct-'+Date.now().toString(36));
+    fbq('track','Contact',{content_name:'whatsapp-direto',content_category:'odonto'},{eventID:id});
+    console.log('[pixel] Contact enviado', id);
+  }catch(e){ console.error('[pixel] Contact erro', e); }
+}
+
 /* Ouve o iframe da agenda (EvoluzeChat) sinalizar conclusão. Best-effort: depende da agenda emitir postMessage. */
 window.addEventListener('message', function(ev){
   try{
