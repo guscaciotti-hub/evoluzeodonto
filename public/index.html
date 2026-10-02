@@ -744,6 +744,98 @@ h2 .hl{color:var(--accent-ink)}
   </div>
 </header>
 
+<!-- FORM -->
+<section class="form-sec" id="diagnostico">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow on-dark">Análise gratuita</span>
+      <h2>Reunião de diagnóstico da sua clínica ou consultório</h2>
+      <p>Uma conversa para entender onde está o gargalo — captação, atendimento ou fechamento — e o que faria diferença primeiro. Sem apresentação de slides.</p>
+    </div>
+
+    <div class="form-card" id="form">
+      <div class="progress">
+        <i class="on" id="p1"></i><i id="p2"></i><i id="p3"></i><i id="p4"></i>
+      </div>
+
+      <!-- ETAPA 1 -->
+      <div id="s1">
+        <div class="step-q">Qual o seu papel no consultório ou clínica?</div>
+        <div class="step-h">Para eu entender com quem estou falando.</div>
+        <div class="opts">
+          <button class="opt" onclick="go(2,'papel','dono_clinica')">Sou dentista e dono do consultório/clínica</button>
+          <button class="opt" onclick="go(2,'papel','dentista_terceiros')">Sou dentista, atendo em clínica de terceiros</button>
+          <button class="opt" onclick="go(2,'papel','socio_gestor')">Sou sócio ou gestor, não sou dentista</button>
+          <button class="opt" onclick="go(2,'papel','outro')">Outro</button>
+        </div>
+      </div>
+
+      <!-- ETAPA 2 -->
+      <div id="s2" class="hidden">
+        <div class="step-q">Quantos dentistas atendem no consultório ou clínica?</div>
+        <div class="step-h">Contando você.</div>
+        <div class="opts">
+          <button class="opt" onclick="go(3,'tamanho','1')">Só eu</button>
+          <button class="opt" onclick="go(3,'tamanho','2a4')">2 a 4 dentistas</button>
+          <button class="opt" onclick="go(3,'tamanho','5mais')">5 ou mais</button>
+        </div>
+        <button class="back" onclick="back(1)">← voltar</button>
+      </div>
+
+      <!-- ETAPA 3 -->
+      <div id="s3" class="hidden">
+        <div class="step-q">Você já investe em anúncio hoje?</div>
+        <div class="step-h">Meta, Google ou qualquer mídia paga.</div>
+        <div class="opts">
+          <button class="opt" onclick="go(4,'verba','nao_investe')">Ainda não invisto</button>
+          <button class="opt" onclick="go(4,'verba','ate_1k')">Até R$1.000 por mês</button>
+          <button class="opt" onclick="go(4,'verba','1k_5k')">Entre R$1.000 e R$5.000</button>
+          <button class="opt" onclick="go(4,'verba','acima_5k')">Acima de R$5.000</button>
+        </div>
+        <button class="back" onclick="back(2)">← voltar</button>
+      </div>
+
+      <!-- ETAPA 4 -->
+      <div id="s4" class="hidden">
+        <div class="step-q">Seus dados pra eu te chamar</div>
+        <div class="step-h">Assim que você enviar, já te chamo no WhatsApp.</div>
+        <form class="fields" onsubmit="enviar(event)">
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input id="nome" type="text" placeholder="Seu nome" required>
+          </div>
+          <div class="field">
+            <label for="zap">WhatsApp</label>
+            <input id="zap" type="tel" placeholder="(13) 90000-0000" required>
+          </div>
+          <div id="zapErro" class="field-erro" role="alert"></div>
+          <button type="submit" id="btnEnviar" class="btn btn-accent btn-block" style="margin-top:6px" disabled>Quero agendar meu diagnóstico</button>
+        </form>
+        <button class="back" onclick="back(3)">← voltar</button>
+      </div>
+
+      <!-- FIM -->
+      <div id="sOk" class="hidden">
+        <div class="done">
+          <div class="tick">✓</div>
+          <h3 id="okTitulo">Recebido.</h3>
+          <p id="okTexto">Já te chamo no WhatsApp — confere lá que a gente marca o horário.</p>
+        </div>
+        <!-- Etapa de agenda: revelada só depois do webhook confirmar ok:true -->
+        <div id="agendaBox" class="agenda-box hidden">
+          <div class="agenda-tit">Escolha o melhor horário pro seu diagnóstico</div>
+          <div class="agenda-sub">Reunião de 30 min pelo Google Meet. Se preferir, também te chamo no WhatsApp.</div>
+          <iframe id="agendaFrame" class="agenda-embed" title="Agenda do diagnóstico" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a id="agendaLink" class="agenda-fallback" href="#" target="_blank" rel="noopener">A agenda não abriu? Toque aqui pra abrir em outra aba ↗</a>
+        </div>
+      </div>
+    </div>
+    <div class="quiz-alt">
+      <a class="zap-alt" href="https://wa.me/5513976047672?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20agendar%20meu%20diagn%C3%B3stico%20de%20capta%C3%A7%C3%A3o." target="_blank" rel="noopener" onclick="dispararContact()">Prefere falar direto? Me chama no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
 <!-- DOR -->
 <section class="pain">
   <div class="wrap">
@@ -1092,98 +1184,6 @@ h2 .hl{color:var(--accent-ink)}
       </div>
 
       <p class="cfo-foot">Toda campanha que eu subo é revisada contra essas regras antes de ir ao ar. Este conteúdo é informativo e não substitui a orientação do seu CRO regional.</p>
-    </div>
-  </div>
-</section>
-
-<!-- FORM -->
-<section class="form-sec" id="diagnostico">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow on-dark">Análise gratuita</span>
-      <h2>Reunião de diagnóstico da sua clínica ou consultório</h2>
-      <p>Uma conversa para entender onde está o gargalo — captação, atendimento ou fechamento — e o que faria diferença primeiro. Sem apresentação de slides.</p>
-    </div>
-
-    <div class="form-card" id="form">
-      <div class="progress">
-        <i class="on" id="p1"></i><i id="p2"></i><i id="p3"></i><i id="p4"></i>
-      </div>
-
-      <!-- ETAPA 1 -->
-      <div id="s1">
-        <div class="step-q">Qual o seu papel no consultório ou clínica?</div>
-        <div class="step-h">Para eu entender com quem estou falando.</div>
-        <div class="opts">
-          <button class="opt" onclick="go(2,'papel','dono_clinica')">Sou dentista e dono do consultório/clínica</button>
-          <button class="opt" onclick="go(2,'papel','dentista_terceiros')">Sou dentista, atendo em clínica de terceiros</button>
-          <button class="opt" onclick="go(2,'papel','socio_gestor')">Sou sócio ou gestor, não sou dentista</button>
-          <button class="opt" onclick="go(2,'papel','outro')">Outro</button>
-        </div>
-      </div>
-
-      <!-- ETAPA 2 -->
-      <div id="s2" class="hidden">
-        <div class="step-q">Quantos dentistas atendem no consultório ou clínica?</div>
-        <div class="step-h">Contando você.</div>
-        <div class="opts">
-          <button class="opt" onclick="go(3,'tamanho','1')">Só eu</button>
-          <button class="opt" onclick="go(3,'tamanho','2a4')">2 a 4 dentistas</button>
-          <button class="opt" onclick="go(3,'tamanho','5mais')">5 ou mais</button>
-        </div>
-        <button class="back" onclick="back(1)">← voltar</button>
-      </div>
-
-      <!-- ETAPA 3 -->
-      <div id="s3" class="hidden">
-        <div class="step-q">Você já investe em anúncio hoje?</div>
-        <div class="step-h">Meta, Google ou qualquer mídia paga.</div>
-        <div class="opts">
-          <button class="opt" onclick="go(4,'verba','nao_investe')">Ainda não invisto</button>
-          <button class="opt" onclick="go(4,'verba','ate_1k')">Até R$1.000 por mês</button>
-          <button class="opt" onclick="go(4,'verba','1k_5k')">Entre R$1.000 e R$5.000</button>
-          <button class="opt" onclick="go(4,'verba','acima_5k')">Acima de R$5.000</button>
-        </div>
-        <button class="back" onclick="back(2)">← voltar</button>
-      </div>
-
-      <!-- ETAPA 4 -->
-      <div id="s4" class="hidden">
-        <div class="step-q">Seus dados pra eu te chamar</div>
-        <div class="step-h">Assim que você enviar, já te chamo no WhatsApp.</div>
-        <form class="fields" onsubmit="enviar(event)">
-          <div class="field">
-            <label for="nome">Nome</label>
-            <input id="nome" type="text" placeholder="Seu nome" required>
-          </div>
-          <div class="field">
-            <label for="zap">WhatsApp</label>
-            <input id="zap" type="tel" placeholder="(13) 90000-0000" required>
-          </div>
-          <div id="zapErro" class="field-erro" role="alert"></div>
-          <button type="submit" id="btnEnviar" class="btn btn-accent btn-block" style="margin-top:6px" disabled>Quero agendar meu diagnóstico</button>
-        </form>
-        <button class="back" onclick="back(3)">← voltar</button>
-      </div>
-
-      <!-- FIM -->
-      <div id="sOk" class="hidden">
-        <div class="done">
-          <div class="tick">✓</div>
-          <h3 id="okTitulo">Recebido.</h3>
-          <p id="okTexto">Já te chamo no WhatsApp — confere lá que a gente marca o horário.</p>
-        </div>
-        <!-- Etapa de agenda: revelada só depois do webhook confirmar ok:true -->
-        <div id="agendaBox" class="agenda-box hidden">
-          <div class="agenda-tit">Escolha o melhor horário pro seu diagnóstico</div>
-          <div class="agenda-sub">Reunião de 30 min pelo Google Meet. Se preferir, também te chamo no WhatsApp.</div>
-          <iframe id="agendaFrame" class="agenda-embed" title="Agenda do diagnóstico" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <a id="agendaLink" class="agenda-fallback" href="#" target="_blank" rel="noopener">A agenda não abriu? Toque aqui pra abrir em outra aba ↗</a>
-        </div>
-      </div>
-    </div>
-    <div class="quiz-alt">
-      <a class="zap-alt" href="https://wa.me/5513976047672?text=Oi%2C%20vim%20pelo%20site%20e%20quero%20agendar%20meu%20diagn%C3%B3stico%20de%20capta%C3%A7%C3%A3o." target="_blank" rel="noopener" onclick="dispararContact()">Prefere falar direto? Me chama no WhatsApp</a>
     </div>
   </div>
 </section>
