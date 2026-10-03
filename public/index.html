@@ -1519,9 +1519,13 @@ function mascaraZapFmt(raw){
 var WEBHOOK_URL   = 'https://evoluzechat.com.br/webhook/lead';
 var WEBHOOK_TOKEN = '4453644d8e27f253966837ff9f17566b8e1eb3cd50ce4f15'; // Bearer token do Evoluze Chat (mesmo do site médico)
 
-/* 2º destino do lead: painel Evoluze (mesma caixa de Leads dos outros sites). CORS liberado, sem token.
+/* 2º destino do lead: painel Evoluze (mesma caixa de Leads dos outros sites).
+   Endpoint público isolado (Supabase Edge Function 'leads-intake'), CORS liberado, sem token.
+   Grava na MESMA tabela public.leads que o painel lê. Foi trocado do antigo
+   evoluze-painel.vercel.app/api/leads porque esse projeto está atrás do SSO da Vercel,
+   que bloqueava o POST externo (lead não chegava no painel).
    Fire-and-forget: NÃO bloqueia o usuário e, se falhar, ignora silenciosamente. Não afeta o webhook acima. */
-var PAINEL_LEADS_URL = 'https://evoluze-painel.vercel.app/api/leads';
+var PAINEL_LEADS_URL = 'https://gmycqvvvglexbtbqkjzi.supabase.co/functions/v1/leads-intake';
 function enviarLeadPainel(p){
   try{
     var corpo = {
